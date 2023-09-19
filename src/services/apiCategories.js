@@ -8,7 +8,6 @@ export async function getCategories() {
     console.log(error);
     throw new Error('Error loading categories');
   }
-  console.log(categories);
 
   return categories;
 }

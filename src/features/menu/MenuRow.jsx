@@ -15,6 +15,10 @@ const StyledRow = styled.div`
     background-color: #e9d193;
     cursor: pointer;
   }
+
+  &:active {
+    background-color: #e9d193;
+  }
 `;
 
 const Img = styled.img`

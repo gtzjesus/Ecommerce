@@ -1,17 +1,28 @@
 // import { createPortal } from 'react-dom';
 // import { HiXMark } from 'react-icons/hi2';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+// ANIMATION
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+  }
 
+  to {
+    opacity: 1;
+  }
+`;
 const StyledModal = styled.div`
+  animation: ${slideIn} 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #e9d193;
-  border-radius: 3rem;
+  border-radius: 1rem;
+  width: 100vw;
+  height: 100vh;
 
   box-shadow: 3rem;
-  padding: 3.2rem 4rem;
   transition: all 0.5s;
 `;
 

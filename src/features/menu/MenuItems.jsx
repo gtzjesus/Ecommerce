@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import useItems from '../../pages/menu/useItems';
 import Spinner from '../../ui/spinners/Spinner';
-import MenuItem from '../../pages/menu/MenuItem';
+import MenuItem from '../../pages/menu/MenuCategorized';
+import Button from '../../ui/buttons/Button';
+import Nav from '../../ui/header/Nav';
 
-const StyledMenu = styled.div`
-  background-color: red;
-`;
+const StyledMenu = styled.div``;
+
 function MenuItems({ isOpenModal, setIsOpenModal }) {
   // GRAB ALL CATEGORIES
   const { items, isLoading, error } = useItems();
@@ -19,14 +20,17 @@ function MenuItems({ isOpenModal, setIsOpenModal }) {
     setIsOpenModal(false);
   }
   return (
-    <StyledMenu>
-      {items.map((item) => (
-        <MenuItem item={item} key={item.id} />
-      ))}
-      <button value={isOpenModal} onClick={handleToggle}>
+    <>
+      <Nav />
+      <Button value={isOpenModal} onClick={handleToggle}>
         x
-      </button>
-    </StyledMenu>
+      </Button>
+      <StyledMenu>
+        {items.map((item) => (
+          <MenuItem item={item} key={item.id} />
+        ))}
+      </StyledMenu>
+    </>
   );
 }
 
