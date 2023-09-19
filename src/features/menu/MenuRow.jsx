@@ -1,13 +1,20 @@
 import styled from 'styled-components';
+import Modal from '../../ui/modals/Modal';
+import ViewItems from './ViewItems';
 
 const StyledRow = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  border: 0.05rem solid #f2d077;
+  border: 0.15rem solid #e9d193;
   margin: 0.25rem 0;
   padding: 1rem 2rem;
+
+  &:hover {
+    background-color: #e9d193;
+    cursor: pointer;
+  }
 `;
 
 const Img = styled.img`
@@ -33,9 +40,14 @@ const Tag = styled.h1`
 function MenuRow({ category }) {
   const { name, tag, categoryImage } = category;
 
+  function handleToggle() {
+    <Modal />;
+  }
+
   // REDUCE NAME
   return (
-    <StyledRow>
+    <StyledRow onClick={handleToggle}>
+      <ViewItems />
       <Img src={categoryImage} />
       <Title>{name}</Title>
       {!tag ? null : <Tag>{tag}</Tag>}

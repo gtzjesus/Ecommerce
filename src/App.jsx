@@ -1,9 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AppLanding from './ui/app/AppLanding';
 import Menu from './pages/menu/Menu';
-import MenuItem from './pages/menu/MenuItem';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/notfound/PageNotFound';
+import MenuItem from './pages/menu/MenuItem';
 
 const queryClient = new QueryClient({
   defaultOptions: {

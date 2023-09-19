@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledPageNotFound = styled.main`
-  background-color: #f2d077;
+  background-color: #e9d193;
   display: flex;
   align-items: center;
   justify-content: center;

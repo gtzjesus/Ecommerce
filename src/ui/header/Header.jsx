@@ -16,13 +16,19 @@ const slideIn = keyframes`
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #f2d077;
+  background-color: #e9d193;
 `;
 
 const Logo = styled.div`
   animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
   padding: 1rem;
   cursor: pointer;
+`;
+
+const Name = styled.div`
+  font-size: 2rem;
+  padding: 2rem;
+  font-family: 'Bebas Neue', sans-serif;
 `;
 
 const Hamburger = styled.button`
@@ -49,6 +55,7 @@ function Header({ isOpen, setIsOpen }) {
       <Logo onClick={handleHome}>
         <img src="/logo/hotdog.png" />
       </Logo>
+      <Name>Doggos</Name>
       <Hamburger value={isOpen} onClick={() => handleToggle()}>
         <img src="/hamburger/hamburger.png" />
       </Hamburger>
