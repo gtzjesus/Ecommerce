@@ -1,23 +1,16 @@
 import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
 import MenuRow from './MenuRow';
-import useItems from '../../pages/menu/useItems';
+import useCategories from '../../pages/menu/useCategories';
 
 const StyledTable = styled.div`
   display: flex;
+  flex-direction: column;
+  margin: 1rem;
 `;
 
 function MenuTable() {
-  // const {
-  //   isLoading,
-  //   data: items,
-  //   error,
-  // } = useQuery({
-  //   queryKey: ['items'],
-  //   queryFn: getItems,
-  // });
-
-  const { items, isLoading, error } = useItems();
+  const { categories, isLoading, error } = useCategories();
 
   if (isLoading) return <Spinner />;
 
@@ -27,8 +20,8 @@ function MenuTable() {
 
   return (
     <StyledTable>
-      {items.map((item) => (
-        <MenuRow item={item} key={item.id} />
+      {categories.map((category) => (
+        <MenuRow category={category} key={category.id} />
       ))}
     </StyledTable>
   );
