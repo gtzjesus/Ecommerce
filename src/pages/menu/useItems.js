@@ -1,7 +1,7 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getItems } from '../../services/apiItems';
 
-export function useItems() {
+export default function useItems() {
   const {
     isLoading,
     data: items,
@@ -10,7 +10,5 @@ export function useItems() {
     queryKey: ['items'],
     queryFn: getItems,
   });
-  console.log(items);
-
   return { isLoading, error, items };
 }

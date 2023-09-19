@@ -1,10 +1,11 @@
-import { useItems } from '../../pages/menu/useItems';
-
+import Home from '../../pages/home/Home';
+import Navigation from './Navigation';
 function AppLanding() {
-  const { data: items, error } = useItems();
-  if (error) {
-    console.log(error);
-  }
-  return <div>{items.map((item) => console.log(item))}</div>;
+  return (
+    <>
+      <Navigation></Navigation>
+      <Home />
+    </>
+  );
 }
 export default AppLanding;
