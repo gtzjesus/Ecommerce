@@ -4,27 +4,27 @@ const StyledRow = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: center;
-  /* border: 0.25rem solid #f2d077;
-  margin: 0.25rem; */
-  padding: 1rem;
+  justify-content: space-between;
+  border: 0.05rem solid #f2d077;
+  margin: 0.25rem 0;
+  padding: 1rem 2rem;
 `;
 
 const Img = styled.img`
   display: block;
-  width: 5.5rem;
+  width: 5rem;
   object-fit: cover;
   object-position: center;
 `;
 
 const Title = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
 `;
 const Tag = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.85rem;
-  border-radius: 4rem;
+  font-size: 0.75rem;
+  border-radius: 3rem;
   background-color: #b21a10;
   width: fit-content;
   color: #ffff;

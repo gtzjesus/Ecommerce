@@ -11,29 +11,26 @@ const slideIn = keyframes`
     opacity: 1;
   }
 `;
-
 const StyledSidebar = styled.div`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-
   z-index: 9999;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: #f2d077;
 `;
 
 const Hamburger = styled.button`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
   padding: 2rem;
   border: none;
   background: none;
   cursor: pointer;
+  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 
 const Logo = styled.div`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
   padding: 2rem;
   cursor: pointer;
+  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 
 const Links = styled.div`
@@ -47,8 +44,6 @@ const Links = styled.div`
   height: 100vh;
 `;
 const Nav = styled.div`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-
   z-index: 9999;
   display: flex;
   justify-content: space-evenly;
@@ -86,16 +81,22 @@ function Sidebar({ isOpen, setIsOpen }) {
         <div>
           <Links>
             <Link
-              style={{ color: '#B21A10' }}
+              style={{ textDecoration: 'none', color: '#B21A10' }}
               to="/menu"
               onClick={handleToggle}
             >
               menu
             </Link>
-            <Link style={{ color: '#B21A10' }} to="/member">
+            <Link
+              style={{ color: '#B21A10', textDecoration: 'none' }}
+              to="/member"
+            >
               member
             </Link>
-            <Link style={{ color: '#B21A10' }} to="/account">
+            <Link
+              style={{ color: '#B21A10', textDecoration: 'none' }}
+              to="/account"
+            >
               account
             </Link>
           </Links>

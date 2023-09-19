@@ -4,9 +4,9 @@ import MenuRow from './MenuRow';
 import useCategories from '../../pages/menu/useCategories';
 
 const StyledTable = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
+  display: grid;
+  align-items: center;
+  margin: auto;
 `;
 
 function MenuTable() {

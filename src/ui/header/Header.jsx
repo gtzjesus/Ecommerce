@@ -15,15 +15,8 @@ const slideIn = keyframes`
 // STYLED COMPONENTS
 const StyledHeader = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #f2d077;
-`;
-
-const Name = styled.div`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-  padding: 2rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
 `;
 
 const Logo = styled.div`
@@ -53,7 +46,6 @@ function Header({ isOpen, setIsOpen }) {
   }
   return (
     <StyledHeader>
-      <Name>Doggos</Name>
       <Logo onClick={handleHome}>
         <img src="/logo/hotdog.png" />
       </Logo>
