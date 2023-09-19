@@ -1,15 +1,11 @@
-import styled from 'styled-components';
 import Navigation from '../../ui/app/Navigation';
-
-const StyledMenu = styled.section`
-  background-color: lightblue;
-`;
+import MenuTable from '../../features/menu/MenuTable';
 
 function Menu() {
   return (
     <>
       <Navigation />
-      <StyledMenu>hello there</StyledMenu>
+      <MenuTable />
     </>
   );
 }

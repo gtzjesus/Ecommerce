@@ -1,5 +1,5 @@
-function MenuItem({ item }) {
-  return <div>{item}</div>;
+function MenuItem() {
+  return <div>menu item</div>;
 }
 
 export default MenuItem;
