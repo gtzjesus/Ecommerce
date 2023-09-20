@@ -17,6 +17,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #e9d193;
+  margin-bottom: 0.5rem;
 `;
 
 const Logo = styled.div`

@@ -13,13 +13,9 @@ const slideIn = keyframes`
 `;
 
 const Navigation = styled.div`
-  z-index: 9999;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-between;
   background-color: #e9d193;
-  display: flex;
-  gap: 5rem;
 `;
 const Hamburger = styled.button`
   padding: 2rem;

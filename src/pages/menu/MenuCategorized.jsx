@@ -25,12 +25,6 @@ function MenuCategorized({ item, category }) {
   const pureItem = item.category;
   const pureCategory = category.name;
 
-  // categories.filter((category) => category.name.includes(category.name));
-  // console.log(categories);
-
-  // console.log(item.category);
-  // console.log(categories.map((name) => name));
-
   console.log(pureItem);
   console.log(pureCategory);
 

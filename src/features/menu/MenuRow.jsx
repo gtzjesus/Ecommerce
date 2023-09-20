@@ -5,26 +5,22 @@ import MenuItems from './MenuItems';
 
 const StyledRow = styled.div`
   display: flex;
-  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   border: 0.15rem solid #e9d193;
-  margin: 0.25rem 0;
   padding: 1rem 2rem;
+  background-color: #e8d8c3;
+  margin: 0.5rem 0;
 
   &:hover {
-    background-color: #e9d193;
+    opacity: 0.85;
     cursor: pointer;
-  }
-
-  &:active {
-    background-color: #e9d193;
   }
 `;
 
 const Img = styled.img`
   display: block;
-  width: 5rem;
+  width: 6rem;
   object-fit: cover;
   object-position: center;
 `;
@@ -35,8 +31,8 @@ const Title = styled.h1`
 `;
 const Tag = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.75rem;
-  border-radius: 3rem;
+  font-size: 1rem;
+  border-radius: 2rem;
   background-color: #b21a10;
   width: fit-content;
   color: #ffff;
