@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
+import { AiOutlineHeart } from 'react-icons/ai';
 const StyledMenuItem = styled.ul`
   display: flex;
   font-family: 'Bebas Neue', sans-serif;
@@ -17,15 +18,20 @@ const StyledDesc = styled.li`
   align-items: center;
 `;
 
-const Img = styled.img`
-  display: block;
-  width: 75%;
+const Heart = styled.div`
+  display: grid;
+  text-align: right;
+  margin: right;
 `;
 
 const Name = styled.h1`
   font-size: 2.5rem;
   letter-spacing: 0.25rem;
   text-align: center;
+`;
+const Img = styled.img`
+  display: block;
+  width: 75%;
 `;
 
 const Description = styled.h1`
@@ -41,9 +47,9 @@ const StyledButtons = styled.div`
   padding: 1rem 0 1rem 0;
 `;
 
-function MenuCategorized({ item, category, isLoading, error }) {
+function MenuCategorizedItems({ item, category, isLoading, error }) {
   // DECONSTRUCT THE OBJECT TO OUR LIKING
-  const { id, image, name, description } = item;
+  const { image, name, description } = item;
 
   // DECONSTRUCT THE OBJECT TO OUR LIKING
   // const { name } = category;
@@ -65,12 +71,17 @@ function MenuCategorized({ item, category, isLoading, error }) {
   return pureItem === pureCategory ? (
     <StyledMenuItem>
       <StyledDesc>
+        <Heart>
+          <Button variation="heart" size="xsmall">
+            <AiOutlineHeart />
+          </Button>
+        </Heart>
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>
         <StyledButtons>
           <Button variation="secondary" size="small">
-            <a href={`/menu/:${id}`}>View item</a>
+            wishlist
           </Button>
           <Button variation="primary" size="small">
             Add to cart
@@ -81,4 +92,4 @@ function MenuCategorized({ item, category, isLoading, error }) {
   ) : null;
 }
 
-export default MenuCategorized;
+export default MenuCategorizedItems;

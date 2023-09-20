@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
 const sizes = {
+  xsmall: css`
+    font-size: 1.5rem;
+    padding: 0.5rem 0.5rem;
+    font-weight: 900;
+  `,
   small: css`
     font-size: 1.2rem;
     padding: 0.8rem 1rem;
@@ -31,12 +36,16 @@ const variations = {
   `,
   secondary: css`
     color: inherit;
-
     background-color: #ede1d1;
 
     &:hover {
       background-color: #ede1d1;
     }
+  `,
+  heart: css`
+    color: inherit;
+    background-color: inherit;
+    box-shadow: none;
   `,
   danger: css`
     color: var(--color-red-100);

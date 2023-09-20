@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import useItems from '../../pages/menu/useItems';
 import Spinner from '../../ui/spinners/Spinner';
-import MenuCategorized from '../../pages/menu/MenuCategorized';
+import MenuCategorizedItems from '../../pages/menu/MenuCategorizedItems';
 
 const StyledMenu = styled.div`
   position: relative;
@@ -10,7 +10,7 @@ const StyledMenu = styled.div`
   transform: translate(-50%, 5%);
 `;
 
-function MenuCategorizedItems({ category }) {
+function MenuCategorized({ category }) {
   // GRAB ALL ITEMS
   const { items, isLoading, error } = useItems();
   // SPINNER IF NETWORK IS LOADING
@@ -22,7 +22,7 @@ function MenuCategorizedItems({ category }) {
     <>
       <StyledMenu>
         {items.map((item) => (
-          <MenuCategorized
+          <MenuCategorizedItems
             category={category}
             item={item}
             key={item.id}
@@ -35,4 +35,4 @@ function MenuCategorizedItems({ category }) {
   );
 }
 
-export default MenuCategorizedItems;
+export default MenuCategorized;

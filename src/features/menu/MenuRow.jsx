@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Modal from '../../ui/modals/Modal';
 import { useState } from 'react';
-import MenuCategorizedItems from './MenuCategorizedItems';
+import MenuCategorizedItems from './MenuCategorized';
 
 const StyledRow = styled.div`
   display: flex;
