@@ -5,9 +5,9 @@ import MenuCategorized from '../../pages/menu/MenuCategorized';
 
 const StyledMenu = styled.div`
   position: relative;
-  top: 10%;
+  top: 5%;
   left: 50%;
-  transform: translate(-50%, 10%);
+  transform: translate(-50%, 5%);
 `;
 
 function MenuItems({ category }) {

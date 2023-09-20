@@ -25,13 +25,13 @@ const Img = styled.img`
 `;
 
 const Name = styled.h1`
-  font-size: 3rem;
-  letter-spacing: 0.5rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.25rem;
   text-align: center;
 `;
 
 const Description = styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   text-align: center;
 `;
 
@@ -40,7 +40,7 @@ const StyledButtons = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  padding: 3rem 0;
+  padding: 1rem 0 1rem 0;
 `;
 
 function MenuCategorized({ item, category, isLoading }) {
