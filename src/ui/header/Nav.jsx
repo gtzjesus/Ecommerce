@@ -1,35 +1,22 @@
 import { useNavigate } from 'react-router';
-import styled, { keyframes } from 'styled-components';
-
-// ANIMATION
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
+import styled from 'styled-components';
 
 const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #ede1d1;
-  margin-top: 2rem;
+  padding-top: 2rem;
 `;
 const Hamburger = styled.button`
   padding: 2rem;
   border: none;
   background: none;
   cursor: pointer;
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 
 const Logo = styled.div`
   padding: 2rem;
   cursor: pointer;
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 function Nav({ isOpen, setIsOpen }) {
   const navigate = useNavigate();

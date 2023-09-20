@@ -19,7 +19,12 @@ function MenuItems({ category }) {
       <Nav />
       <StyledMenu>
         {items.map((item) => (
-          <MenuCategorized category={category} item={item} key={item.id} />
+          <MenuCategorized
+            category={category}
+            item={item}
+            key={item.id}
+            isLoading={isLoading}
+          />
         ))}
       </StyledMenu>
     </>

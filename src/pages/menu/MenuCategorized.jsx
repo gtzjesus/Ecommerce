@@ -35,7 +35,7 @@ const Description = styled.h2`
   font-size: 2.5rem;
 `;
 
-function MenuCategorized({ item, category }) {
+function MenuCategorized({ item, category, isLoading }) {
   // GRAB CATEGORIES
   const { error: categoryError, isLoading: categoryLoading } = useCategories();
 
@@ -48,7 +48,9 @@ function MenuCategorized({ item, category }) {
   // const { name } = category;
 
   // CALCULATE CATEGORY FOR EACH ITEM
-  if (categoryLoading) return <Spinner />;
+  if (categoryLoading || isLoading) return <Spinner />;
+
+  // SPINNER IF LOADING
 
   // CHECK FOR ANY ERRORS
   if (categoryError) {
