@@ -3,31 +3,24 @@ import Spinner from '../../ui/spinners/Spinner';
 import useCategories from './useCategories';
 import Button from '../../ui/buttons/Button';
 
-const StyledMenuItem = styled.div`
+const StyledMenuItem = styled.ul`
   font-family: 'Bebas Neue', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem auto;
-  width: 70%;
-  height: 100%;
+  margin: 2rem;
   border: 1px solid white;
   padding: 2rem;
   background-color: #fffbf0;
 `;
 
+const StyledDesc = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Img = styled.img`
   display: block;
   width: 75%;
-`;
-
-const StyledDesc = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Name = styled.h1`
@@ -78,9 +71,13 @@ function MenuCategorized({ item, category, isLoading }) {
   // console.log(pureItem);
   // console.log(pureCategory);
 
+  function handleClick() {
+    console.log('ive been clicked');
+  }
+
   return pureItem === pureCategory ? (
     <StyledMenuItem>
-      <StyledDesc>
+      <StyledDesc onClick={handleClick}>
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>

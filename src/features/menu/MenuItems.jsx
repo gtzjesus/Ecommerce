@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import useItems from '../../pages/menu/useItems';
 import Spinner from '../../ui/spinners/Spinner';
 import MenuCategorized from '../../pages/menu/MenuCategorized';
-import Nav from '../../ui/header/Nav';
 
-const StyledMenu = styled.div``;
+const StyledMenu = styled.div`
+  position: relative;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 25%);
+`;
 
 function MenuItems({ category }) {
   // GRAB ALL ITEMS
@@ -16,7 +20,6 @@ function MenuItems({ category }) {
 
   return (
     <>
-      <Nav />
       <StyledMenu>
         {items.map((item) => (
           <MenuCategorized

@@ -27,8 +27,8 @@ const StyledModal = styled.div`
   background-color: #ede1d1;
 
   border-radius: 1rem;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   box-shadow: 3rem;
   transition: all 0.5s;
