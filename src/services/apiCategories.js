@@ -11,3 +11,15 @@ export async function getCategories() {
 
   return categories;
 }
+
+export async function getCategoryName() {
+  const { data: categories, error } = await supabase
+    .from('categories')
+    .select('name');
+  if (error) {
+    console.log(error);
+    throw new Error('Error getting item name');
+  }
+
+  return categories;
+}

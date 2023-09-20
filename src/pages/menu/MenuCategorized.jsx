@@ -5,29 +5,25 @@ function MenuCategorized({ item }) {
   const { image } = item;
 
   // GRAB CATEGORIES
-  const {
-    categories,
-    error: categoryError,
-    isLoading: categoryLoading,
-  } = useCategories();
+  const { error: categoryError, isLoading: categoryLoading } = useCategories();
 
   // CALCULATE CATEGORY FOR EACH ITEM
   if (categoryLoading) return <Spinner />;
 
+  // CHECK FOR ANY ERRORS
   if (categoryError) {
     console.log(categoryError);
   }
 
-  const cats = categories.forEach(function (element) {
-    return element.name;
-  });
+  // categories.filter((category) => category.name.includes(category.name));
+  // console.log(categories);
 
-  console.log(item.category);
-  console.log(categories.map((name) => name.name));
+  // console.log(item.category);
+  // console.log(categories.map((name) => name));
 
   return (
     <div>
-      {item?.category === cats ? <img src={image} /> : 'Heelo World , :('}
+      <img src={image} />
     </div>
   );
 }

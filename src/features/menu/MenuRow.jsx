@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Modal from '../../ui/modals/Modal';
-import ViewItems from './ViewItems';
+import { useState } from 'react';
+import MenuItems from './MenuItems';
 
 const StyledRow = styled.div`
   display: flex;
@@ -42,16 +43,20 @@ const Tag = styled.h1`
   padding: 0.75rem;
 `;
 function MenuRow({ category }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const { name, tag, categoryImage } = category;
-
-  function handleToggle() {
-    <Modal />;
-  }
 
   // REDUCE NAME
   return (
-    <StyledRow onClick={handleToggle}>
-      <ViewItems />
+    <StyledRow onClick={() => setIsOpenModal((show) => !show)}>
+      {isOpenModal && (
+        <Modal>
+          <MenuItems
+            isOpenModal={isOpenModal}
+            setIsOpenModal={setIsOpenModal}
+          />
+        </Modal>
+      )}
       <Img src={categoryImage} />
       <Title>{name}</Title>
       {!tag ? null : <Tag>{tag}</Tag>}
