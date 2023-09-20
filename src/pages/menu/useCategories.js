@@ -23,7 +23,6 @@ export function useCategoryName() {
     queryKey: ['name'],
     queryFn: getCategoryName,
   });
-  console.log(categories);
 
   return { isLoading, categories, error };
 }

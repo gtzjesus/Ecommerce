@@ -44,16 +44,22 @@ const Tag = styled.h1`
 `;
 function MenuRow({ category }) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [value, setValue] = useState();
   const { name, tag, categoryImage } = category;
+
+  function handleClick() {
+    setIsOpenModal((show) => !show), setValue(category.name);
+  }
 
   // REDUCE NAME
   return (
-    <StyledRow onClick={() => setIsOpenModal((show) => !show)}>
+    <StyledRow value={value} onClick={handleClick}>
       {isOpenModal && (
         <Modal>
           <MenuItems
             isOpenModal={isOpenModal}
             setIsOpenModal={setIsOpenModal}
+            category={category}
           />
         </Modal>
       )}

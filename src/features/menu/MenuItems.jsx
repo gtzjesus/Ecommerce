@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import useItems from '../../pages/menu/useItems';
 import Spinner from '../../ui/spinners/Spinner';
-import MenuItem from '../../pages/menu/MenuCategorized';
+import MenuCategorized from '../../pages/menu/MenuCategorized';
 import Nav from '../../ui/header/Nav';
 
 const StyledMenu = styled.div``;
 
-function MenuItems() {
+function MenuItems({ category }) {
   // GRAB ALL ITEMS
   const { items, isLoading, error } = useItems();
   // SPINNER IF NETWORK IS LOADING
@@ -19,7 +19,7 @@ function MenuItems() {
       <Nav />
       <StyledMenu>
         {items.map((item) => (
-          <MenuItem item={item} key={item.id} />
+          <MenuCategorized category={category} item={item} key={item.id} />
         ))}
       </StyledMenu>
     </>
