@@ -17,7 +17,15 @@ const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #e9d193;
+
+  /* background: url(images/backgrounds/menu-categorized-background.png) no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  background-color: #ede1d1;
+
   border-radius: 1rem;
   width: 100vw;
   height: 100vh;

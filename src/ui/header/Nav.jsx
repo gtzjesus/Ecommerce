@@ -15,7 +15,7 @@ const slideIn = keyframes`
 const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #e9d193;
+  background-color: #ede1d1;
 `;
 const Hamburger = styled.button`
   padding: 2rem;

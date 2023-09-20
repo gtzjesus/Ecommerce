@@ -16,7 +16,7 @@ const StyledSidebar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9d193;
+  background-color: #ede1d1;
 `;
 
 const Hamburger = styled.button`
@@ -48,7 +48,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #e9d193;
+  background-color: #ede1d1;
   display: flex;
   gap: 5rem;
 `;

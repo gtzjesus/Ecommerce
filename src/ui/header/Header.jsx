@@ -16,7 +16,7 @@ const slideIn = keyframes`
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #e9d193;
+  background-color: #ede1d1;
   margin-bottom: 0.25rem;
 `;
 

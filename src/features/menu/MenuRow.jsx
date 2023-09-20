@@ -7,9 +7,9 @@ const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.15rem solid #f6e8d6;
+  border: 0.15rem solid #ede1d1;
   padding: 0.25rem 2.5rem;
-  background-color: #f6e8d6;
+  background-color: #ede1d1;
   margin: 0.25rem 0;
 `;
 

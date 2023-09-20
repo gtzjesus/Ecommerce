@@ -7,7 +7,7 @@ const StyledSidebar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e9d193;
+  background-color: #ede1d1;
 `;
 
 const Links = styled.div`
