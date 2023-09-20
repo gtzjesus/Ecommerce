@@ -7,20 +7,15 @@ const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.15rem solid #e9d193;
-  padding: 1rem 2rem;
-  background-color: #e8d8c3;
-  margin: 0.5rem 0;
-
-  &:hover {
-    opacity: 0.85;
-    cursor: pointer;
-  }
+  border: 0.15rem solid #f6e8d6;
+  padding: 0.25rem 2.5rem;
+  background-color: #f6e8d6;
+  margin: 0.25rem 0;
 `;
 
 const Img = styled.img`
   display: block;
-  width: 6rem;
+  width: 5.5rem;
   object-fit: cover;
   object-position: center;
 `;
