@@ -4,6 +4,7 @@ import useCategories from './useCategories';
 import Button from '../../ui/buttons/Button';
 
 const StyledMenuItem = styled.ul`
+  display: flex;
   font-family: 'Bebas Neue', sans-serif;
   margin: 2rem;
   border: 1px solid white;
