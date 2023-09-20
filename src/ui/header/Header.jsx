@@ -26,12 +26,6 @@ const Logo = styled.div`
   cursor: pointer;
 `;
 
-const Name = styled.div`
-  font-size: 2rem;
-  padding: 2rem;
-  font-family: 'Bebas Neue', sans-serif;
-`;
-
 const Hamburger = styled.button`
   animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
   padding: 2rem;
@@ -56,7 +50,6 @@ function Header({ isOpen, setIsOpen }) {
       <Logo onClick={handleHome}>
         <img src="/logo/hotdog.png" />
       </Logo>
-      <Name>Doggos</Name>
       <Hamburger value={isOpen} onClick={() => handleToggle()}>
         <img src="/hamburger/hamburger.png" />
       </Hamburger>

@@ -16,6 +16,7 @@ const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #ede1d1;
+  margin-top: 2rem;
 `;
 const Hamburger = styled.button`
   padding: 2rem;

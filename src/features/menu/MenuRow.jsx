@@ -8,25 +8,25 @@ const StyledRow = styled.div`
   align-items: center;
   justify-content: space-between;
   border: 0.15rem solid #ede1d1;
-  padding: 0.25rem 2.5rem;
+  padding: 1rem 0.5rem;
   background-color: #ede1d1;
   margin: 0.25rem 0;
 `;
 
 const Img = styled.img`
   display: block;
-  width: 5.5rem;
+  width: 5.25rem;
   object-fit: cover;
   object-position: center;
 `;
 
 const Title = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
 `;
 const Tag = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1rem;
+  font-size: 0.75rem;
   border-radius: 2rem;
   background-color: #b21a10;
   width: fit-content;

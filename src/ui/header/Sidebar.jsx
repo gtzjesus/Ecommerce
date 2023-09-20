@@ -1,16 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-// ANIMATION
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
 const StyledSidebar = styled.div`
   z-index: 9999;
   display: flex;
@@ -24,13 +14,11 @@ const Hamburger = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 
 const Logo = styled.div`
   padding: 2rem;
   cursor: pointer;
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 `;
 
 const Links = styled.div`
@@ -78,7 +66,7 @@ function Sidebar({ isOpen, setIsOpen }) {
         </Hamburger>
       </Nav>
       <StyledSidebar>
-        <div>
+        <div onClick={handleToggle}>
           <Links>
             <Link
               style={{ textDecoration: 'none', color: '#B21A10' }}
