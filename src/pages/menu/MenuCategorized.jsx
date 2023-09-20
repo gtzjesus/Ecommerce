@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
 import useCategories from './useCategories';
+import Button from '../../ui/buttons/Button';
 
 const StyledMenuItem = styled.div`
   font-family: 'Bebas Neue', sans-serif;
@@ -8,15 +9,17 @@ const StyledMenuItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  width: 75%;
+  margin: 0.5rem auto;
+  width: 70%;
+  height: 100%;
+  border: 1px solid white;
+  padding: 2rem;
+  background-color: #fffbf0;
 `;
 
 const Img = styled.img`
   display: block;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
+  width: 75%;
 `;
 
 const StyledDesc = styled.div`
@@ -28,11 +31,22 @@ const StyledDesc = styled.div`
 `;
 
 const Name = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  text-align: center;
 `;
 
-const Description = styled.h2`
-  font-size: 2.5rem;
+const Description = styled.h1`
+  font-size: 1.5rem;
+  text-align: center;
+`;
+
+const StyledButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0;
 `;
 
 function MenuCategorized({ item, category, isLoading }) {
@@ -69,8 +83,15 @@ function MenuCategorized({ item, category, isLoading }) {
       <StyledDesc>
         <Name>{name}</Name>
         <Img src={image} />
-
         <Description>{description}</Description>
+        <StyledButtons>
+          <Button variation="secondary" size="small">
+            View item
+          </Button>
+          <Button variation="primary" size="small">
+            Add to cart
+          </Button>
+        </StyledButtons>
       </StyledDesc>
     </StyledMenuItem>
   ) : null;

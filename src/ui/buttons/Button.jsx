@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 const sizes = {
   small: css`
     font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.8rem 1rem;
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
@@ -22,20 +22,20 @@ const sizes = {
 
 const variations = {
   primary: css`
-    color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
+    color: #ede1d1;
+    background-color: #b21a10;
 
     &:hover {
-      background-color: var(--color-brand-700);
+      background-color: #b21a10;
     }
   `,
   secondary: css`
-    color: var(--color-grey-600);
-    background: var(--color-grey-0);
-    border: 1px solid var(--color-grey-200);
+    color: inherit;
+
+    background: #ede1d1;
 
     &:hover {
-      background-color: var(--color-grey-50);
+      background-color: #fffbf0;
     }
   `,
   danger: css`
@@ -49,10 +49,11 @@ const variations = {
 };
 
 const Button = styled.button`
+  font-family: 'Bebas Neue', sans-serif;
   border: none;
   cursor: pointer;
-  border-radius: var(--border-radius-sm);
-  box-shadow: var(--shadow-sm);
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.variation]}
