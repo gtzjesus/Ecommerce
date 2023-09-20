@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledSidebar = styled.div`
-  z-index: 9999;
+  z-index: 9998;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +32,7 @@ const Links = styled.div`
   height: 100vh;
 `;
 const Nav = styled.div`
-  z-index: 9999;
+  z-index: 9998;
   display: flex;
   justify-content: space-evenly;
   align-items: center;

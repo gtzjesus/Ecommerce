@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Nav from '../header/Nav';
 
 const StyledSidebar = styled.div`
-  z-index: 9999;
+  z-index: 9998;
   display: flex;
   justify-content: center;
   align-items: center;

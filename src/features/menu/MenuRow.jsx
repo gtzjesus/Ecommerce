@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Modal from '../../ui/modals/Modal';
 import { useState } from 'react';
-import MenuItems from './MenuItems';
+import MenuCategorizedItems from './MenuCategorizedItems';
 
 const StyledRow = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ function MenuRow({ category }) {
     <StyledRow value={value} onClick={handleClick}>
       {isOpenModal && (
         <Modal>
-          <MenuItems
+          <MenuCategorizedItems
             isOpenModal={isOpenModal}
             setIsOpenModal={setIsOpenModal}
             category={category}

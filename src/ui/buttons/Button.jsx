@@ -32,10 +32,10 @@ const variations = {
   secondary: css`
     color: inherit;
 
-    background: #ede1d1;
+    background-color: #ede1d1;
 
     &:hover {
-      background-color: #fffbf0;
+      background-color: #ede1d1;
     }
   `,
   danger: css`
@@ -54,9 +54,9 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-
+  z-index: 9999;
   ${(props) => sizes[props.size]}
-  ${(props) => variations[props.variation]}
+  ${(props) => variations[props.variation]};
 `;
 
 Button.defaultProps = {

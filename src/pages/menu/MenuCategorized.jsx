@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
-import useCategories from './useCategories';
 import Button from '../../ui/buttons/Button';
-
 const StyledMenuItem = styled.ul`
   display: flex;
   font-family: 'Bebas Neue', sans-serif;
@@ -43,48 +41,36 @@ const StyledButtons = styled.div`
   padding: 1rem 0 1rem 0;
 `;
 
-function MenuCategorized({ item, category, isLoading }) {
-  // GRAB CATEGORIES
-  const { error: categoryError, isLoading: categoryLoading } = useCategories();
-
-  // GRAB CURRENTLY SELECTED CATEGORY
-
+function MenuCategorized({ item, category, isLoading, error }) {
   // DECONSTRUCT THE OBJECT TO OUR LIKING
-  const { image, name, description } = item;
+  const { id, image, name, description } = item;
 
   // DECONSTRUCT THE OBJECT TO OUR LIKING
   // const { name } = category;
 
   // CALCULATE CATEGORY FOR EACH ITEM
-  if (categoryLoading || isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />;
 
   // SPINNER IF LOADING
 
   // CHECK FOR ANY ERRORS
-  if (categoryError) {
-    console.log(categoryError);
+  if (error) {
+    console.log(error);
   }
 
   // CREATE VARIABLES TO COMPARE
   const pureItem = item.category;
   const pureCategory = category.name;
 
-  // console.log(pureItem);
-  // console.log(pureCategory);
-
-  function handleClick() {
-    console.log('ive been clicked');
-  }
-
   return pureItem === pureCategory ? (
     <StyledMenuItem>
-      <StyledDesc onClick={handleClick}>
+      <StyledDesc>
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>
         <StyledButtons>
           <Button variation="secondary" size="small">
-            View item
+            <a href={`/menu/:${id}`}>View item</a>
           </Button>
           <Button variation="primary" size="small">
             Add to cart

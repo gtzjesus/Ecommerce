@@ -12,8 +12,8 @@ const slideIn = keyframes`
   }
 `;
 const StyledModal = styled.div`
-  animation: ${slideIn} 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
-  position: fixed;
+  animation: ${slideIn} 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -26,9 +26,8 @@ const StyledModal = styled.div`
   background-size: cover; */
   background-color: #ede1d1;
 
-  border-radius: 1rem;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   box-shadow: 3rem;
   transition: all 0.5s;

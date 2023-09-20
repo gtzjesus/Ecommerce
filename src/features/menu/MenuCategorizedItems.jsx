@@ -10,7 +10,7 @@ const StyledMenu = styled.div`
   transform: translate(-50%, 5%);
 `;
 
-function MenuItems({ category }) {
+function MenuCategorizedItems({ category }) {
   // GRAB ALL ITEMS
   const { items, isLoading, error } = useItems();
   // SPINNER IF NETWORK IS LOADING
@@ -27,6 +27,7 @@ function MenuItems({ category }) {
             item={item}
             key={item.id}
             isLoading={isLoading}
+            error={error}
           />
         ))}
       </StyledMenu>
@@ -34,4 +35,4 @@ function MenuItems({ category }) {
   );
 }
 
-export default MenuItems;
+export default MenuCategorizedItems;
