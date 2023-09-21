@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledFooter = styled.footer`
   font-family: 'Bebas Neue', sans-serif;
@@ -34,19 +34,16 @@ function Footer() {
     <StyledFooter>
       <StyledUnorderedList>
         <StyledList>
-          <Link style={{ textDecoration: 'none' }} to="/menu">
-            menu
-          </Link>
+          <Link to="/menu">menu</Link>
         </StyledList>
         <StyledList>
-          <Link style={{ textDecoration: 'none' }} to="/favorites">
-            faves
-          </Link>
+          <Link to="/favorites">faves</Link>
         </StyledList>
         <StyledList>
-          <Link style={{ textDecoration: 'none' }} to="/orders">
-            orders
-          </Link>
+          <Link to="/orders">orders</Link>
+        </StyledList>
+        <StyledList>
+          <Link to="/rewards">rewards</Link>
         </StyledList>
       </StyledUnorderedList>
     </StyledFooter>

@@ -16,12 +16,17 @@ const GlobalStyles = createGlobalStyle`
   --font-small: 2rem;
   --font-medium: 3rem;
 
+  /* Image Sizes */
+  --image-small: 8rem;
+  
+
     /* Border Radius */
     --border-footer: 1.5rem 1rem 0 0;
 
     /* Box Shadows */
     --shadow-container: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
 
+    --header-padding: 0.5rem
 
 
   
@@ -87,6 +92,8 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+
 
   /* Creating animations for dark mode */
   transition: background-color 0.3s, border 0.3s;
@@ -96,15 +103,7 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
-  color: var(--color-grey-700);
 
-  transition: color 0.3s, background-color 0.3s;
-  min-height: 100vh;
-  line-height: 1.5;
-  font-size: 1.6rem;
-}
 
 input,
 button,
@@ -132,7 +131,7 @@ input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-brand-600);
+  outline: 2px solid gray;
   outline-offset: -1px;
 }
 

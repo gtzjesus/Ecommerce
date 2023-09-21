@@ -6,27 +6,25 @@ import MenuCategorizedItems from './MenuCategorized';
 const StyledRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border: 0.15rem solid #ede1d1;
-  padding: 1rem 0.5rem;
-  background-color: #ede1d1;
+  justify-content: left;
+  background-color: var(--background-primary);
   margin: 0.25rem 0;
+  padding: 2rem;
+  gap: 2rem;
 `;
 
 const Img = styled.img`
-  display: block;
-  width: 5.25rem;
-  object-fit: cover;
-  object-position: center;
+  width: var(--image-small);
+  /* object-fit: cover;
+  object-position: center; */
 `;
 
+const Info = styled.div``;
+
 const Title = styled.h1`
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
+  font-size: var(--font-medium);
 `;
 const Tag = styled.h1`
-  font-family: 'Bebas Neue', sans-serif;
   font-size: 0.85rem;
   border-radius: 2rem;
   letter-spacing: 0.05rem;
@@ -57,8 +55,10 @@ function MenuRow({ category }) {
         </Modal>
       )}
       <Img src={categoryImage} />
-      <Title>{name}</Title>
-      {!tag ? null : <Tag>{tag}</Tag>}
+      <Info>
+        {!tag ? null : <Tag>{tag}</Tag>}
+        <Title>{name}</Title>
+      </Info>
     </StyledRow>
   );
 }

@@ -4,19 +4,17 @@ import MenuRow from './MenuRow';
 import useCategories from '../../pages/menu/useCategories';
 
 const StyledTable = styled.div`
-  display: grid;
-  align-items: center;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 function MenuTable() {
+  // GRAB CATEGORIES
   const { categories, isLoading, error } = useCategories();
-
+  // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
-
-  if (error) {
-    console.log(error);
-  }
+  // ERRO HANDLE
+  if (error) throw new Error('Issue grabbing categories');
 
   return (
     <StyledTable>
