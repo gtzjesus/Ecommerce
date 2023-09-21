@@ -7,7 +7,7 @@ const sizes = {
     font-weight: 900;
   `,
   small: css`
-    font-size: 1.2rem;
+    font-size: 2rem;
     padding: 0.8rem 1rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -29,11 +29,8 @@ const variations = {
   primary: css`
     color: #ede1d1;
     background-color: #b21a10;
-    display: grid;
     width: 50vw;
-    margin: 5rem;
-    align-items: center;
-
+    margin: 2.5rem;
     &:hover {
       background-color: #b21a10;
     }
