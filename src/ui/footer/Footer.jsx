@@ -6,11 +6,10 @@ const StyledFooter = styled.footer`
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100vw;
-  background-color: #ede1d1;
-  border-radius: 1.5rem 1rem 0 0;
-  color: inherit;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  width: var(--width-full-window);
+  background-color: var(--background-primary);
+  border-radius: var(--border-footer);
+  box-shadow: var(--shadow-container);
 `;
 
 const StyledUnorderedList = styled.ul`
@@ -19,14 +18,15 @@ const StyledUnorderedList = styled.ul`
   list-style: none;
   text-decoration: none;
   align-items: center;
+  margin: 2rem;
 `;
 
 const StyledList = styled.li`
   display: inline-block;
+  font-size: var(--font-small);
+
+  color: var(--color-red);
   cursor: pointer;
-  font-size: 1.25rem;
-  letter-spacing: 0.15rem;
-  padding: 0 1.5rem;
 `;
 
 function Footer() {
@@ -34,23 +34,17 @@ function Footer() {
     <StyledFooter>
       <StyledUnorderedList>
         <StyledList>
-          <Link style={{ textDecoration: 'none', color: '#B21A10' }} to="/menu">
+          <Link style={{ textDecoration: 'none' }} to="/menu">
             menu
           </Link>
         </StyledList>
         <StyledList>
-          <Link
-            style={{ textDecoration: 'none', color: '#B21A10' }}
-            to="/favorites"
-          >
+          <Link style={{ textDecoration: 'none' }} to="/favorites">
             faves
           </Link>
         </StyledList>
         <StyledList>
-          <Link
-            style={{ textDecoration: 'none', color: '#B21A10' }}
-            to="/orders"
-          >
+          <Link style={{ textDecoration: 'none' }} to="/orders">
             orders
           </Link>
         </StyledList>

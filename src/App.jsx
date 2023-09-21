@@ -3,6 +3,7 @@ import Landing from './ui/app/Landing';
 import Menu from './pages/menu/Menu';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/notfound/PageNotFound';
+import GlobalStyles from './styles/GlobalStyles';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,6 +17,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <GlobalStyles />
         <Routes>
           <Route element={<Landing />}>
             <Route index element={<Navigate replace to="/" />} />

@@ -2,12 +2,11 @@ import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 import { RiShoppingBag2Line, RiAccountCircleLine } from 'react-icons/ri';
 
-// STYLED COMPONENTS
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #ede1d1;
-  padding: 0.5rem 0.25rem;
+  background-color: var(--background-primary);
+  padding: 0.5rem;
 `;
 
 const Logo = styled.div`
@@ -18,18 +17,19 @@ const Hamburger = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 2rem;
-  color: #802620;
+  font-size: var(--font-medium);
+  color: var(--color-red);
 `;
 
 function Header({ isOpen, setIsOpen }) {
   const navigate = useNavigate();
 
+  // HANDLE TOGGLE FOR OPENING/CLOSING
   function handleToggle() {
     if (isOpen === false) setIsOpen(true);
     if (isOpen === true) setIsOpen(false);
   }
-
+  // NAVIGATE ON CLICK
   function handleHome() {
     navigate('/');
   }
