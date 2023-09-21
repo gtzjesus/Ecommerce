@@ -3,26 +3,26 @@ import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
 import { AiOutlineHeart } from 'react-icons/ai';
 
-const StyledItemContainer = styled.div`
+const StyledItemContainer = styled.li`
   background-color: var(--color-tan);
   padding: var(--padding-medium);
   margin: var(--margin-large);
 `;
 
-const StyledDesc = styled.ul`
+const StyledDesc = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const Name = styled.h1`
+const Name = styled.span`
   font-size: var(--font-medium);
 `;
 const Img = styled.img`
   width: var(--image-large);
 `;
 
-const Description = styled.h1`
+const Description = styled.span`
   font-size: var(--font-small);
   width: var(--width-description);
 `;

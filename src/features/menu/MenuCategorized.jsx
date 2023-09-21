@@ -7,8 +7,9 @@ const StyledMenu = styled.div`
   margin: var(--margin-medium);
 `;
 
-const Title = styled.h1`
-  text-align: center;
+const Title = styled.span`
+  display: flex;
+  justify-content: center;
   font-size: var(--font-large);
   color: var(--color-red);
 `;

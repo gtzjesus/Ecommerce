@@ -4,8 +4,10 @@ const GlobalStyles = createGlobalStyle`
 :root {
 
   /* Width && Height */
-    --width-full-window: 100vw;
-    --width-description: 75%;
+    --width-full-window: 100%;
+    --width-description: 80%;
+
+    --height-full-window: 100vh;
 
   /* Backrounds */
   --background-primary: #ede1d1;
@@ -38,13 +40,9 @@ const GlobalStyles = createGlobalStyle`
     --gap-small: 1rem;
     --gap-medium: 2rem;
 
-
-
-  /* Image Sizes */
-  --image-small: 8rem;
-  --image-large: 30rem;
-
-  
+    /* Image Sizes */
+    --image-small: 8rem;
+    --image-large: 30rem;
 
     /* Border Radius */
     --border-tag:2rem;
@@ -52,6 +50,11 @@ const GlobalStyles = createGlobalStyle`
 
     /* Box Shadows */
     --shadow-container: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+
+    /* Z-Indexes */
+    --z-top: 9999;
+    --z-second: 9998;
+
 
     
 

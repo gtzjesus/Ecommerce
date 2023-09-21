@@ -4,6 +4,7 @@ import MenuItem from './MenuItem';
 
 const StyledMenuItem = styled.ul`
   display: flex;
+  justify-content: center;
   background-color: var(--background-primary);
 `;
 
