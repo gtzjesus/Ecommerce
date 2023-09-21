@@ -1,37 +1,25 @@
 import { useNavigate } from 'react-router';
-import styled, { keyframes } from 'styled-components';
-
-// ANIMATION
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
+import styled from 'styled-components';
+import { RiShoppingBag2Line, RiAccountCircleLine } from 'react-icons/ri';
 
 // STYLED COMPONENTS
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #ede1d1;
-  margin-bottom: 0.25rem;
+  padding: 0.5rem 0.25rem;
 `;
 
 const Logo = styled.div`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-  padding: 1rem;
   cursor: pointer;
 `;
 
 const Hamburger = styled.button`
-  animation: ${slideIn} 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-  padding: 2rem;
   border: none;
   background: none;
   cursor: pointer;
+  font-size: 1.75rem;
+  color: #802620;
 `;
 
 function Header({ isOpen, setIsOpen }) {
@@ -47,11 +35,14 @@ function Header({ isOpen, setIsOpen }) {
   }
   return (
     <StyledHeader>
+      <Hamburger value={isOpen} onClick={() => handleToggle()}>
+        <RiAccountCircleLine />
+      </Hamburger>
       <Logo onClick={handleHome}>
         <img src="/logo/hotdog.png" />
       </Logo>
       <Hamburger value={isOpen} onClick={() => handleToggle()}>
-        <img src="/hamburger/hamburger.png" />
+        <RiShoppingBag2Line />
       </Hamburger>
     </StyledHeader>
   );
