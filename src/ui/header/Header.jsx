@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router';
 import styled from 'styled-components';
-import { RiShoppingBag2Line, RiAccountCircleLine } from 'react-icons/ri';
+import { RiShoppingBag2Line } from 'react-icons/ri';
+
+import { CgUser } from 'react-icons/cg';
 
 const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: var(--background-primary);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 `;
 
 const Logo = styled.div`
@@ -36,7 +38,7 @@ function Header({ isOpen, setIsOpen }) {
   return (
     <StyledHeader>
       <Hamburger value={isOpen} onClick={() => handleToggle()}>
-        <RiAccountCircleLine />
+        <CgUser />
       </Hamburger>
       <Logo onClick={handleHome}>
         <img src="/logo/hotdog.png" />
