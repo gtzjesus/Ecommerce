@@ -9,7 +9,7 @@ const StyledRow = styled.div`
   justify-content: left;
   background-color: var(--background-primary);
   padding: var(--padding-medium);
-  gap: 2rem;
+  gap: var(--gap-medium);
 `;
 
 const Img = styled.img`
@@ -21,7 +21,7 @@ const Img = styled.img`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--gap-small);
 `;
 
 const Title = styled.div`

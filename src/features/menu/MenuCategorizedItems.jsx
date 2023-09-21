@@ -4,12 +4,7 @@ import MenuItem from './MenuItem';
 
 const StyledMenuItem = styled.ul`
   display: flex;
-  font-family: 'Bebas Neue', sans-serif;
-  padding: 1rem;
-  background-color: #fffbf0;
-  top: 2.5%;
-  -ms-transform: translateY(2.5%);
-  transform: translateY(2.5%);
+  background-color: var(--background-primary);
 `;
 
 function MenuCategorizedItems({ item, category, isLoading, error }) {
@@ -26,10 +21,11 @@ function MenuCategorizedItems({ item, category, isLoading, error }) {
     console.log(error);
   }
 
-  // CREATE VARIABLES TO COMPARE
+  // GRAB TO COMPARE CATEGORY && NAME
   const pureItem = item.category;
   const pureCategory = category.name;
 
+  // RETURN OUR INDIVIDUAL ITEM COMPONENT
   return pureItem === pureCategory ? (
     <>
       <StyledMenuItem>

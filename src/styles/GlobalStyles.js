@@ -13,20 +13,34 @@ const GlobalStyles = createGlobalStyle`
   --color-red: #991b1b;
   --color-black: #070606;
   --color-white: #ffff;
+  --color-tan: #f7ead9;
 
   /* Text Size */
-  --font-xsmall: 1rem;
+  --font-xsmall: 1.25rem;
   --font-small: 2rem;
   --font-medium: 3rem;
+  --font-large: 4rem;
+
+
+      /* Margin */
+    --margin-small: 1rem;
+    --margin-medium: 2rem;
 
     /* Padding */
     --padding-small: 1rem;
     --padding-medium: 2rem;
     --padding-header:0.5rem 1rem;
 
+    /* Gap */
+    --gap-small: 1rem;
+    --gap-medium: 2rem;
+
+
 
   /* Image Sizes */
   --image-small: 8rem;
+  --image-large: 30rem;
+
   
 
     /* Border Radius */

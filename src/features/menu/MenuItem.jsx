@@ -3,27 +3,23 @@ import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
 import { AiOutlineHeart } from 'react-icons/ai';
 
-const StyledItemContainer = styled.li`
-  list-style: none;
-
-  // SET INSIDE CONTAINER TO OUTSIDE PARENT CONTAINER
-  width: 90%;
+const StyledItemContainer = styled.div`
+  background-color: var(--color-tan);
+  padding: var(--padding-medium);
+  margin: var(--margin-small);
 `;
 
 const StyledDesc = styled.ul`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `;
 
 const Name = styled.h1`
-  font-size: 2.5rem;
-  letter-spacing: 0.15rem;
-  text-align: center;
+  font-size: var(--font-medium);
 `;
 const Img = styled.img`
-  width: 55%;
+  width: var(--image-large);
 `;
 
 const Description = styled.h1`
@@ -35,13 +31,13 @@ const Description = styled.h1`
 
 function MenuItem({ item, isLoading }) {
   // DECONSTRUCT THE OBJECT TO OUR LIKING
-  const { id, image, name, description } = item;
+  const { image, name, description } = item;
   console.log(item);
 
   // HANDLE CLICK FOR ADDING TO BAG
-  function handleClick() {
-    console.log(id);
-  }
+  // function handleClick() {
+  //   console.log(id);
+  // }
 
   if (isLoading) return <Spinner />;
 
@@ -54,9 +50,9 @@ function MenuItem({ item, isLoading }) {
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>
-        <Button variation="primary" size="small" onClick={handleClick}>
+        {/* <Button variation="primary" size="small" onClick={handleClick}>
           Add to bag
-        </Button>
+        </Button> */}
       </StyledDesc>
     </StyledItemContainer>
   );

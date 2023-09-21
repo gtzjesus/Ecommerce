@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const StyledFooter = styled.footer`
-  font-family: 'Bebas Neue', sans-serif;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -18,7 +17,7 @@ const StyledUnorderedList = styled.ul`
   list-style: none;
   text-decoration: none;
   align-items: center;
-  margin: 2rem;
+  margin: var(--margin-medium);
 `;
 
 const StyledList = styled.li`

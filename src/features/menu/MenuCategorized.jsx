@@ -4,27 +4,24 @@ import Spinner from '../../ui/spinners/Spinner';
 import MenuCategorizedItems from './MenuCategorizedItems';
 
 const StyledMenu = styled.div`
-  margin: 1rem;
-  overflow-y: hidden; /* Hide vertical scrollbar */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  margin: var(--margin-medium);
 `;
 
 const Title = styled.h1`
-  font-family: 'Bebas Neue', sans-serif;
-  color: inherit;
   text-align: center;
-  font-size: 2rem;
-  letter-spacing: 0.15rem;
+  font-size: var(--font-large);
+  color: var(--color-red);
 `;
 
 function MenuCategorized({ category }) {
-  // GRAB ALL ITEMS
+  // GRAB ITEMS
   const { items, isLoading, error } = useItems();
-  // SPINNER IF NETWORK IS LOADING
+  // CHECK ISLOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
-  // TEST IF SUCCESS
+  // ERROR HANDLE
   if (error) throw new Error('Failed to grab items');
 
+  // RETURN CATEGORIZED MENU
   return (
     <>
       <StyledMenu>
