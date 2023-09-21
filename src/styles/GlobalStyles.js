@@ -19,17 +19,24 @@ const GlobalStyles = createGlobalStyle`
   --font-small: 2rem;
   --font-medium: 3rem;
 
+    /* Padding */
+    --padding-small: 1rem;
+    --padding-medium: 2rem;
+    --padding-header:0.5rem 1rem;
+
+
   /* Image Sizes */
   --image-small: 8rem;
   
 
     /* Border Radius */
+    --border-tag:2rem;
     --border-footer: 1.5rem 1rem 0 0;
 
     /* Box Shadows */
     --shadow-container: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
 
-    --header-padding: 0.5rem
+    
 
 
   

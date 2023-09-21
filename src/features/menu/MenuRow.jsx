@@ -8,7 +8,7 @@ const StyledRow = styled.div`
   align-items: center;
   justify-content: left;
   background-color: var(--background-primary);
-  padding: 2rem;
+  padding: var(--padding-medium);
   gap: 2rem;
 `;
 
@@ -29,11 +29,11 @@ const Title = styled.div`
 `;
 const Tag = styled.span`
   font-size: var(--font-xsmall);
-  border-radius: 2rem;
+  border-radius: var(--border-tag);
   background-color: var(--color-red);
   width: fit-content;
   color: var(--color-white);
-  padding: 1rem;
+  padding: var(--padding-small);
 `;
 function MenuRow({ category }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

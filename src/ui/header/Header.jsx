@@ -8,7 +8,7 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: var(--background-primary);
-  padding: 0.5rem 1rem;
+  padding: var(--padding-header);
 `;
 
 const Logo = styled.div`
