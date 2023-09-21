@@ -13,6 +13,8 @@ const Title = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
   color: inherit;
   text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
 `;
 
 function MenuCategorized({ category }) {

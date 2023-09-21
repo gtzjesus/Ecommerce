@@ -5,7 +5,7 @@ import MenuItem from './MenuItem';
 const StyledMenuItem = styled.ul`
   display: flex;
   font-family: 'Bebas Neue', sans-serif;
-  padding: 2.5rem;
+  padding: 1rem;
   background-color: #fffbf0;
   top: 2.5%;
   -ms-transform: translateY(2.5%);

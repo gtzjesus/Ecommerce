@@ -17,11 +17,9 @@ const StyledDesc = styled.ul`
   align-items: center;
 `;
 
-const Heart = styled.div``;
-
 const Name = styled.h1`
   font-size: 2.5rem;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.15rem;
   text-align: center;
 `;
 const Img = styled.img`
@@ -49,12 +47,10 @@ function MenuItem({ item, isLoading }) {
 
   return (
     <StyledItemContainer>
+      <Button variation="heart" size="xsmall">
+        <AiOutlineHeart />
+      </Button>
       <StyledDesc>
-        <Heart>
-          <Button variation="heart" size="xsmall">
-            <AiOutlineHeart />
-          </Button>
-        </Heart>
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>

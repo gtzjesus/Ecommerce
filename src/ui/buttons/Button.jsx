@@ -3,8 +3,6 @@ import styled, { css } from 'styled-components';
 const sizes = {
   xsmall: css`
     font-size: 2rem;
-    padding: 0.5rem 0.5rem;
-    font-weight: 900;
   `,
   small: css`
     font-size: 2rem;
