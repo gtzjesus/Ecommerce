@@ -8,7 +8,6 @@ const StyledRow = styled.div`
   align-items: center;
   justify-content: left;
   background-color: var(--background-primary);
-  margin: 0.25rem 0;
   padding: 2rem;
   gap: 2rem;
 `;
@@ -19,19 +18,22 @@ const Img = styled.img`
   object-position: center; */
 `;
 
-const Info = styled.div``;
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
 
-const Title = styled.h1`
+const Title = styled.div`
   font-size: var(--font-medium);
 `;
-const Tag = styled.h1`
-  font-size: 0.85rem;
+const Tag = styled.span`
+  font-size: var(--font-xsmall);
   border-radius: 2rem;
-  letter-spacing: 0.05rem;
-  background-color: #b21a10;
+  background-color: var(--color-red);
   width: fit-content;
-  color: #ffff;
-  padding: 0.75rem;
+  color: var(--color-white);
+  padding: 1rem;
 `;
 function MenuRow({ category }) {
   const [isOpenModal, setIsOpenModal] = useState(false);

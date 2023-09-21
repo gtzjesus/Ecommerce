@@ -9,10 +9,13 @@ const GlobalStyles = createGlobalStyle`
   /* Backrounds */
   --background-primary: #ede1d1;
 
-  /* Text Colors */
+  /* Colors */
   --color-red: #991b1b;
+  --color-black: #070606;
+  --color-white: #ffff;
 
   /* Text Size */
+  --font-xsmall: 1rem;
   --font-small: 2rem;
   --font-medium: 3rem;
 
