@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
+  font-family: 'Bebas Neue', sans-serif;
   position: fixed;
   left: 0;
-  right: 0;
   bottom: 0;
   width: 100%;
   background-color: #ede1d1;
@@ -14,18 +14,16 @@ const StyledFooter = styled.footer`
 `;
 
 const StyledUnorderedList = styled.ul`
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   list-style: none;
   text-decoration: none;
 `;
 
 const StyledList = styled.li`
-  font-family: 'Bebas Neue', sans-serif;
   cursor: pointer;
   font-size: 1.5rem;
   letter-spacing: 0.15rem;
-  text-decoration: none;
 `;
 
 function Footer() {
@@ -42,7 +40,7 @@ function Footer() {
             style={{ textDecoration: 'none', color: '#B21A10' }}
             to="/favorites"
           >
-            favorites
+            faves
           </Link>
         </StyledList>
         <StyledList>

@@ -18,7 +18,7 @@ const Hamburger = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: #802620;
 `;
 
