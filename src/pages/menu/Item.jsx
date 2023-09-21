@@ -27,9 +27,6 @@ function Item() {
   // CREATE ITEM OBJECT FROM THIS LIST
   const item = sortedItems;
 
-  console.log(items);
-  console.log(sortedItems);
-
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
     <>

@@ -3,6 +3,7 @@ import Header from '../header/Header';
 import Sidebar from '../sidebar/Sidebar';
 
 function Navigation() {
+  // CREATE STATE TO SET HEADER + SIDEBARS OPEN/CLOSE
   const [isOpen, setIsOpen] = useState(false);
 
   return (

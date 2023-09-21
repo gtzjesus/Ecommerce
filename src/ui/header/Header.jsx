@@ -1,7 +1,6 @@
-import { useNavigate } from 'react-router';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router';
 import { RiShoppingBag2Line } from 'react-icons/ri';
-
 import { CgUser } from 'react-icons/cg';
 
 const StyledHeader = styled.div`
@@ -24,8 +23,8 @@ const Hamburger = styled.button`
 `;
 
 function Header({ isOpen, setIsOpen }) {
+  // GRAB NAVIGATE REACT HOOK
   const navigate = useNavigate();
-
   // HANDLE TOGGLE FOR OPENING/CLOSING
   function handleToggle() {
     if (isOpen === false) setIsOpen(true);
@@ -35,6 +34,7 @@ function Header({ isOpen, setIsOpen }) {
   function handleHome() {
     navigate('/');
   }
+  // HEADER COMPONENT
   return (
     <StyledHeader>
       <Hamburger value={isOpen} onClick={() => handleToggle()}>
