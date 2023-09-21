@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
 
   /* Width && Height */
     --width-full-window: 100vw;
+    --width-description: 75%;
 
   /* Backrounds */
   --background-primary: #ede1d1;
@@ -25,6 +26,8 @@ const GlobalStyles = createGlobalStyle`
       /* Margin */
     --margin-small: 1rem;
     --margin-medium: 2rem;
+    --margin-large: 3rem;
+
 
     /* Padding */
     --padding-small: 1rem;

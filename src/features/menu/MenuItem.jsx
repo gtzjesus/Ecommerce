@@ -6,7 +6,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 const StyledItemContainer = styled.div`
   background-color: var(--color-tan);
   padding: var(--padding-medium);
-  margin: var(--margin-small);
+  margin: var(--margin-large);
 `;
 
 const StyledDesc = styled.ul`
@@ -23,10 +23,8 @@ const Img = styled.img`
 `;
 
 const Description = styled.h1`
-  font-size: 1.35rem;
-  letter-spacing: 0.09rem;
-  text-align: left;
-  width: 75%;
+  font-size: var(--font-small);
+  width: var(--width-description);
 `;
 
 function MenuItem({ item, isLoading }) {

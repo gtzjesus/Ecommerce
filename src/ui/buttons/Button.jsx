@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const sizes = {
   xsmall: css`
-    font-size: 2rem;
+    font-size: 3rem;
   `,
   small: css`
     font-size: 2rem;
