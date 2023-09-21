@@ -5,6 +5,14 @@ import MenuCategorizedItems from './MenuCategorizedItems';
 
 const StyledMenu = styled.div`
   margin: 1rem;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+`;
+
+const Title = styled.h1`
+  font-family: 'Bebas Neue', sans-serif;
+  color: inherit;
+  text-align: center;
 `;
 
 function MenuCategorized({ category }) {
@@ -18,6 +26,7 @@ function MenuCategorized({ category }) {
   return (
     <>
       <StyledMenu>
+        <Title>{category.name}</Title>
         {items.map((item) => (
           <MenuCategorizedItems
             category={category}

@@ -32,6 +32,7 @@ const Description = styled.h1`
   font-size: 1.35rem;
   letter-spacing: 0.09rem;
   text-align: left;
+  width: 75%;
 `;
 
 function MenuItem({ item, isLoading }) {

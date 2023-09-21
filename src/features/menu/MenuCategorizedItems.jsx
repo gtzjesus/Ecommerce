@@ -7,9 +7,9 @@ const StyledMenuItem = styled.ul`
   font-family: 'Bebas Neue', sans-serif;
   padding: 2.5rem;
   background-color: #fffbf0;
-  top: 10%;
-  -ms-transform: translateY(10%);
-  transform: translateY(10%);
+  top: 2.5%;
+  -ms-transform: translateY(2.5%);
+  transform: translateY(2.5%);
 `;
 
 function MenuCategorizedItems({ item, category, isLoading, error }) {

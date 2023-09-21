@@ -22,12 +22,14 @@ const Img = styled.img`
 
 const Title = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.75rem;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
 `;
 const Tag = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   border-radius: 2rem;
+  letter-spacing: 0.05rem;
   background-color: #b21a10;
   width: fit-content;
   color: #ffff;
