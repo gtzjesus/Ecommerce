@@ -1,11 +1,13 @@
 import Home from '../../pages/home/Home';
+import Footer from '../footer/Footer';
 import Navigation from './Navigation';
-function AppLanding() {
+function Landing() {
   return (
     <>
       <Navigation></Navigation>
       <Home />
+      <Footer />
     </>
   );
 }
-export default AppLanding;
+export default Landing;

@@ -25,7 +25,7 @@ const sizes = {
 
 const variations = {
   primary: css`
-    color: #ede1d1;
+    color: #ffff;
     background-color: #b21a10;
     width: 50vw;
     margin: 2.5rem;

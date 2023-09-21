@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import AppLanding from './ui/app/AppLanding';
+import Landing from './ui/app/Landing';
 import Menu from './pages/menu/Menu';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/notfound/PageNotFound';
@@ -17,7 +17,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLanding />}>
+          <Route element={<Landing />}>
             <Route index element={<Navigate replace to="/" />} />
           </Route>
           <Route path="menu" element={<Menu />}>
