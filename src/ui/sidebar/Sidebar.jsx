@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Nav from '../header/Nav';
 
 const StyledSidebar = styled.div`
   z-index: 9998;
@@ -30,34 +29,13 @@ function Sidebar({ isOpen, setIsOpen }) {
   }
 
   return (
-    <>
-      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
-      <StyledSidebar>
-        <div>
-          <Links>
-            <Link
-              style={{ textDecoration: 'none', color: '#B21A10' }}
-              to="/menu"
-              onClick={handleToggle}
-            >
-              menu
-            </Link>
-            <Link
-              style={{ color: '#B21A10', textDecoration: 'none' }}
-              to="/member"
-            >
-              member
-            </Link>
-            <Link
-              style={{ color: '#B21A10', textDecoration: 'none' }}
-              to="/account"
-            >
-              account
-            </Link>
-          </Links>
-        </div>
-      </StyledSidebar>
-    </>
+    <StyledSidebar>
+      <div>
+        <Links>
+          <Link to="/menu" onClick={handleToggle}></Link>
+        </Links>
+      </div>
+    </StyledSidebar>
   );
 }
 

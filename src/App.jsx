@@ -7,6 +7,7 @@ import Landing from './ui/app/Landing';
 import GlobalStyles from './styles/GlobalStyles';
 import Menu from './pages/menu/Menu';
 import PageNotFound from './pages/notfound/PageNotFound';
+import Item from './pages/menu/Item';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -28,9 +29,8 @@ function App() {
             <Route element={<Landing />}>
               <Route index element={<Navigate replace to="/" />} />
             </Route>
-            <Route path="menu" element={<Menu />}>
-              <Route index element={<Navigate replace to="/menu" />} />
-            </Route>
+            <Route path="menu" element={<Menu />} />
+            <Route path="/menu/id" element={<Item />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
