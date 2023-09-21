@@ -20,7 +20,9 @@ function App() {
           <Route element={<AppLanding />}>
             <Route index element={<Navigate replace to="/" />} />
           </Route>
-          <Route path="menu" element={<Menu />} />
+          <Route path="menu" element={<Menu />}>
+            <Route index element={<Navigate replace to="/menu" />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

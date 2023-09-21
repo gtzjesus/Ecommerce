@@ -2,16 +2,19 @@ import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
 import { AiOutlineHeart } from 'react-icons/ai';
-const StyledMenuItem = styled.ul`
-  display: flex;
+
+const StyledMenuItem = styled.div`
   font-family: 'Bebas Neue', sans-serif;
-  margin: 2rem;
-  border: 1px solid white;
-  padding: 2rem;
+  padding: 2.5rem;
   background-color: #fffbf0;
+  margin: 0;
+  position: relative;
+  top: 15%;
+  -ms-transform: translateY(15%);
+  transform: translateY(15%);
 `;
 
-const StyledDesc = styled.li`
+const StyledDesc = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +34,7 @@ const Name = styled.h1`
 `;
 const Img = styled.img`
   display: block;
-  width: 75%;
+  width: 50%;
 `;
 
 const Description = styled.h1`
@@ -39,17 +42,9 @@ const Description = styled.h1`
   text-align: center;
 `;
 
-const StyledButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem 0 1rem 0;
-`;
-
 function MenuCategorizedItems({ item, category, isLoading, error }) {
   // DECONSTRUCT THE OBJECT TO OUR LIKING
-  const { image, name, description } = item;
+  const { id, image, name, description } = item;
 
   // DECONSTRUCT THE OBJECT TO OUR LIKING
   // const { name } = category;
@@ -68,27 +63,29 @@ function MenuCategorizedItems({ item, category, isLoading, error }) {
   const pureItem = item.category;
   const pureCategory = category.name;
 
+  // HANDLE CLICK FOR ADDING TO BAG
+  function handleClick() {
+    console.log(id);
+  }
+
   return pureItem === pureCategory ? (
-    <StyledMenuItem>
-      <StyledDesc>
-        <Heart>
-          <Button variation="heart" size="xsmall">
-            <AiOutlineHeart />
+    <>
+      <StyledMenuItem>
+        <StyledDesc>
+          <Heart>
+            <Button variation="heart" size="xsmall">
+              <AiOutlineHeart />
+            </Button>
+          </Heart>
+          <Name>{name}</Name>
+          <Img src={image} />
+          <Description>{description}</Description>
+          <Button variation="primary" size="small" onClick={handleClick}>
+            Add to bag
           </Button>
-        </Heart>
-        <Name>{name}</Name>
-        <Img src={image} />
-        <Description>{description}</Description>
-        <StyledButtons>
-          <Button variation="secondary" size="small">
-            wishlist
-          </Button>
-          <Button variation="primary" size="small">
-            Add to cart
-          </Button>
-        </StyledButtons>
-      </StyledDesc>
-    </StyledMenuItem>
+        </StyledDesc>
+      </StyledMenuItem>
+    </>
   ) : null;
 }
 

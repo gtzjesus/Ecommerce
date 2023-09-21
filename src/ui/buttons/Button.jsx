@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const sizes = {
   xsmall: css`
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 0.5rem 0.5rem;
     font-weight: 900;
   `,
@@ -29,6 +29,10 @@ const variations = {
   primary: css`
     color: #ede1d1;
     background-color: #b21a10;
+    display: grid;
+    width: 50vw;
+    margin: 5rem;
+    align-items: center;
 
     &:hover {
       background-color: #b21a10;

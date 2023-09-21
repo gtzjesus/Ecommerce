@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 import useItems from '../../pages/menu/useItems';
 import Spinner from '../../ui/spinners/Spinner';
-import MenuCategorizedItems from '../../pages/menu/MenuCategorizedItems';
+import MenuCategorizedItems from './MenuCategorizedItems';
 
 const StyledMenu = styled.div`
-  position: relative;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, 5%);
+  margin: 1rem;
 `;
 
 function MenuCategorized({ category }) {

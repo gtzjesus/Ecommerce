@@ -1,49 +1,18 @@
 // import { createPortal } from 'react-dom';
 // import { HiXMark } from 'react-icons/hi2';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 // ANIMATION
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-  }
-`;
-const StyledModal = styled.div`
-  animation: ${slideIn} 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  /* background: url(images/backgrounds/menu-categorized-background.png) no-repeat
-    center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  background-color: #ede1d1;
-
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-
-  box-shadow: 3rem;
+  background-color: #ede1d1;
+  z-index: 9999;
   transition: all 0.5s;
 `;
-
-// const Overlay = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100vh;
-//   background-color: var(--backdrop-color);
-//   backdrop-filter: blur(4px);
-//   z-index: 1000;
-//   transition: all 0.5s;
-// `;
 
 // const Button = styled.button`
 //   background: none;
@@ -71,11 +40,7 @@ const StyledModal = styled.div`
 // `;
 
 function Modal({ children }) {
-  return (
-    <StyledModal>
-      <div>{children}</div>
-    </StyledModal>
-  );
+  return <Overlay>{children}</Overlay>;
 }
 
 export default Modal;
