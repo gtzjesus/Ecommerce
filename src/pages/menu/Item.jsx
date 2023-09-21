@@ -7,7 +7,7 @@ function Item() {
   // ACCESS QUERY
   const location = useLocation(); // React Hook
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
-  const pathname = Number(location.pathname.split('/')[2].replace(':', ''));
+  const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
 
   // GRAB ITEMS FROM MENU CONTEXT
   const { items } = useContext(MenuContext);
@@ -23,35 +23,27 @@ function Item() {
 
   // STORE SORT COMM
   const sortedItems = items.sort(dynamicSort('id'));
-  // MAP ARRAY TO GRAB ALL IDs
-  const itemList = sortedItems.map((item) => item.id);
-  // CHECK ARRAY LIST FOR SAME PATHNAME ID
-  const matchFound = itemList.find((element) => element === pathname);
-  // if (!matchFound) throw new Error('No Match Found');
 
-  const item = items.map((item) => item);
+  // CREATE ITEM OBJECT FROM THIS LIST
+  const item = sortedItems;
 
-  console.log(matchFound);
-  console.log(item);
+  console.log(items);
+  console.log(sortedItems);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
-    <div>
+    <>
       <Navigation />
-      {matchFound ? (
-        <div key={item.key}>
-          <span>{item.id}</span>
-          <img src={item.image} />
-          <span>{item.name}</span>
-          <span>{item.description}</span>
-          <span>{item.category}</span>
-          <span>{item.regularPrice}</span>
-          <span>{item.discount}</span>
-        </div>
-      ) : (
-        'No item here'
-      )}
-    </div>
+      <div key={item[pathname].key}>
+        <span>{item[pathname].id}</span>
+        <img src={item[pathname].image} />
+        <span>{item[pathname].name}</span>
+        <span>{item[pathname].description}</span>
+        <span>{item[pathname].category}</span>
+        <span>{item[pathname].regularPrice}</span>
+        <span>{item[pathname].discount}</span>
+      </div>
+    </>
   );
 }
 
