@@ -30,7 +30,7 @@ function App() {
               <Route index element={<Navigate replace to="/" />} />
             </Route>
             <Route path="menu" element={<Menu />} />
-            <Route path="/menu/id" element={<Item />} />
+            <Route path="/menu/:id" element={<Item />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

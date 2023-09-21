@@ -31,13 +31,13 @@ const Description = styled.span`
 function MenuItem({ item, isLoading }) {
   // GRAB NAVIGATION
   const navigate = useNavigate();
-  // DECONSTRUCT ITEM OBJECT
+  // DECONSTRUCT OBJECT
   const { id, image, name, description } = item;
   // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
   // HANDLER TO NAVIGATE ON TAP
   function handleTap() {
-    navigate(`/menu/${id}`);
+    navigate(`/menu/:${id}`);
   }
 
   // LAST COMPONENT TREE, DISPLAYS SUMMARY
