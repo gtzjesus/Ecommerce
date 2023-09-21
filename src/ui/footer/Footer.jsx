@@ -6,24 +6,27 @@ const StyledFooter = styled.footer`
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   background-color: #ede1d1;
-  border-radius: 1.5rem 1.5rem 0 0;
+  border-radius: 1.5rem 1rem 0 0;
   color: inherit;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 `;
 
 const StyledUnorderedList = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-evenly;
   list-style: none;
   text-decoration: none;
+  align-items: center;
 `;
 
 const StyledList = styled.li`
+  display: inline-block;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   letter-spacing: 0.15rem;
+  padding: 0 1.5rem;
 `;
 
 function Footer() {
