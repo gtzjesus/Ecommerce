@@ -13,9 +13,9 @@ function MenuTable() {
   const { categories, isLoading, error } = useCategories();
   // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
-  // ERRO HANDLE
+  // ERROR HANDLE
   if (error) throw new Error('Issue grabbing categories');
-
+  // MENU TABLE WITH CORRESPONDING ROWS
   return (
     <StyledTable>
       {categories.map((category) => (

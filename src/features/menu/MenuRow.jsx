@@ -10,12 +10,11 @@ const StyledRow = styled.div`
   background-color: var(--background-primary);
   padding: var(--padding-medium);
   gap: var(--gap-medium);
+  cursor: pointer;
 `;
 
 const Img = styled.img`
   width: var(--image-small);
-  /* object-fit: cover;
-  object-position: center; */
 `;
 
 const Info = styled.div`
@@ -27,6 +26,7 @@ const Info = styled.div`
 const Title = styled.div`
   font-size: var(--font-medium);
 `;
+
 const Tag = styled.span`
   font-size: var(--font-xsmall);
   border-radius: var(--border-tag);
@@ -35,16 +35,20 @@ const Tag = styled.span`
   color: var(--color-white);
   padding: var(--padding-small);
 `;
-function MenuRow({ category }) {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [value, setValue] = useState();
-  const { name, tag, categoryImage } = category;
 
+// ROW COMPONENT FOR EACH CATEGORY USED IN MENU PAGE
+function MenuRow({ category }) {
+  // STATE FOR OPENING/CLOSING MODAL
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  // VALUE STATE
+  const [value, setValue] = useState();
+  // DECONSTRUCT CATEGORY
+  const { name, tag, categoryImage } = category;
+  // HANDLER FUNCTION FOR OPENING/CLOSING MODAL
   function handleClick() {
     setIsOpenModal((show) => !show), setValue(category.name);
   }
-
-  // REDUCE NAME
+  // ROW + MODAL JSX
   return (
     <StyledRow value={value} onClick={handleClick}>
       {isOpenModal && (

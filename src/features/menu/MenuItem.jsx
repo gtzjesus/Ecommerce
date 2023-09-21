@@ -26,19 +26,13 @@ const Description = styled.span`
   font-size: var(--font-small);
   width: var(--width-description);
 `;
-
+// INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
-  // DECONSTRUCT THE OBJECT TO OUR LIKING
+  // DECONSTRUCT ITEM OBJECT
   const { image, name, description } = item;
-  console.log(item);
-
-  // HANDLE CLICK FOR ADDING TO BAG
-  // function handleClick() {
-  //   console.log(id);
-  // }
-
+  // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
-
+  // LAST COMPONENT TREE, DISPLAYS SUMMARY
   return (
     <StyledItemContainer>
       <Button variation="heart" size="xsmall">

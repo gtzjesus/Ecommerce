@@ -1,22 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Landing from './ui/app/Landing';
 import Menu from './pages/menu/Menu';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import PageNotFound from './pages/notfound/PageNotFound';
 import GlobalStyles from './styles/GlobalStyles';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 0,
-    },
-  },
-});
+import { MenuProvider } from './context/MenuContext';
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MenuProvider>
         <GlobalStyles />
         <Routes>
           <Route element={<Landing />}>
@@ -27,8 +19,8 @@ function App() {
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-      </BrowserRouter>
-    </QueryClientProvider>
+      </MenuProvider>
+    </BrowserRouter>
   );
 }
 export default App;
