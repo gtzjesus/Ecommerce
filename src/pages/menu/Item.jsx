@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 import { useLocation } from 'react-router';
 import Navigation from '../../ui/app/Navigation';
@@ -6,7 +6,8 @@ import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Footer from '../../ui/footer/Footer';
-import { updateHeart } from '../../services/apiItems';
+import { updateFaves } from '../../services/apiItems';
+import toast from 'react-hot-toast';
 
 const Page = styled.div`
   background: url('/images/backgrounds/item.webp');
@@ -66,14 +67,13 @@ const Discount = styled.span`
 `;
 
 function Item() {
+  const [isHeart, setIsHeart] = useState(false);
   const location = useLocation();
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
   const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
 
   // GRAB ITEMS FROM MENU CONTEXT
   const { items } = useContext(MenuContext);
-
-  // ACCESS ID INSIDE OBJECT
 
   // SORT ITEMS BY ID TO DISPLAY INDIVIDUAL COMPONENT
   function dynamicSort(property) {
@@ -84,23 +84,25 @@ function Item() {
 
   // STORE SORT COMM
   const sortedItems = items.sort(dynamicSort('id'));
-
   // CREATE ITEM OBJECT FROM THIS LIST
   const item = sortedItems;
 
   // HANDLE CLICK FOR HEART FAVE
   function handleHeart() {
-    // GRAB ITEM ID
-    const updatedItem = item[pathname];
+    const faves = items[pathname].faves;
     // CHECK IF faves IS FILLED IN DATABASE
-    if (items[pathname].faves === '') {
+    if (faves === '') {
       // IF NULL WE WANT TO ADD yes STRING INTO ROW
-      updateHeart();
-      console.log(updatedItem);
+      updateFaves(pathname + 1);
+      setIsHeart(true);
+      // TOAST FOR SUCCESS
+      toast.success('Added to faves');
     }
   }
 
-  // console.log(item[pathname].faves);
+  useEffect(() => {
+    console.log('render');
+  }, [isHeart]);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
@@ -108,7 +110,12 @@ function Item() {
       <Navigation />
       <StyledItemContainer key={item[pathname].key}>
         <StyledNav>
-          <Button variation="heart" size="xsmall" onClick={handleHeart}>
+          <Button
+            value={isHeart}
+            variation="heart"
+            size="xsmall"
+            onClick={handleHeart}
+          >
             {item[pathname].faves === 'yes' ? (
               <AiFillHeart />
             ) : (

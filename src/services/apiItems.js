@@ -6,12 +6,11 @@ export async function getItems() {
   return items;
 }
 
-export async function updateHeart() {
+export async function updateFaves(pathname) {
   const { data, error } = await supabase
     .from('items')
-    .upsert({ faves: 'yes' })
-    .select();
+    .update({ faves: 'yes' })
+    .eq('id', pathname);
   if (error) throw new Error('Could not update row');
-  console.log(error);
   return data;
 }
