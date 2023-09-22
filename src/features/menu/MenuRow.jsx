@@ -27,15 +27,6 @@ const Title = styled.div`
   font-size: var(--font-medium);
 `;
 
-const Tag = styled.span`
-  font-size: var(--font-xsmall);
-  border-radius: var(--border-tag);
-  background-color: var(--color-red);
-  width: fit-content;
-  color: var(--color-white);
-  padding: var(--padding-small);
-`;
-
 // ROW COMPONENT FOR EACH CATEGORY USED IN MENU PAGE
 function MenuRow({ category }) {
   // STATE FOR OPENING/CLOSING MODAL
@@ -43,7 +34,7 @@ function MenuRow({ category }) {
   // VALUE STATE
   const [value, setValue] = useState();
   // DECONSTRUCT CATEGORY
-  const { name, tag, categoryImage } = category;
+  const { name, categoryImage } = category;
   // HANDLER FUNCTION FOR OPENING/CLOSING MODAL
   function handleClick() {
     setIsOpenModal((show) => !show), setValue(category.name);
@@ -62,7 +53,7 @@ function MenuRow({ category }) {
       )}
       <Img src={categoryImage} />
       <Info>
-        {!tag ? null : <Tag>{tag}</Tag>}
+        {/* {!tag ? null : <Tag>{tag}</Tag>} */}
         <Title>{name}</Title>
       </Info>
     </StyledRow>
