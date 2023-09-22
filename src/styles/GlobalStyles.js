@@ -57,6 +57,7 @@ const GlobalStyles = createGlobalStyle`
     /* Z-Indexes */
     --z-top: 9999;
     --z-second: 9998;
+    --z-third: 9997;
 
 
     

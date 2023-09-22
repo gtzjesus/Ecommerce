@@ -97,19 +97,19 @@ function Item() {
       item[pathname].faves = [];
     }
 
-    const heartId = item[pathname].id;
-    console.log(heartId);
+    // const heartId = item[pathname].id;
+    // console.log(heartId);
 
     //DISPLAY TOASTS BASED ON CLICK
     if (item[pathname].faves === null) {
-      console.log(item[pathname].faves);
+      // console.log(item[pathname].faves);
       toast.success('Added to faves');
     } else {
       toast.error('Removed from faves');
     }
   }
 
-  console.log(item[pathname].faves);
+  // console.log(item[pathname].faves);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (

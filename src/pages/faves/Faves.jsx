@@ -8,6 +8,8 @@ import MenuItem from '../../features/menu/MenuItem';
 
 const StyledFaves = styled.div`
   background-color: var(--background-primary);
+  list-style: none;
+  padding: var(--padding-medium) 0;
 `;
 
 const EmptyContainer = styled.div`
@@ -18,15 +20,14 @@ const EmptyContainer = styled.div`
   height: var(--height-full-window);
 `;
 
-const Title = styled.div`
+const Title = styled.span`
   display: flex;
   justify-content: center;
   font-size: var(--font-large);
   color: var(--color-red);
-  padding: var(--padding-small);
 `;
 
-const Land = styled.span`
+const Land = styled.div`
   align-items: center;
   font-size: var(--font-medium);
 `;

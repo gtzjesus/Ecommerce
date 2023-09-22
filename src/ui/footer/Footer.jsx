@@ -9,6 +9,7 @@ const StyledFooter = styled.footer`
   background-color: var(--background-primary);
   border-radius: var(--border-footer);
   box-shadow: var(--shadow-container);
+  z-index: var(--z-top);
 `;
 
 const StyledUnorderedList = styled.ul`
