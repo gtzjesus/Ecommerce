@@ -5,8 +5,8 @@ import Navigation from '../../ui/app/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import toast from 'react-hot-toast';
 import Footer from '../../ui/footer/Footer';
+import { updateHeart } from '../../services/apiItems';
 
 const Page = styled.div`
   background: url('/images/backgrounds/item.webp');
@@ -66,8 +66,7 @@ const Discount = styled.span`
 `;
 
 function Item() {
-  // ACCESS QUERY
-  const location = useLocation(); // React Hook
+  const location = useLocation();
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
   const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
 
@@ -90,22 +89,14 @@ function Item() {
   const item = sortedItems;
 
   // HANDLE CLICK FOR HEART FAVE
-  function handleHeart(event) {
-    event.preventDefault();
-    // IF CLICK THEN WE SET FAVES TO NULL
-    if (item[pathname].faves) {
-      item[pathname].faves = [];
-    }
-
-    // const heartId = item[pathname].id;
-    // console.log(heartId);
-
-    //DISPLAY TOASTS BASED ON CLICK
-    if (item[pathname].faves === null) {
-      // console.log(item[pathname].faves);
-      toast.success('Added to faves');
-    } else {
-      toast.error('Removed from faves');
+  function handleHeart() {
+    // GRAB ITEM ID
+    const updatedItem = item[pathname];
+    // CHECK IF faves IS FILLED IN DATABASE
+    if (items[pathname].faves === '') {
+      // IF NULL WE WANT TO ADD yes STRING INTO ROW
+      updateHeart();
+      console.log(updatedItem);
     }
   }
 

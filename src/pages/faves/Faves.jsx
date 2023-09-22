@@ -50,17 +50,14 @@ function Faves() {
         <Title>Faves</Title>
 
         {itemArray.map((item) =>
-          item.faves === 'yes' ? (
-            <MenuItem item={item} key={item.key} />
-          ) : (
-            <EmptyContainer key={item.key}>
-              <Land>
-                No faves to display <FaRegFaceSadTear />
-              </Land>
-            </EmptyContainer>
-          )
+          item.faves === 'yes' ? <MenuItem item={item} key={item.key} /> : null
         )}
       </StyledFaves>
+      <EmptyContainer>
+        <Land>
+          No faves to display <FaRegFaceSadTear />
+        </Land>
+      </EmptyContainer>
       <Footer />
     </>
   );
