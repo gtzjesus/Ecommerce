@@ -42,7 +42,7 @@ const variations = {
     }
   `,
   heart: css`
-    color: inherit;
+    color: var(--color-red);
     background-color: inherit;
     box-shadow: none;
   `,

@@ -11,7 +11,6 @@ const StyledItemContainer = styled.li`
 `;
 
 const StyledNav = styled.nav`
-  color: var(--color-red);
   display: flex;
   justify-content: space-between;
 `;
@@ -42,11 +41,12 @@ const Tag = styled.span`
   color: var(--color-white);
   padding: var(--padding-small);
 
-  -webkit-transform: skewY(30deg);
-  -moz-transform: skewY(30deg);
-  -ms-transform: skewY(30deg);
-  -o-transform: skewY(30deg);
-  transform: skewY(30deg);
+  // TILT TAG ELEMENT
+  -webkit-transform: skewY(12.5deg);
+  -moz-transform: skewY(12.5deg);
+  -ms-transform: skewY(12.5deg);
+  -o-transform: skewY(12.5deg);
+  transform: skewY(12.5deg);
 `;
 // INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
@@ -74,9 +74,6 @@ function MenuItem({ item, isLoading }) {
         <Name>{name}</Name>
         <Img src={image} />
         <Description>{description}</Description>
-        {/* <Button variation="primary" size="small" onClick={handleClick}>
-          Add to bag
-        </Button> */}
       </StyledDesc>
     </StyledItemContainer>
   );

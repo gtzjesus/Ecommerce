@@ -4,13 +4,14 @@ const GlobalStyles = createGlobalStyle`
 :root {
 
   /* Width && Height */
-    --width-full-window: 100%;
     --width-description: 80%;
-
+    --width-full-window: 100%;
     --height-full-window: 100vh;
 
   /* Backrounds */
   --background-primary: #ede1d1;
+  --background-secondary: #f7ead9;
+
 
   /* Colors */
   --color-red: #991b1b;
@@ -34,6 +35,8 @@ const GlobalStyles = createGlobalStyle`
     /* Padding */
     --padding-small: 1.25rem;
     --padding-medium: 2rem;
+    --padding-large: 3rem;
+
     --padding-header:0.5rem 1rem;
 
     /* Gap */
