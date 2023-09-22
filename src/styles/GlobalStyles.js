@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle`
 
 
     /* Padding */
-    --padding-small: 1rem;
+    --padding-small: 1.25rem;
     --padding-medium: 2rem;
     --padding-header:0.5rem 1rem;
 

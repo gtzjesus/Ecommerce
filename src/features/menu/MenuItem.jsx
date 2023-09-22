@@ -5,7 +5,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { useNavigate } from 'react-router';
 
 const StyledItemContainer = styled.li`
-  background-color: var(--color-tan);
+  background-color: #fff5e8;
   padding: var(--padding-medium);
   margin: var(--margin-large);
 `;
@@ -42,11 +42,11 @@ const Tag = styled.span`
   color: var(--color-white);
   padding: var(--padding-small);
 
-  -webkit-transform: skewY(10deg);
-  -moz-transform: skewY(10deg);
-  -ms-transform: skewY(10deg);
-  -o-transform: skewY(10deg);
-  transform: skewY(10deg);
+  -webkit-transform: skewY(30deg);
+  -moz-transform: skewY(30deg);
+  -ms-transform: skewY(30deg);
+  -o-transform: skewY(30deg);
+  transform: skewY(30deg);
 `;
 // INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
