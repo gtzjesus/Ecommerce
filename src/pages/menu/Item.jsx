@@ -4,14 +4,16 @@ import { useLocation } from 'react-router';
 import Navigation from '../../ui/app/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import toast from 'react-hot-toast';
+import Footer from '../../ui/footer/Footer';
 
 const Page = styled.div`
   background: url('/images/backgrounds/item.webp');
   background-size: cover;
   background-position: center center;
   height: var(--height-full-window);
-s`;
+`;
 
 const StyledItemContainer = styled.div`
   background-color: #f7ead9;
@@ -87,14 +89,40 @@ function Item() {
   // CREATE ITEM OBJECT FROM THIS LIST
   const item = sortedItems;
 
+  // HANDLE CLICK FOR HEART FAVE
+  function handleHeart(event) {
+    event.preventDefault();
+    // IF CLICK THEN WE SET FAVES TO NULL
+    if (item[pathname].faves) {
+      item[pathname].faves = [];
+    }
+
+    const heartId = item[pathname].id;
+    console.log(heartId);
+
+    //DISPLAY TOASTS BASED ON CLICK
+    if (item[pathname].faves === null) {
+      console.log(item[pathname].faves);
+      toast.success('Added to faves');
+    } else {
+      toast.error('Removed from faves');
+    }
+  }
+
+  console.log(item[pathname].faves);
+
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
     <Page>
       <Navigation />
       <StyledItemContainer key={item[pathname].key}>
         <StyledNav>
-          <Button variation="heart" size="xsmall">
-            <AiOutlineHeart />
+          <Button variation="heart" size="xsmall" onClick={handleHeart}>
+            {item[pathname].faves === 'yes' ? (
+              <AiFillHeart />
+            ) : (
+              <AiOutlineHeart />
+            )}
           </Button>
 
           <Currency>
@@ -115,6 +143,7 @@ function Item() {
           </Button>
         </StyledDesc>
       </StyledItemContainer>
+      <Footer />
     </Page>
   );
 }

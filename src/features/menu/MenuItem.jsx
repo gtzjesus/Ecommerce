@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { useNavigate } from 'react-router';
 
 const StyledItemContainer = styled.li`
@@ -66,7 +66,7 @@ function MenuItem({ item, isLoading }) {
     <StyledItemContainer onClick={handleTap}>
       <StyledNav>
         <Button variation="heart" size="xsmall">
-          <AiOutlineHeart />
+          {item.faves === 'yes' ? <AiFillHeart /> : <AiOutlineHeart />}
         </Button>
         {!tag ? null : <Tag>{tag}</Tag>}
       </StyledNav>

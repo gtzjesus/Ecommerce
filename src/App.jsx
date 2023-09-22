@@ -8,6 +8,8 @@ import GlobalStyles from './styles/GlobalStyles';
 import Menu from './pages/menu/Menu';
 import PageNotFound from './pages/notfound/PageNotFound';
 import Item from './pages/menu/Item';
+import { Toaster } from 'react-hot-toast';
+import Faves from './pages/faves/Faves';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -31,9 +33,31 @@ function App() {
             </Route>
             <Route path="menu" element={<Menu />} />
             <Route path="/menu/:id" element={<Item />} />
+            <Route path="/faves" element={<Faves />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
+
+        <Toaster
+          position="top-center"
+          gutter={12}
+          containerStyle={{ margin: '8px' }}
+          toastOptions={{
+            success: {
+              duration: 3000,
+            },
+            error: {
+              duration: 5000,
+            },
+            style: {
+              fontSize: '16px',
+              maxWidth: '500px',
+              padding: '16px 24px',
+              backgroundColor: 'var(--background-primary)',
+              color: 'var(--color-red)',
+            },
+          }}
+        />
       </MenuProvider>
     </QueryClientProvider>
   );

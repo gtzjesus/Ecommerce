@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 import useItems from '../pages/menu/useItems';
 import useCategories from '../pages/menu/useCategories';
+
 // CREATE CONTEXT API
 const MenuContext = createContext();
 function MenuProvider({ children }) {

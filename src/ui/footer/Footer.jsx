@@ -36,7 +36,7 @@ function Footer() {
           <Link to="/menu">menu</Link>
         </StyledList>
         <StyledList>
-          <Link to="/favorites">faves</Link>
+          <Link to="/faves">faves</Link>
         </StyledList>
         <StyledList>
           <Link to="/orders">orders</Link>

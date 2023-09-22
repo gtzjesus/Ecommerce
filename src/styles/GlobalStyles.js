@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
   /* Width && Height */
     --width-description: 80%;
     --width-full-window: 100%;
-    --height-full-window: 100vh;
+    --height-full-window: 80vh;
 
   /* Backrounds */
   --background-primary: #ede1d1;
