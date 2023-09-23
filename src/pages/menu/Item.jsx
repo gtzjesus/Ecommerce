@@ -89,14 +89,24 @@ function Item() {
 
   // HANDLE CLICK FOR HEART FAVE
   function handleHeart() {
+    // GRAB FAVES
     const faves = items[pathname].faves;
-    // CHECK IF faves IS FILLED IN DATABASE
+
+    // CHECK IF faves IS EMPTY
     if (faves === '') {
       // IF NULL WE WANT TO ADD yes STRING INTO ROW
-      updateFaves(pathname + 1);
+      updateFaves(pathname + 1, 'yes');
       setIsHeart(true);
       // TOAST FOR SUCCESS
       toast.success('Added to faves');
+    }
+    // CHECK IF faves HAS yes
+    if (faves === 'yes') {
+      // IF yes FOUND, WANT TO SET TO EMPTY STRING
+      updateFaves(pathname + 1, '');
+      setIsHeart(false);
+      // TOAST FOR ERROR
+      toast.error('Removed from faves');
     }
   }
 

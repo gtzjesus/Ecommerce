@@ -41,22 +41,29 @@ function Faves() {
   const { items } = useContext(MenuContext);
   // FILTER ITEMS WITH yes FAVES
   const itemArray = items.filter((item) => item.faves);
+  console.log(itemArray);
 
   return (
     <>
       <Navigation />
-      <Title>Faves</Title>
-
-      <StyledFaves>
-        {itemArray.map((item) =>
-          item.faves === 'yes' ? <MenuItem item={item} key={item.key} /> : null
-        )}
-      </StyledFaves>
-      <EmptyContainer>
-        <Land>
-          No faves to display <FaRegFaceSadTear />
-        </Land>
-      </EmptyContainer>
+      {itemArray.length === 0 ? (
+        <EmptyContainer>
+          <Land>
+            No faves to display <FaRegFaceSadTear />
+          </Land>
+        </EmptyContainer>
+      ) : (
+        <>
+          <Title>faves</Title>
+          <StyledFaves>
+            {itemArray.map((item) =>
+              item.faves === 'yes' ? (
+                <MenuItem item={item} key={item.key} />
+              ) : null
+            )}
+          </StyledFaves>
+        </>
+      )}
       <Footer />
     </>
   );

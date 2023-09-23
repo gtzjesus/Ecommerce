@@ -6,10 +6,10 @@ export async function getItems() {
   return items;
 }
 
-export async function updateFaves(pathname) {
+export async function updateFaves(pathname, string) {
   const { data, error } = await supabase
     .from('items')
-    .update({ faves: 'yes' })
+    .update({ faves: string })
     .eq('id', pathname);
   if (error) throw new Error('Could not update row');
   return data;
