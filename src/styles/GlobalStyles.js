@@ -8,6 +8,8 @@ const GlobalStyles = createGlobalStyle`
     --width-full-window: 100%;
     --width-half-window: 45vw;
     --height-full-window: 80vh;
+    --height-filled-window: 100vh;
+
 
   /* Backrounds */
   --background-primary: #ede1d1;

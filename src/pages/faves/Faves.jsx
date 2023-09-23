@@ -46,7 +46,6 @@ function Faves() {
   const { items } = useContext(MenuContext);
   // FILTER ITEMS WITH yes FAVES
   const itemArray = items.filter((item) => item.faves);
-  console.log(itemArray);
 
   return (
     <Favorites>

@@ -10,14 +10,15 @@ import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 
 const Page = styled.div`
-  background: url('/images/backgrounds/item.webp');
-  background-size: cover;
-  background-position: center center;
-  height: var(--height-full-window);
+  background-color: var(--background-primary);
+
+  height: var(--height-filled-window);
 `;
 
 const StyledItemContainer = styled.div`
-  background-color: #f7ead9;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-secondary);
   padding: var(--padding-large);
   margin: var(--margin-large);
 `;
@@ -64,6 +65,11 @@ const Price = styled.span`
 const Discount = styled.span`
   font-size: var(--font-xsmall);
   color: var(--color-red);
+`;
+
+const StyledButton = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 function Item() {
@@ -143,14 +149,15 @@ function Item() {
           <Name>{item[pathname].name}</Name>
           <Category>{item[pathname].category}</Category>
           <Img src={item[pathname].image} />
-
           <Description>{item[pathname].description}</Description>
-
-          <Button variation="primary" size="small">
-            Add to bag
-          </Button>
         </StyledDesc>
       </StyledItemContainer>
+
+      <StyledButton>
+        <Button variation="primary" size="small">
+          Add to bag (${item[pathname].regularPrice})
+        </Button>
+      </StyledButton>
       <Footer />
     </Page>
   );
