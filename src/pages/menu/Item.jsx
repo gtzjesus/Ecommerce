@@ -9,6 +9,10 @@ import Footer from '../../ui/footer/Footer';
 import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 
+const Page = styled.div`
+  background-color: var(--background-primary);
+`;
+
 const StyledItemContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -123,7 +127,7 @@ function Item() {
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
-    <>
+    <Page>
       <Navigation />
       <StyledItemContainer key={item[pathname].key}>
         <StyledNav>
@@ -168,7 +172,7 @@ function Item() {
         </StyledDesc>
       </StyledItemContainer>
       <Footer />
-    </>
+    </Page>
   );
 }
 
