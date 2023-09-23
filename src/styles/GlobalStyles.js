@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
   /* Width && Height */
     --width-description: 80%;
     --width-full-window: 100%;
+    --width-half-window: 50vw;
     --height-full-window: 80vh;
 
   /* Backrounds */
@@ -27,12 +28,14 @@ const GlobalStyles = createGlobalStyle`
 
 
       /* Margin */
+    --margin-xsmall: 0.5rem;
     --margin-small: 1rem;
     --margin-medium: 2rem;
     --margin-large: 3rem;
 
 
     /* Padding */
+    --padding-xsmall: 0.5rem;
     --padding-small: 1.25rem;
     --padding-medium: 2rem;
     --padding-large: 3rem;
@@ -45,6 +48,7 @@ const GlobalStyles = createGlobalStyle`
 
     /* Image Sizes */
     --image-small: 8rem;
+    --image-medium: 12.5rem;
     --image-large: 30rem;
 
     /* Border Radius */

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Overlay = styled.div`
+  height: var(--height-full-window);
   position: absolute;
   top: 0;
   left: 0;

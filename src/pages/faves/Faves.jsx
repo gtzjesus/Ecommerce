@@ -37,11 +37,6 @@ function Faves() {
   const { items } = useContext(MenuContext);
   // FILTER ITEMS WITH yes FAVES
   const itemArray = items.filter((item) => item.faves);
-  console.log(itemArray);
-
-  // CHECK FOR ITEMS WITH yes FAVES (HEART)
-  //   const faves = items.map((item) => item.faves === 'yes');
-  //   console.log(faves);
 
   return (
     <>

@@ -5,7 +5,6 @@ export async function getCategories() {
     .from('categories')
     .select('*');
   if (error) {
-    console.log(error);
     throw new Error('Error loading categories');
   }
 
@@ -17,7 +16,6 @@ export async function getCategoryName() {
     .from('categories')
     .select('name');
   if (error) {
-    console.log(error);
     throw new Error('Error getting item name');
   }
 

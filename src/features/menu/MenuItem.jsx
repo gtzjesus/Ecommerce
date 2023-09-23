@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router';
 
 const StyledItemContainer = styled.li`
   background-color: #fff5e8;
-  padding: var(--padding-medium);
-  margin: var(--margin-large);
+  padding: var(--padding-small);
+  margin: var(--margin-xsmall);
+  width: var(--width-half-window);
 `;
 
 const StyledNav = styled.nav`
@@ -22,38 +23,18 @@ const StyledDesc = styled.div`
 `;
 
 const Name = styled.span`
-  font-size: var(--font-medium);
+  font-size: var(--font-small);
 `;
 const Img = styled.img`
-  width: var(--image-large);
+  width: var(--image-medium);
 `;
 
-const Description = styled.span`
-  font-size: var(--font-small);
-  width: var(--width-description);
-`;
-
-const Tag = styled.span`
-  font-size: var(--font-xsmall);
-  border-radius: var(--border-tag);
-  background-color: var(--color-red);
-  width: fit-content;
-  color: var(--color-white);
-  padding: var(--padding-small);
-
-  // TILT TAG ELEMENT
-  -webkit-transform: skewY(12.5deg);
-  -moz-transform: skewY(12.5deg);
-  -ms-transform: skewY(12.5deg);
-  -o-transform: skewY(12.5deg);
-  transform: skewY(12.5deg);
-`;
 // INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
   // GRAB NAVIGATION
   const navigate = useNavigate();
   // DECONSTRUCT OBJECT
-  const { id, tag, image, name, description } = item;
+  const { id, image, name } = item;
   // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
   // HANDLER TO NAVIGATE ON TAP
@@ -68,12 +49,10 @@ function MenuItem({ item, isLoading }) {
         <Button variation="heart" size="xsmall">
           {item.faves === 'yes' ? <AiFillHeart /> : <AiOutlineHeart />}
         </Button>
-        {!tag ? null : <Tag>{tag}</Tag>}
       </StyledNav>
       <StyledDesc>
         <Name>{name}</Name>
         <Img src={image} />
-        <Description>{description}</Description>
       </StyledDesc>
     </StyledItemContainer>
   );

@@ -5,7 +5,8 @@ import { useContext } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 
 const StyledMenu = styled.div`
-  margin: var(--margin-medium);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 `;
 
 const Title = styled.span`
@@ -13,6 +14,7 @@ const Title = styled.span`
   justify-content: center;
   font-size: var(--font-large);
   color: var(--color-red);
+  margin: var(--margin-medium);
 `;
 
 function MenuCategorized({ category }) {
@@ -25,8 +27,8 @@ function MenuCategorized({ category }) {
   // RETURN CATEGORIZED MENU
   return (
     <>
+      <Title>{category.name}</Title>
       <StyledMenu>
-        <Title>{category.name}</Title>
         {items.map((item) => (
           <MenuCategorizedItems category={category} item={item} key={item.id} />
         ))}
