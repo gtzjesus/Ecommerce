@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Navigation from '../app/Navigation';
 
 const Overlay = styled.div`
   height: var(--height-full-window);
@@ -11,7 +12,12 @@ const Overlay = styled.div`
 `;
 
 function Modal({ children }) {
-  return <Overlay>{children}</Overlay>;
+  return (
+    <Overlay>
+      <Navigation />
+      {children}
+    </Overlay>
+  );
 }
 
 export default Modal;

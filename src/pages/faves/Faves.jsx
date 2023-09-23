@@ -7,6 +7,8 @@ import { MenuContext } from '../../context/MenuContext';
 import MenuItem from '../../features/menu/MenuItem';
 
 const StyledFaves = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: var(--background-primary);
   list-style: none;
   padding: var(--padding-medium) 0;
@@ -21,10 +23,12 @@ const EmptyContainer = styled.div`
 `;
 
 const Title = styled.span`
+  background-color: var(--background-primary);
   display: flex;
   justify-content: center;
   font-size: var(--font-large);
   color: var(--color-red);
+  padding: var(--margin-medium);
 `;
 
 const Land = styled.div`
@@ -41,9 +45,9 @@ function Faves() {
   return (
     <>
       <Navigation />
-      <StyledFaves>
-        <Title>Faves</Title>
+      <Title>Faves</Title>
 
+      <StyledFaves>
         {itemArray.map((item) =>
           item.faves === 'yes' ? <MenuItem item={item} key={item.key} /> : null
         )}

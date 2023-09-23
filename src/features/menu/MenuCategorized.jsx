@@ -14,7 +14,7 @@ const Title = styled.span`
   justify-content: center;
   font-size: var(--font-large);
   color: var(--color-red);
-  margin: var(--margin-medium);
+  padding: var(--margin-medium);
 `;
 
 function MenuCategorized({ category }) {

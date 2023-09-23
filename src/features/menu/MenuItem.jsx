@@ -26,7 +26,12 @@ const Name = styled.span`
   font-size: var(--font-small);
 `;
 const Img = styled.img`
-  width: var(--image-medium);
+  width: var(--image-large);
+`;
+
+const Quantity = styled.span`
+  font-size: var(--font-xsmall);
+  color: var(--color-red);
 `;
 
 // INDIVIDUAL ITEM COMPONENT
@@ -34,7 +39,7 @@ function MenuItem({ item, isLoading }) {
   // GRAB NAVIGATION
   const navigate = useNavigate();
   // DECONSTRUCT OBJECT
-  const { id, image, name } = item;
+  const { id, image, name, quantity } = item;
   // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
   // HANDLER TO NAVIGATE ON TAP
@@ -53,6 +58,7 @@ function MenuItem({ item, isLoading }) {
       <StyledDesc>
         <Name>{name}</Name>
         <Img src={image} />
+        <Quantity>{quantity} available</Quantity>
       </StyledDesc>
     </StyledItemContainer>
   );
