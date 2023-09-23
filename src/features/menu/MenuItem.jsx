@@ -8,7 +8,6 @@ const StyledItemContainer = styled.li`
   background-color: #fff5e8;
   padding: var(--padding-small);
   margin: var(--margin-xsmall);
-  width: var(--width-half-window);
 `;
 
 const StyledNav = styled.nav`
@@ -29,17 +28,12 @@ const Img = styled.img`
   width: var(--image-large);
 `;
 
-const Quantity = styled.span`
-  font-size: var(--font-xsmall);
-  color: var(--color-red);
-`;
-
 // INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
   // GRAB NAVIGATION
   const navigate = useNavigate();
   // DECONSTRUCT OBJECT
-  const { id, image, name, quantity } = item;
+  const { id, image, name } = item;
   // CHECK LOADING STATE FOR SPINNER
   if (isLoading) return <Spinner />;
   // HANDLER TO NAVIGATE ON TAP
@@ -58,7 +52,6 @@ function MenuItem({ item, isLoading }) {
       <StyledDesc>
         <Name>{name}</Name>
         <Img src={image} />
-        <Quantity>{quantity} available</Quantity>
       </StyledDesc>
     </StyledItemContainer>
   );
