@@ -28,6 +28,15 @@ const StyledNav = styled.nav`
   justify-content: space-between;
 `;
 
+const Price = styled.span`
+  font-size: var(--font-small);
+`;
+
+const Discount = styled.span`
+  font-size: var(--font-xsmall);
+  color: var(--color-red);
+`;
+
 const StyledDesc = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,6 +59,7 @@ const Img = styled.img`
 const Description = styled.span`
   font-size: var(--font-small);
   width: var(--width-description);
+  text-align: center;
 `;
 
 const Currency = styled.div`
@@ -58,18 +68,20 @@ const Currency = styled.div`
   align-items: center;
 `;
 
-const Price = styled.span`
-  font-size: var(--font-small);
-`;
-
-const Discount = styled.span`
+const Quantity = styled.span`
   font-size: var(--font-xsmall);
   color: var(--color-red);
 `;
 
-const StyledButton = styled.div`
+const ButtonLayout = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  padding: var(--padding-small);
+`;
+
+const Amount = styled.span`
+  font-size: var(--font-medium);
+  padding: 0 var(--padding-medium);
 `;
 
 function Item() {
@@ -150,14 +162,21 @@ function Item() {
           <Category>{item[pathname].category}</Category>
           <Img src={item[pathname].image} />
           <Description>{item[pathname].description}</Description>
+          <ButtonLayout>
+            <Button variation="quantity" size="small">
+              -
+            </Button>
+            <Amount>1</Amount>
+            <Button variation="quantity" size="small">
+              +
+            </Button>
+          </ButtonLayout>
+          <Quantity>{item[pathname].quantity} available</Quantity>
+          <Button variation="primary" size="small">
+            Add to bag (${item[pathname].regularPrice})
+          </Button>
         </StyledDesc>
       </StyledItemContainer>
-
-      <StyledButton>
-        <Button variation="primary" size="small">
-          Add to bag (${item[pathname].regularPrice})
-        </Button>
-      </StyledButton>
       <Footer />
     </Page>
   );

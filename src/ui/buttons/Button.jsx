@@ -25,13 +25,10 @@ const sizes = {
 
 const variations = {
   primary: css`
-    color: #ffff;
-    background-color: #b21a10;
+    color: var(--color-white);
+    background-color: var(--color-red);
     width: 50vw;
     margin: 2.5rem;
-    &:hover {
-      background-color: #b21a10;
-    }
   `,
   secondary: css`
     color: inherit;
@@ -45,6 +42,12 @@ const variations = {
     color: var(--color-red);
     background-color: inherit;
     box-shadow: none;
+  `,
+  quantity: css`
+    color: var(--color-white);
+    background-color: var(--color-red);
+    border-radius: 5px;
+    padding: 0 var(--padding-small);
   `,
   danger: css`
     color: var(--color-red-100);
@@ -62,7 +65,7 @@ const Button = styled.button`
   cursor: pointer;
   border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  z-index: var(--z-third);
+  z-index: var(--z-top);
   ${(props) => sizes[props.size]}
   ${(props) => variations[props.variation]};
 `;
