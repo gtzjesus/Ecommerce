@@ -35,10 +35,12 @@ const GlobalStyles = createGlobalStyle`
 
 
     /* Padding */
-    --padding-xsmall: 0.5rem;
+    --padding-xsmall: 0.75rem;
     --padding-small: 1.25rem;
     --padding-medium: 2rem;
     --padding-large: 3rem;
+    --padding-xlarge: 7rem;
+
 
     --padding-header:0.5rem 1rem;
 

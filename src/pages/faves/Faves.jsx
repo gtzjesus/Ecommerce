@@ -11,7 +11,7 @@ const StyledFaves = styled.div`
   grid-template-columns: 1fr 1fr;
   background-color: var(--background-primary);
   list-style: none;
-  padding: var(--padding-medium);
+  padding: var(--padding-xsmall);
 `;
 
 const EmptyContainer = styled.div`
