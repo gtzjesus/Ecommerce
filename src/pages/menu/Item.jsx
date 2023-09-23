@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 import { useLocation } from 'react-router';
 import Navigation from '../../ui/app/Navigation';
@@ -79,6 +79,7 @@ const Amount = styled.span`
 
 function Item() {
   const [isHeart, setIsHeart] = useState(false);
+
   const location = useLocation();
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
   const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
@@ -107,7 +108,12 @@ function Item() {
     if (faves === '') {
       // IF NULL WE WANT TO ADD yes STRING INTO ROW
       updateFaves(pathname + 1, 'yes');
+
+      // UPDATE HEART STATE
       setIsHeart(true);
+
+      // UPDATE DOM SO THAT IT RENDERS AFTER CLICK OF HEART
+
       // TOAST FOR SUCCESS
       toast.success('Added to faves');
     }
@@ -120,10 +126,6 @@ function Item() {
       toast.error('Removed from faves');
     }
   }
-
-  useEffect(() => {
-    isHeart !== isHeart;
-  }, [isHeart]);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
