@@ -7,6 +7,8 @@ import { MenuContext } from '../../context/MenuContext';
 const StyledMenu = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: var(--background-primary);
+  list-style: none;
   padding: 0 0 var(--padding-xlarge) 0;
 `;
 

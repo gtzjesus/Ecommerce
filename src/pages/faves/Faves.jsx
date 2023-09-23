@@ -6,6 +6,11 @@ import { useContext } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 import MenuItem from '../../features/menu/MenuItem';
 
+const Favorites = styled.div`
+  background-color: var(--background-primary);
+  padding: 0 0 var(--padding-xlarge) 0;
+`;
+
 const StyledFaves = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -44,7 +49,7 @@ function Faves() {
   console.log(itemArray);
 
   return (
-    <>
+    <Favorites>
       <Navigation />
       {itemArray.length === 0 ? (
         <EmptyContainer>
@@ -65,7 +70,7 @@ function Faves() {
         </>
       )}
       <Footer />
-    </>
+    </Favorites>
   );
 }
 
