@@ -47,11 +47,6 @@ const Name = styled.span`
   font-size: var(--font-medium);
 `;
 
-const Category = styled.span`
-  font-size: var(--font-small);
-  padding: var(--padding-small);
-`;
-
 const Img = styled.img`
   width: var(--image-large);
 `;
@@ -80,7 +75,7 @@ const ButtonLayout = styled.div`
 `;
 
 const Amount = styled.span`
-  font-size: var(--font-medium);
+  font-size: var(--font-small);
   padding: 0 var(--padding-medium);
 `;
 
@@ -159,9 +154,10 @@ function Item() {
 
         <StyledDesc>
           <Name>{item[pathname].name}</Name>
-          <Category>{item[pathname].category}</Category>
           <Img src={item[pathname].image} />
+
           <Description>{item[pathname].description}</Description>
+
           <ButtonLayout>
             <Button variation="quantity" size="small">
               -
