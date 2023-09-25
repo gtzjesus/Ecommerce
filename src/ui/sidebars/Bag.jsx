@@ -1,13 +1,23 @@
 import styled from 'styled-components';
-import Button from '../buttons/Button';
+import BagItem from '../../features/bag/BagItem';
 import { useNavigate } from 'react-router';
 
 const Container = styled.div`
   width: var(--width-full-window);
 `;
 
+const Username = styled.span`
+  color: var(--color-red);
+  font-size: var(--font-medium);
+`;
+
 const StyledBag = styled.div`
-  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: var(--background-primary);
+  height: var(--height-full-window);
 `;
 
 const EmptyContainer = styled.div`
@@ -19,35 +29,39 @@ const EmptyContainer = styled.div`
   height: var(--height-full-window);
 `;
 
-const Land = styled.div`
+const EmptyContent = styled.div`
   align-items: center;
   font-size: var(--font-medium);
 `;
 
-const Img = styled.img`
+const EmptyImg = styled.img`
   width: var(--image-large);
 `;
 
 function Bag() {
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
-  // HANDLER FOR NAVIGATION
+  // HANDLER FOR NAVIGATION (emptycontainer)
   function handleNavigate() {
     navigate('/menu');
   }
   return (
     <Container>
+      <Username>jesus</Username>
+
       <StyledBag>
-        <EmptyContainer>
-          <Land>
-            <Img src="/images/backgrounds/empty.png" />
-          </Land>
-          <Land>Your bag is empty.</Land>
-          <Land>
-            <Button onClick={handleNavigate}>order now</Button>
-          </Land>
-        </EmptyContainer>
+        <BagItem />
       </StyledBag>
+
+      {/* <EmptyContainer>
+          <EmptyContent>
+            <EmptyImg src="/images/backgrounds/empty.png" />
+          </EmptyContent>
+          <EmptyContent>Your bag is empty.</EmptyContent>
+          <EmptyContent>
+            <Button onClick={handleNavigate}>order now</Button>
+          </EmptyContent>
+        </EmptyContainer> */}
     </Container>
   );
 }
