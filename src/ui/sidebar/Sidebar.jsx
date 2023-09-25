@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { RiShoppingBag2Line } from 'react-icons/ri';
+import { RiShoppingBag2Fill } from 'react-icons/ri';
 import { CgClose } from 'react-icons/cg';
 import Bag from '../bag/Bag';
 import Button from '../buttons/Button';
@@ -61,14 +61,15 @@ function Sidebar({ isOpen, setIsOpen }) {
       <StyledSidebar>
         <Nav>
           <Hamburger value={isOpen} onClick={() => handleToggle()}>
-            <RiShoppingBag2Line />
+            <RiShoppingBag2Fill />
           </Hamburger>
           <Hamburger onClick={() => handleToggle()}>
             <CgClose />
           </Hamburger>
         </Nav>
         <Bag />
-        <EmptyContainer>
+
+        {/* <EmptyContainer>
           <Land>
             <Img src="/images/backgrounds/empty.png" />
           </Land>
@@ -76,7 +77,7 @@ function Sidebar({ isOpen, setIsOpen }) {
           <Land>
             <Button onClick={handleClick}>order now</Button>
           </Land>
-        </EmptyContainer>
+        </EmptyContainer> */}
       </StyledSidebar>
     </>
   );

@@ -1,5 +1,5 @@
 function Bag() {
-  return <div>item item teim</div>;
+  return <div></div>;
 }
 
 export default Bag;
