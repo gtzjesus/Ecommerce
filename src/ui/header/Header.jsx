@@ -5,8 +5,10 @@ import { useState } from 'react';
 import Bag from '../sidebars/Bag';
 import User from '../sidebars/User';
 import { useNavigate } from 'react-router';
-import { FiArrowLeft } from 'react-icons/fi';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
+import { PiArrowFatLineLeft, PiArrowFatLineRight } from 'react-icons/pi';
+
+import { FaUser } from 'react-icons/fa';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -83,19 +85,45 @@ function Header({ isOpen, setIsOpen }) {
           </Hamburger>
         </>
       ) : (
+        ''
+      )}
+      {navTo === 'bag' ? (
         <Container>
           <StyledNav>
             <Hamburger>
-              <FiArrowLeft value={isOpen} onClick={() => handleToggle('')} />
+              <PiArrowFatLineLeft
+                value={isOpen}
+                onClick={() => handleToggle('')}
+              />
             </Hamburger>
             <Hamburger>
               <RiShoppingBag2Fill />
             </Hamburger>
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
-          {navTo === 'bag' ? <Bag /> : ''}
+          <Bag />
+        </Container>
+      ) : (
+        ''
+      )}
+      {navTo === 'user' ? (
+        <Container>
+          <StyledNav>
+            <Hamburger>
+              <FaUser />
+            </Hamburger>
+            <Hamburger>
+              <PiArrowFatLineRight
+                value={isOpen}
+                onClick={() => handleToggle('')}
+              />
+            </Hamburger>
+          </StyledNav>
+          {/* DISPLAY SIDEBARS */}
           {navTo === 'user' ? <User /> : ''}
         </Container>
+      ) : (
+        ''
       )}
     </StyledHeader>
   );
