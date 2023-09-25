@@ -1,23 +1,13 @@
 import styled from 'styled-components';
-import BagItem from '../../features/bag/BagItem';
+import BagItem from '../../features/bag/BagRow';
 import { useNavigate } from 'react-router';
 
-const Container = styled.div`
-  width: var(--width-full-window);
-`;
+const Container = styled.div``;
 
 const Username = styled.span`
   color: var(--color-red);
   font-size: var(--font-medium);
-`;
-
-const StyledBag = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  background-color: var(--background-primary);
-  height: var(--height-full-window);
+  padding: var(--padding-medium);
 `;
 
 const EmptyContainer = styled.div`
@@ -47,11 +37,8 @@ function Bag() {
   }
   return (
     <Container>
-      <Username>jesus</Username>
-
-      <StyledBag>
-        <BagItem />
-      </StyledBag>
+      <Username>Your bag jesus,</Username>
+      <BagItem />
 
       {/* <EmptyContainer>
           <EmptyContent>
