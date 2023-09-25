@@ -1,28 +1,26 @@
 import styled from 'styled-components';
 
-const StyledSidebar = styled.div`
-  z-index: 9998;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ede1d1;
-`;
+import { CgClose } from 'react-icons/cg';
 
-const Hamburger = styled.button`
-  padding: 2rem;
-  border: none;
-  background: none;
-  cursor: pointer;
+const StyledSidebar = styled.div`
+  z-index: var(--z-second);
+  background-color: var(--background-primary);
+  height: var(--height-full-window);
+  padding: var(--padding-header);
 `;
 
 const Nav = styled.div`
-  z-index: 9998;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #ede1d1;
-  display: flex;
-  gap: 5rem;
+  justify-content: right;
+`;
+
+const Hamburger = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--font-medium);
+  color: var(--color-red);
+  padding: var(--padding-header);
 `;
 
 function Sidebar({ isOpen, setIsOpen }) {
@@ -34,12 +32,13 @@ function Sidebar({ isOpen, setIsOpen }) {
   // RETURN THE COMPONENT
   return (
     <>
-      <Nav>
-        <Hamburger onClick={() => handleToggle()}>
-          <img src="/hamburger/hamburger-close.png" />
-        </Hamburger>
-      </Nav>
-      <StyledSidebar></StyledSidebar>
+      <StyledSidebar>
+        <Nav>
+          <Hamburger onClick={() => handleToggle()}>
+            <CgClose />
+          </Hamburger>
+        </Nav>
+      </StyledSidebar>
     </>
   );
 }
