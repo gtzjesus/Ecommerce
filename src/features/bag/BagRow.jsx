@@ -118,6 +118,32 @@ function BagRow({ item }) {
           </Hamburger>
         </StyledDescription>
       </StyledRow>
+      <StyledRow>
+        <StyledDescription>
+          <Img src="/images/items/alambre-doggo.png" />
+          <Name>doggo</Name>
+          <Quantity>x4</Quantity>
+        </StyledDescription>
+        <StyledDescription>
+          <Price>$19.99</Price>
+          <Hamburger>
+            <AiOutlineClose />
+          </Hamburger>
+        </StyledDescription>
+      </StyledRow>
+      <StyledRow>
+        <StyledDescription>
+          <Img src="/images/items/alambre-doggo.png" />
+          <Name>doggo</Name>
+          <Quantity>x4</Quantity>
+        </StyledDescription>
+        <StyledDescription>
+          <Price>$19.99</Price>
+          <Hamburger>
+            <AiOutlineClose />
+          </Hamburger>
+        </StyledDescription>
+      </StyledRow>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import BagItem from '../../features/bag/BagRow';
 import { useNavigate } from 'react-router';
+import BagTotal from '../../features/bag/BagTotal';
 
 const Container = styled.div``;
 
@@ -39,6 +40,7 @@ function Bag() {
     <Container>
       <Username>Your bag jesus,</Username>
       <BagItem />
+      <BagTotal />
 
       {/* <EmptyContainer>
           <EmptyContent>

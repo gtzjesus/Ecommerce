@@ -4,7 +4,7 @@ import Spinner from '../../ui/spinners/Spinner';
 import BagRow from './BagRow';
 
 const StyledTable = styled.div`
-  background-color: red;
+  height: var(--height-filled-window);
 `;
 
 function BagTable() {
@@ -15,11 +15,13 @@ function BagTable() {
   // HANDLE ERROR
   if (error) throw new Error('Issue grabbing items');
   return (
-    <StyledTable>
-      {items.map((item) => (
-        <BagRow item={item} key={item.id} />
-      ))}
-    </StyledTable>
+    <>
+      <StyledTable>
+        {items.map((item) => (
+          <BagRow item={item} key={item.id} />
+        ))}
+      </StyledTable>
+    </>
   );
 }
 
