@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import BagItem from '../../features/bag/BagRow';
 import { useNavigate } from 'react-router';
 import BagTotal from '../../features/bag/BagTotal';
+import Button from '../buttons/Button';
 
 const Container = styled.div``;
 
@@ -42,15 +43,15 @@ function Bag() {
       <BagItem />
       <BagTotal />
 
-      {/* <EmptyContainer>
-          <EmptyContent>
-            <EmptyImg src="/images/backgrounds/empty.png" />
-          </EmptyContent>
-          <EmptyContent>Your bag is empty.</EmptyContent>
-          <EmptyContent>
-            <Button onClick={handleNavigate}>order now</Button>
-          </EmptyContent>
-        </EmptyContainer> */}
+      <EmptyContainer>
+        <EmptyContent>
+          <EmptyImg src="/images/backgrounds/empty.png" />
+        </EmptyContent>
+        <EmptyContent>Your bag is empty.</EmptyContent>
+        <EmptyContent>
+          <Button onClick={handleNavigate}>order now</Button>
+        </EmptyContent>
+      </EmptyContainer>
     </Container>
   );
 }

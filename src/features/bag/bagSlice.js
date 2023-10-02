@@ -21,6 +21,9 @@ const bagSlice = createSlice({
   reducers: {
     addItem(state, action) {
       // payload = newItem
+      console.log(state.bag);
+
+      console.log(action.payload);
       state.bag.push(action.payload);
     },
     deleteItem(state, action) {

@@ -1,6 +1,5 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { MenuProvider } from './context/MenuContext';
 import Landing from './ui/app/Landing';
@@ -20,24 +19,36 @@ const queryClient = new QueryClient({
   },
 });
 
+// CREATE ROUTER FROM REACT ROUTER DOM (PAGES)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Landing />,
+  },
+  {
+    path: '/menu',
+    element: <Menu />,
+  },
+  {
+    path: '/menu/:itemId',
+    element: <Item />,
+  },
+  {
+    path: '/faves',
+    element: <Faves />,
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
+  },
+]);
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
       <MenuProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Landing />}>
-              <Route index element={<Navigate replace to="/" />} />
-            </Route>
-            <Route path="menu" element={<Menu />} />
-            <Route path="/menu/:id" element={<Item />} />
-            <Route path="/faves" element={<Faves />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </BrowserRouter>
-
+        <RouterProvider router={router} />
         <Toaster
           position="top-center"
           gutter={12}

@@ -8,6 +8,8 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Footer from '../../ui/footer/Footer';
 import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
+import { addItem } from '../../features/bag/bagSlice';
+import { useDispatch } from 'react-redux';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -78,6 +80,9 @@ const Amount = styled.span`
 `;
 
 function Item() {
+  // CREATE DISPATCH TO CALL addToBag ACTION
+  const dispatch = useDispatch();
+
   const [isHeart, setIsHeart] = useState(false);
 
   const location = useLocation();
@@ -127,6 +132,20 @@ function Item() {
     }
   }
 
+  // HANDLE ADDING TO BAG
+  function handleAddToBag() {
+    const newItem = {
+      id: item[pathname].id,
+      name: item[pathname].name,
+      quantity: item[pathname].quantity,
+      regularPrice: item[pathname].regularPrice,
+      discount: item[pathname].discount,
+      totalPrice: item[pathname].regularPrice * 1 - item[pathname].discount,
+    };
+    console.log(newItem);
+    dispatch(addItem(newItem));
+  }
+
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
     <Page>
@@ -168,7 +187,7 @@ function Item() {
             </Button>
           </ButtonLayout>
           <Quantity>{item[pathname].quantity} available</Quantity>
-          <Button variation="primary" size="small">
+          <Button variation="primary" size="small" onClick={handleAddToBag}>
             Add to bag (${item[pathname].regularPrice})
           </Button>
         </StyledDesc>
