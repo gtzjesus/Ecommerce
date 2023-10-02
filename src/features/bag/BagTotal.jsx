@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
-
+import { useSelector } from 'react-redux';
+import { getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
 const TotalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,12 +38,15 @@ const ButtonLayout = styled.div`
   justify-content: center;
 `;
 function BagTotal() {
+  // SELECTORS FROM REDUX
+  const totalBagQuantity = useSelector(getTotalBagQuantity);
+  const totalBagPrice = useSelector(getTotalBagPrice);
   return (
     <TotalContainer>
       <TotalContent>
         <InitialTotal>
           <span>bag total</span>
-          <span>$49.99</span>
+          <span>${totalBagPrice}</span>
         </InitialTotal>
 
         <Tax>
@@ -51,13 +55,14 @@ function BagTotal() {
         </Tax>
         <Total>
           <span>total</span>
-          <span>$64.99</span>
+          <span>${totalBagPrice}</span>
         </Total>
         <ButtonLayout>
           <Button variation="primary" size="small">
             continue to payment
           </Button>
         </ButtonLayout>
+        <span>{totalBagQuantity} items</span>
       </TotalContent>
     </TotalContainer>
   );

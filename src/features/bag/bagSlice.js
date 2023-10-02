@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  //   cart: [],
-  bag: [
-    {
-      id: 12,
-      image:
-        'https://vyxhuyruxuknaagfcaqg.supabase.co/storage/v1/object/public/item-images/tacos-alpastor.png',
-      name: 'hello world',
-      quantity: 5,
-      regularPrice: 16,
-      totalPrice: 55,
-    },
-  ],
+  bag: [],
+  //   bag: [
+  //     {
+  //       id: 12,
+  //       image:
+  //         'https://vyxhuyruxuknaagfcaqg.supabase.co/storage/v1/object/public/item-images/tacos-alpastor.png',
+  //       name: 'hello world',
+  //       quantity: 5,
+  //       regularPrice: 16,
+  //       totalPrice: 55,
+  //     },
+  //   ],
 };
 
 const bagSlice = createSlice({
@@ -61,3 +61,11 @@ export const {
 } = bagSlice.actions;
 
 export default bagSlice.reducer;
+
+export const getBag = (state) => state.bag.bag;
+
+export const getTotalBagQuantity = (state) =>
+  state.bag.bag.reduce((sum, item) => sum + item.quantity, 0);
+
+export const getTotalBagPrice = (state) =>
+  state.bag.bag.reduce((sum, item) => sum + item.totalPrice, 0);

@@ -6,7 +6,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   background-color: var(--background-primary);
-  height: var(--height-full-window);
+  height: var(--height-filled-window);
 `;
 
 const Land = styled.div`
