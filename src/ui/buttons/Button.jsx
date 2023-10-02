@@ -28,7 +28,7 @@ const variations = {
     color: var(--color-white);
     background-color: var(--color-red);
     width: 50vw;
-    margin: 2.5rem;
+    margin-top: 2.5rem;
   `,
   secondary: css`
     color: inherit;
@@ -37,6 +37,11 @@ const variations = {
     &:hover {
       background-color: #ede1d1;
     }
+  `,
+  third: css`
+    color: var(--color-red);
+    background-color: var(--color-white);
+    width: 50vw;
   `,
   heart: css`
     color: var(--color-red);

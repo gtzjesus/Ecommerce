@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
-import { useSelector } from 'react-redux';
-import { getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearBag, getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
 const TotalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,9 +35,11 @@ const Total = styled.div`
 
 const ButtonLayout = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 function BagTotal() {
+  const dispatch = useDispatch();
   // SELECTORS FROM REDUX
   const totalBagQuantity = useSelector(getTotalBagQuantity);
   const totalBagPrice = useSelector(getTotalBagPrice);
@@ -62,6 +64,13 @@ function BagTotal() {
           <span>${fullAmount.toFixed(2)}</span>
         </Total>
         <ButtonLayout>
+          <Button
+            variation="third"
+            size="small"
+            onClick={() => dispatch(clearBag())}
+          >
+            clear cart
+          </Button>
           <Button variation="primary" size="small">
             continue to payment
           </Button>

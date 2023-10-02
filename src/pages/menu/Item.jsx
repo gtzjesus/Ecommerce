@@ -134,6 +134,7 @@ function Item() {
 
   // HANDLE ADDING TO BAG
   function handleAddToBag() {
+    // CREATE NEW ITEM TO BE ADDED as action.payload
     const newItem = {
       id: item[pathname].id,
       image: item[pathname].image,
@@ -145,8 +146,14 @@ function Item() {
         item[pathname].regularPrice * item[pathname].quantity -
         item[pathname].discount,
     };
+    // TOAST FOR SUCCESS
+    toast.success('Added to bag');
+    // DISPATCH TO ADD ACTION addtobag
     dispatch(addItem(newItem));
   }
+
+  // HANDLE ITEM NAVIGATION
+  function handleNavigation() {}
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
@@ -175,7 +182,7 @@ function Item() {
 
         <StyledDesc>
           <Name>{item[pathname].name}</Name>
-          <Img src={item[pathname].image} />
+          <Img onClick={handleNavigation} src={item[pathname].image} />
 
           <Description>{item[pathname].description}</Description>
 
