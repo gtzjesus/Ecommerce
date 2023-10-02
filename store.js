@@ -3,7 +3,7 @@ import bagReducer from './src/features/bag/bagSlice';
 
 const store = configureStore({
   reducer: {
-    cart: bagReducer,
+    bag: bagReducer,
   },
 });
 

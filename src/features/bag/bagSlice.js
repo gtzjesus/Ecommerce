@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   //   cart: [],
-  cart: [
+  bag: [
     {
       id: 12,
       image:
@@ -46,7 +46,7 @@ const bagSlice = createSlice({
       item.quantity--;
       item.totalPrice = item.quantity * item.regularPrice;
     },
-    clearCart(state) {
+    clearBag(state) {
       state.bag = [];
     },
   },
@@ -57,7 +57,7 @@ export const {
   deleteItem,
   increaseItemQuantity,
   decreaseItemQuantity,
-  clearCart,
+  clearBag,
 } = bagSlice.actions;
 
 export default bagSlice.reducer;
