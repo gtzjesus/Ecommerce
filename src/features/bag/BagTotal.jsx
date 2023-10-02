@@ -41,28 +41,31 @@ function BagTotal() {
   // SELECTORS FROM REDUX
   const totalBagQuantity = useSelector(getTotalBagQuantity);
   const totalBagPrice = useSelector(getTotalBagPrice);
+  // GRAB TAX FROM TOTAL PRICE
+  const taxAmount = totalBagPrice / 8.25;
+  // GRAB FULL AMOUNT
+  const fullAmount = totalBagPrice + taxAmount;
   return (
     <TotalContainer>
       <TotalContent>
         <InitialTotal>
           <span>bag total</span>
-          <span>${totalBagPrice}</span>
+          <span>${totalBagPrice.toFixed(2)}</span>
         </InitialTotal>
 
         <Tax>
           <span>tax</span>
-          <span>$15.00</span>
+          <span>${taxAmount.toFixed(2)}</span>
         </Tax>
         <Total>
-          <span>total</span>
-          <span>${totalBagPrice}</span>
+          <span>total ({totalBagQuantity} items)</span>
+          <span>${fullAmount.toFixed(2)}</span>
         </Total>
         <ButtonLayout>
           <Button variation="primary" size="small">
             continue to payment
           </Button>
         </ButtonLayout>
-        <span>{totalBagQuantity} items</span>
       </TotalContent>
     </TotalContainer>
   );

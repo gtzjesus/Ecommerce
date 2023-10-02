@@ -3,7 +3,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 const StyledRow = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   background-color: var(--background-primary);
@@ -12,7 +11,6 @@ const StyledRow = styled.div`
 
   border: 0.1rem solid var(--color-red);
   height: 12.5vh;
-  cursor: pointer;
 `;
 
 const StyledDescription = styled.div`
@@ -24,6 +22,7 @@ const StyledDescription = styled.div`
 
 const Img = styled.img`
   width: var(--image-small);
+  cursor: pointer;
 `;
 
 const Quantity = styled.span`
@@ -49,23 +48,26 @@ const Hamburger = styled.button`
 `;
 
 function BagItem({ item }) {
-  console.log(item);
   // DECONSTRUCT ITEM
-  return item.map((item) => (
-    <StyledRow key={item.key}>
-      <StyledDescription>
-        <Img src={item.image} />
-        <Name>{item.name}</Name>
-        <Quantity>x{item.quantity}</Quantity>
-      </StyledDescription>
-      <StyledDescription>
-        <Price>${item.regularPrice}</Price>
-        <Hamburger>
-          <AiOutlineClose />
-        </Hamburger>
-      </StyledDescription>
-    </StyledRow>
-  ));
+  return item.map((item) =>
+    item ? (
+      <StyledRow key={item.key}>
+        <StyledDescription>
+          <Img src={item.image} />
+          <Name>{item.name}</Name>
+          <Quantity>x{item.quantity}</Quantity>
+        </StyledDescription>
+        <StyledDescription>
+          <Price>${item.regularPrice}</Price>
+          <Hamburger>
+            <AiOutlineClose />
+          </Hamburger>
+        </StyledDescription>
+      </StyledRow>
+    ) : (
+      ''
+    )
+  );
 }
 
 export default BagItem;

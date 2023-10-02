@@ -136,13 +136,15 @@ function Item() {
   function handleAddToBag() {
     const newItem = {
       id: item[pathname].id,
+      image: item[pathname].image,
       name: item[pathname].name,
-      quantity: item[pathname].quantity,
+      quantity: 1,
       regularPrice: item[pathname].regularPrice,
       discount: item[pathname].discount,
-      totalPrice: item[pathname].regularPrice * 1 - item[pathname].discount,
+      totalPrice:
+        item[pathname].regularPrice * item[pathname].quantity -
+        item[pathname].discount,
     };
-    console.log(newItem);
     dispatch(addItem(newItem));
   }
 

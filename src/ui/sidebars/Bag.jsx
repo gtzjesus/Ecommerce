@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 import BagItem from '../../features/bag/BagItem';
 import { useNavigate } from 'react-router';
-import BagTotal from '../../features/bag/BagTotal';
 import Button from '../buttons/Button';
+import BagTotal from '../../features/bag/BagTotal';
 
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
-const Container = styled.div`
-  height: var(--height-filled-window);
-`;
+const Container = styled.div``;
 
 const Username = styled.span`
   color: var(--color-red);
@@ -46,9 +44,9 @@ function Bag() {
   }
   return (
     <Container>
-      <Username>Your bag jesus,</Username>
       {bagItem.length !== 0 ? (
         <>
+          <Username>Your bag jesus, {bagItem.length} items</Username>
           <BagItem item={bagItem} key={bagItem.id} />
           <BagTotal />
         </>
