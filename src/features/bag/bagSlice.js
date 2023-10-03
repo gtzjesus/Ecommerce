@@ -42,6 +42,8 @@ const bagSlice = createSlice({
       // update quantity
       item.quantity--;
       item.totalPrice = item.quantity * item.regularPrice;
+
+      if (item.quantity === 0) bagSlice.caseReducers.deleteItem(state, action);
     },
     clearBag(state) {
       state.bag = [];
@@ -66,3 +68,6 @@ export const getTotalBagQuantity = (state) =>
 
 export const getTotalBagPrice = (state) =>
   state.bag.bag.reduce((sum, item) => sum + item.totalPrice, 0);
+
+export const getCurrentQuantityById = (id) => (state) =>
+  state.bag.bag.find((item) => item.id === id)?.quantity ?? 0;

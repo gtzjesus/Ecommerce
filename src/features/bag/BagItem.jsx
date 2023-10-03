@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+import { getCurrentQuantityById } from './bagSlice';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteItem } from './bagSlice';
+import UpdateBagQuantity from './UpdateBagQuantity';
 
 const StyledRow = styled.div`
   display: flex;
@@ -51,7 +53,7 @@ const Hamburger = styled.button`
 `;
 
 function BagItem({ item }) {
-  console.log(item.id);
+  // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
   // DECONSTRUCT ITEM
   return item.map((item) =>
@@ -63,7 +65,8 @@ function BagItem({ item }) {
           <Quantity>x{item.quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
-          <Price>${item.regularPrice}</Price>
+          <UpdateBagQuantity item={item} />
+          <Price>${item.regularPrice * item.quantity}</Price>
           <Hamburger onClick={() => dispatch(deleteItem(item.id))}>
             <AiOutlineClose />
           </Hamburger>

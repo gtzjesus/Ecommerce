@@ -9,7 +9,8 @@ import Footer from '../../ui/footer/Footer';
 import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrentQuantityById } from '../../features/bag/bagSlice';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -64,10 +65,10 @@ const Currency = styled.div`
   align-items: center;
 `;
 
-const Quantity = styled.span`
-  font-size: var(--font-xsmall);
-  color: var(--color-red);
-`;
+// const Quantity = styled.span`
+//   font-size: var(--font-xsmall);
+//   color: var(--color-red);
+// `;
 
 const ButtonLayout = styled.div`
   display: flex;
@@ -153,8 +154,10 @@ function Item() {
     dispatch(addItem(newItem));
   }
 
-  // HANDLE ITEM NAVIGATION
-  function handleNavigation() {}
+  // GRAB QUANTITY
+  const currentQuantity = useSelector(
+    getCurrentQuantityById([item[pathname].id])
+  );
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
@@ -183,20 +186,11 @@ function Item() {
 
         <StyledDesc>
           <Name>{item[pathname].name}</Name>
-          <Img onClick={handleNavigation} src={item[pathname].image} />
+          <Img src={item[pathname].image} />
 
           <Description>{item[pathname].description}</Description>
 
-          <ButtonLayout>
-            <Button variation="quantity" size="small">
-              -
-            </Button>
-            <Amount>1</Amount>
-            <Button variation="quantity" size="small">
-              +
-            </Button>
-          </ButtonLayout>
-          <Quantity>{item[pathname].quantity} available</Quantity>
+          <ButtonLayout></ButtonLayout>
           <ButtonLayout>
             <Button onClick={handleAddToBag}>
               Add to bag (${item[pathname].regularPrice})
