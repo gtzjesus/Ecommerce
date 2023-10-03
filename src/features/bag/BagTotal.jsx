@@ -7,6 +7,7 @@ const TotalContainer = styled.div`
   flex-direction: column;
   margin: var(--margin-large) 0;
   padding: var(--padding-medium);
+  background-color: var(--background-primary);
 `;
 
 const TotalContent = styled.div`
@@ -35,8 +36,9 @@ const Total = styled.div`
 
 const ButtonLayout = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: right;
+  gap: var(--gap-small);
 `;
 function BagTotal() {
   const dispatch = useDispatch();
@@ -71,9 +73,7 @@ function BagTotal() {
           >
             clear cart
           </Button>
-          <Button variation="primary" size="small">
-            continue to payment
-          </Button>
+          <Button>continue to payment</Button>
         </ButtonLayout>
       </TotalContent>
     </TotalContainer>

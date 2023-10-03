@@ -5,7 +5,8 @@ const sizes = {
     font-size: 3rem;
   `,
   small: css`
-    font-size: 2rem;
+    font-size: 1.4rem;
+
     padding: 0.8rem 1rem;
     text-transform: uppercase;
     font-weight: 600;
@@ -27,8 +28,6 @@ const variations = {
   primary: css`
     color: var(--color-white);
     background-color: var(--color-red);
-    width: 50vw;
-    margin-top: 2.5rem;
   `,
   secondary: css`
     color: inherit;
@@ -41,7 +40,6 @@ const variations = {
   third: css`
     color: var(--color-red);
     background-color: var(--color-white);
-    width: 50vw;
   `,
   heart: css`
     color: var(--color-red);

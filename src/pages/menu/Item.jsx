@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 
 const Page = styled.div`
   background-color: var(--background-primary);
-  height: var(--height-full-window);
+  height: var(--height-filled-window);
 `;
 
 const StyledItemContainer = styled.div`

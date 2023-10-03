@@ -7,9 +7,10 @@ const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: left;
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   padding: var(--padding-medium);
-  gap: var(--gap-medium);
+  margin: var(--margin-xsmall);
+  gap: var(--gap-medium) 0;
   cursor: pointer;
 `;
 

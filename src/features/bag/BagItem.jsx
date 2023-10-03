@@ -8,7 +8,7 @@ const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   padding: var(--padding-medium);
   margin: var(--margin-medium) 0;
 
