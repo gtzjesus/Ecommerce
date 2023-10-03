@@ -51,6 +51,7 @@ const Hamburger = styled.button`
 `;
 
 function BagItem({ item }) {
+  console.log(item.id);
   const dispatch = useDispatch();
   // DECONSTRUCT ITEM
   return item.map((item) =>
@@ -63,7 +64,7 @@ function BagItem({ item }) {
         </StyledDescription>
         <StyledDescription>
           <Price>${item.regularPrice}</Price>
-          <Hamburger onClick={() => dispatch(deleteItem())}>
+          <Hamburger onClick={() => dispatch(deleteItem(item.id))}>
             <AiOutlineClose />
           </Hamburger>
         </StyledDescription>

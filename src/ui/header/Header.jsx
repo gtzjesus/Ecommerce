@@ -79,8 +79,6 @@ function Header({ isOpen, setIsOpen }) {
     navigate('/');
   }
 
-  console.log(bag);
-
   // HEADER COMPONENT
   return (
     <StyledHeader>
