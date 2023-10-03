@@ -7,7 +7,10 @@ import BagTotal from '../../features/bag/BagTotal';
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: var(--height-full-window);
+  z-index: var(--z-top);
+`;
 
 const Username = styled.span`
   color: var(--color-red);

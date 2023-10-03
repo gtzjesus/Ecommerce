@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
-import { getCurrentQuantityById } from './bagSlice';
-
-import { useDispatch, useSelector } from 'react-redux';
+import Button from '../../ui/buttons/Button';
+import { useDispatch } from 'react-redux';
 import { deleteItem } from './bagSlice';
-import UpdateBagQuantity from './UpdateBagQuantity';
+import { decreaseItemQuantity, increaseItemQuantity } from './bagSlice';
 
 const StyledRow = styled.div`
   display: flex;
@@ -52,9 +51,22 @@ const Hamburger = styled.button`
   color: var(--color-red);
 `;
 
+const ButtonLayout = styled.div`
+  display: flex;
+  align-items: center;
+  padding: var(--padding-small);
+`;
+
+const Amount = styled.span`
+  font-size: var(--font-xsmall);
+  padding: 0 var(--padding-xsmall);
+`;
+
 function BagItem({ item }) {
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
+  // useSelector TO GRAB current quantity
+
   // DECONSTRUCT ITEM
   return item.map((item) =>
     item ? (
@@ -65,8 +77,24 @@ function BagItem({ item }) {
           <Quantity>x{item.quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
-          <UpdateBagQuantity item={item} />
-          <Price>${item.regularPrice * item.quantity}</Price>
+          <ButtonLayout>
+            <Button
+              variation="quantity"
+              size="small"
+              onClick={() => dispatch(decreaseItemQuantity(item.id))}
+            >
+              -
+            </Button>
+            <Amount>{item.quantity}</Amount>
+            <Button
+              variation="quantity"
+              size="small"
+              onClick={() => dispatch(increaseItemQuantity(item.id))}
+            >
+              +
+            </Button>
+          </ButtonLayout>
+          <Price>${item.regularPrice}</Price>
           <Hamburger onClick={() => dispatch(deleteItem(item.id))}>
             <AiOutlineClose />
           </Hamburger>
