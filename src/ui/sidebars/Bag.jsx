@@ -8,8 +8,9 @@ import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
 const Container = styled.div`
-  height: var(--height-full-window);
+  min-height: var(--height-full-window);
   z-index: var(--z-top);
+  padding-bottom: 50vh;
 `;
 
 const Username = styled.span`
