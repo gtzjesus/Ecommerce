@@ -13,12 +13,13 @@ import { useDispatch } from 'react-redux';
 
 const Page = styled.div`
   background-color: var(--background-primary);
+  height: var(--height-full-window);
 `;
 
 const StyledItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--background-secondary);
+  background-color: var(--background-tile);
   padding: var(--padding-large);
   margin: var(--margin-large);
 `;
@@ -196,9 +197,11 @@ function Item() {
             </Button>
           </ButtonLayout>
           <Quantity>{item[pathname].quantity} available</Quantity>
-          <Button variation="primary" size="small" onClick={handleAddToBag}>
-            Add to bag (${item[pathname].regularPrice})
-          </Button>
+          <ButtonLayout>
+            <Button onClick={handleAddToBag}>
+              Add to bag (${item[pathname].regularPrice})
+            </Button>
+          </ButtonLayout>
         </StyledDesc>
       </StyledItemContainer>
       <Footer />

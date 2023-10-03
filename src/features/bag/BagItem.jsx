@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 
+import { useDispatch } from 'react-redux';
+import { deleteItem } from './bagSlice';
+
 const StyledRow = styled.div`
   display: flex;
   align-items: center;
@@ -48,6 +51,7 @@ const Hamburger = styled.button`
 `;
 
 function BagItem({ item }) {
+  const dispatch = useDispatch();
   // DECONSTRUCT ITEM
   return item.map((item) =>
     item ? (
@@ -59,7 +63,7 @@ function BagItem({ item }) {
         </StyledDescription>
         <StyledDescription>
           <Price>${item.regularPrice}</Price>
-          <Hamburger>
+          <Hamburger onClick={() => dispatch(deleteItem())}>
             <AiOutlineClose />
           </Hamburger>
         </StyledDescription>

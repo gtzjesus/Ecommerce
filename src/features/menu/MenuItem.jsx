@@ -5,7 +5,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { useNavigate } from 'react-router';
 
 const StyledItemContainer = styled.li`
-  background-color: #fff5e8;
+  background-color: var(--background-tile);
   padding: var(--padding-small);
   margin: var(--margin-xsmall);
 `;
