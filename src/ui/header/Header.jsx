@@ -9,6 +9,8 @@ import { RiShoppingBag2Fill } from 'react-icons/ri';
 import { PiArrowFatLineLeft, PiArrowFatLineRight } from 'react-icons/pi';
 
 import { FaUser } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { getBag } from '../../features/bag/bagSlice';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -41,7 +43,16 @@ const Hamburger = styled.button`
   color: var(--color-red);
 `;
 
+const Items = styled.span`
+  transition: 5s ease-in;
+  color: var(--color-red);
+  border-radius: 50%;
+  padding: var(--padding-xsmall);
+  font-size: var(--font-small);
+`;
+
 function Header({ isOpen, setIsOpen }) {
+  const bag = useSelector(getBag);
   // NAVIGATION HOOK
   const navigate = useNavigate();
   // CREATE STATE FOR CLICKED EVENTS
@@ -68,6 +79,8 @@ function Header({ isOpen, setIsOpen }) {
     navigate('/');
   }
 
+  console.log(bag);
+
   // HEADER COMPONENT
   return (
     <StyledHeader>
@@ -81,9 +94,16 @@ function Header({ isOpen, setIsOpen }) {
             <img src="/logo/hotdog.png" />
           </Logo>
 
-          <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-            <RiShoppingBag2Line value={navTo} />
-          </Hamburger>
+          {bag.length === 0 ? (
+            <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
+              <RiShoppingBag2Line value={navTo} />
+            </Hamburger>
+          ) : (
+            <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
+              <Items>{bag.length}</Items>
+              <RiShoppingBag2Fill value={navTo} />
+            </Hamburger>
+          )}
         </>
       ) : (
         ''
@@ -97,9 +117,16 @@ function Header({ isOpen, setIsOpen }) {
                 onClick={() => handleToggle('')}
               />
             </Hamburger>
-            <Hamburger>
-              <RiShoppingBag2Fill />
-            </Hamburger>
+            {bag.length === 0 ? (
+              <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
+                <RiShoppingBag2Line value={navTo} />
+              </Hamburger>
+            ) : (
+              <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
+                <Items>{bag.length}</Items>
+                <RiShoppingBag2Fill value={navTo} />
+              </Hamburger>
+            )}
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
           <Bag />

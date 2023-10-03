@@ -6,11 +6,8 @@ const sizes = {
   `,
   small: css`
     font-size: 1.4rem;
-
-    padding: 0.8rem 1rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    text-align: center;
+    padding: 1.2rem 1.6rem;
+    font-weight: 500;
   `,
   medium: css`
     font-size: 1.4rem;
