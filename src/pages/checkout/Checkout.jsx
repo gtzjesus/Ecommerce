@@ -17,7 +17,8 @@ const Input = styled.input`
   border: 0.2em solid var(--background-tile);
   background: hsl(0 0 0/0);
   padding: 0.85em 1.5em;
-  margin: var(--margin-xsmall) 0;
+  margin: var(--margin-small) 0;
+  font-size: 16px;
 
   border-radius: 2em;
   transition: 1s;
