@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearBag, getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
+import { useNavigate } from 'react-router';
 const TotalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -41,6 +42,9 @@ const ButtonLayout = styled.div`
   gap: var(--gap-small);
 `;
 function BagTotal() {
+  // GRAB NAVIGATE
+  const navigate = useNavigate();
+  // GRAB DISPATCH FOR ACTIONS
   const dispatch = useDispatch();
   // SELECTORS FROM REDUX
   const totalBagQuantity = useSelector(getTotalBagQuantity);
@@ -48,6 +52,10 @@ function BagTotal() {
   // GRAB TAX FROM TOTAL PRICE
   const taxAmount = totalBagPrice / 8.25;
   // GRAB FULL AMOUNT
+  // NAVIGATE TO checkout PAGE
+  function handleNavigate() {
+    navigate('/checkout');
+  }
   const fullAmount = totalBagPrice + taxAmount;
   return (
     <TotalContainer>
@@ -73,7 +81,7 @@ function BagTotal() {
           >
             clear cart
           </Button>
-          <Button>continue to payment</Button>
+          <Button onClick={handleNavigate}>continue to payment</Button>
         </ButtonLayout>
       </TotalContent>
     </TotalContainer>

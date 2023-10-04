@@ -9,6 +9,7 @@ import PageNotFound from './pages/notfound/PageNotFound';
 import Item from './pages/menu/Item';
 import { Toaster } from 'react-hot-toast';
 import Faves from './pages/faves/Faves';
+import Checkout from './pages/checkout/Checkout';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: '/faves',
     element: <Faves />,
+  },
+  {
+    path: '/checkout',
+    element: <Checkout />,
   },
   {
     path: '*',

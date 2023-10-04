@@ -52,6 +52,7 @@ const Items = styled.span`
 `;
 
 function Header({ isOpen, setIsOpen }) {
+  // GRAB BAG WITH selector HOOK
   const bag = useSelector(getBag);
   // NAVIGATION HOOK
   const navigate = useNavigate();
@@ -146,7 +147,7 @@ function Header({ isOpen, setIsOpen }) {
             </Hamburger>
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
-          {navTo === 'user' ? <User /> : ''}
+          <User />
         </Container>
       ) : (
         ''
