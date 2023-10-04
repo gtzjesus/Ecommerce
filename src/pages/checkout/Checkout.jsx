@@ -6,6 +6,12 @@ const StyledCheckout = styled.div`
   height: var(--height-filled-window);
 `;
 
+const Greeting = styled.span`
+  color: var(--color-red);
+  font-size: var(--font-medium);
+  padding: var(--padding-medium);
+`;
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -45,10 +51,19 @@ function Checkout() {
     <>
       <Navigation />
       <StyledCheckout>
+        <Greeting>Personal information,</Greeting>
         <Form>
           <Input type="text" placeholder="Full name"></Input>
           <Input type="text" placeholder="email"></Input>
           <Input type="text" placeholder="Phone number"></Input>
+
+          <Greeting>Payment information,</Greeting>
+
+          <Input type="text" placeholder="Full name"></Input>
+          <Input type="text" placeholder="Card number"></Input>
+          <Input type="text" placeholder="ccv"></Input>
+          <Input type="text" placeholder="Expiration date"></Input>
+
           <ButtonLayout>
             <Button>submit payment</Button>
           </ButtonLayout>
