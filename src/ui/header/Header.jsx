@@ -21,8 +21,8 @@ const StyledHeader = styled.div`
   background-color: var(--background-primary);
   padding: var(--padding-header);
   z-index: var(--z-top);
-  box-shadow: var(--background-tile) 0px 10px 28px,
-    var(--background-tile) 0px 10px 8px;
+  box-shadow: inset 5px 5px 10px var(--background-tile),
+    inset -5px -5px 10px var(--background-tile);
 `;
 
 const StyledNav = styled.div`

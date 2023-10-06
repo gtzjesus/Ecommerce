@@ -8,8 +8,8 @@ const StyledFooter = styled.footer`
   width: var(--width-full-window);
   background-color: var(--background-primary);
   border-radius: var(--border-footer);
-  box-shadow: var(--background-tile) 0px 10px 28px,
-    var(--background-tile) 0px 10px 8px;
+  box-shadow: inset 5px 5px 10px var(--background-tile),
+    inset -5px -5px 10px var(--background-tile);
   z-index: var(--z-top);
 `;
 
