@@ -10,6 +10,7 @@ import Item from './pages/menu/Item';
 import { Toaster } from 'react-hot-toast';
 import Faves from './pages/faves/Faves';
 import Checkout from './pages/checkout/Checkout';
+import { useEffect } from 'react';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -18,13 +19,6 @@ const queryClient = new QueryClient({
       staleTime: 60 * 1000,
     },
   },
-});
-
-// LOAD ALL WEBPAGES ON TOP AUTO
-window.scroll({
-  top: 0,
-  left: 0,
-  behavior: 'smooth',
 });
 
 // CREATE ROUTER FROM REACT ROUTER DOM (PAGES)
@@ -56,6 +50,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  // LOAD ALL WEBPAGES ON TOP AUTO
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <GlobalStyles />

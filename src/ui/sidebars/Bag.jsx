@@ -6,7 +6,6 @@ import BagTotal from '../../features/bag/BagTotal';
 
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
-import Header from '../header/Header';
 
 const Container = styled.div`
   position: absolute;
@@ -35,28 +34,24 @@ const EmptyContainer = styled.div`
 const EmptyContent = styled.div`
   align-items: center;
   font-size: var(--font-medium);
+  margin: var(--margin-small);
 `;
 
 const EmptyImg = styled.img`
   width: var(--image-large);
 `;
 
-function Bag({ isOpen, setIsOpen }) {
+function Bag() {
   const bag = useSelector(getBag);
   const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)
   function handleNavigate() {
-    console.log(isOpen);
-    if (isOpen === false) setIsOpen(true);
-    if (isOpen === true) setIsOpen(false);
-
     navigate('/menu');
   }
   return (
     <Container>
-      <Header />
       {bagItem.length !== 0 ? (
         <>
           <Username>Your bag jesus,</Username>
