@@ -39,6 +39,8 @@ const GlobalStyles = createGlobalStyle`
     --margin-medium: 2rem;
     --margin-large: 3rem;
 
+    --margin-nav-height: 10rem;
+
 
     /* Padding */
     --padding-xsmall: 0.75rem;
@@ -64,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
     --border-footer: 1.5rem 1rem 0 0;
 
     /* Box Shadows */
-    --shadow-container: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
+    --shadow-container: 0 5.4rem 8.2rem rgba(0, 0, 0, 0.12);
 
     /* Z-Indexes */
     --z-top: 9999;

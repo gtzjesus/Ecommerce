@@ -10,14 +10,7 @@ const StyledMenu = styled.div`
   background-color: var(--background-primary);
   list-style: none;
   padding: 0 0 var(--padding-xlarge) 0;
-`;
-
-const Title = styled.span`
-  display: flex;
-  justify-content: center;
-  font-size: var(--font-large);
-  color: var(--color-red);
-  padding: var(--margin-medium);
+  margin: var(--margin-nav-height) 0;
 `;
 
 function MenuCategorized({ category }) {
@@ -30,7 +23,6 @@ function MenuCategorized({ category }) {
   // RETURN CATEGORIZED MENU
   return (
     <>
-      <Title>{category.name}</Title>
       <StyledMenu>
         {items.map((item) => (
           <MenuCategorizedItems category={category} item={item} key={item.id} />

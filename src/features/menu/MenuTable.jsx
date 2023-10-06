@@ -6,6 +6,7 @@ import useCategories from '../../pages/menu/useCategories';
 const StyledTable = styled.div`
   display: flex;
   flex-direction: column;
+  margin: var(--margin-nav-height) 0;
 `;
 
 function MenuTable() {

@@ -20,6 +20,9 @@ const StyledHeader = styled.div`
   width: var(--width-full-window);
   background-color: var(--background-primary);
   padding: var(--padding-header);
+  z-index: var(--z-top);
+  box-shadow: var(--background-tile) 0px 10px 28px,
+    var(--background-tile) 0px 10px 8px;
 `;
 
 const StyledNav = styled.div`
