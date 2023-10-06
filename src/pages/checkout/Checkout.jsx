@@ -59,9 +59,9 @@ function Checkout() {
 
           <Greeting>Payment information,</Greeting>
 
-          <Input type="text" placeholder="Full name"></Input>
-          <Input type="text" placeholder="Card number"></Input>
-          <Input type="text" placeholder="ccv"></Input>
+          <Input type="text" placeholder="Name on card"></Input>
+          <Input type="text" placeholder="xxxx xxxx xxxx xxxx"></Input>
+          <Input type="text" placeholder="cvv"></Input>
           <Input type="text" placeholder="Expiration date"></Input>
 
           <ButtonLayout>

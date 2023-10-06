@@ -6,11 +6,15 @@ import BagTotal from '../../features/bag/BagTotal';
 
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
+import Header from '../header/Header';
 
 const Container = styled.div`
-  min-height: var(--height-full-window);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--width-full-window);
+  background-color: var(--background-primary);
   z-index: var(--z-top);
-  padding-bottom: 50vh;
 `;
 
 const Username = styled.span`
@@ -48,6 +52,7 @@ function Bag() {
   }
   return (
     <Container>
+      <Header />
       {bagItem.length !== 0 ? (
         <>
           <Username>Your bag jesus,</Username>

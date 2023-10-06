@@ -8,7 +8,7 @@ const TotalContainer = styled.div`
   flex-direction: column;
   margin: var(--margin-large) 0;
   padding: var(--padding-medium);
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
 `;
 
 const TotalContent = styled.div`
