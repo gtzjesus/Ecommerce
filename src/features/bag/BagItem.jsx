@@ -11,7 +11,7 @@ const StyledRow = styled.div`
   justify-content: space-between;
   background-color: var(--background-tile);
   padding: var(--padding-medium);
-  margin: var(--margin-medium) 0;
+  margin: var(--margin-medium) var(--margin-xsmall);
 
   border: 0.1rem solid var(--color-red);
   height: 12.5vh;

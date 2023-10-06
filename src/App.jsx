@@ -20,6 +20,13 @@ const queryClient = new QueryClient({
   },
 });
 
+// LOAD ALL WEBPAGES ON TOP AUTO
+window.scroll({
+  top: 0,
+  left: 0,
+  behavior: 'smooth',
+});
+
 // CREATE ROUTER FROM REACT ROUTER DOM (PAGES)
 const router = createBrowserRouter([
   {

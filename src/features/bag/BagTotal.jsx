@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 const TotalContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: var(--margin-large) 0;
+  margin: 0 var(--margin-xsmall);
   padding: var(--padding-medium);
   background-color: var(--background-tile);
 `;

@@ -41,13 +41,17 @@ const EmptyImg = styled.img`
   width: var(--image-large);
 `;
 
-function Bag() {
+function Bag({ isOpen, setIsOpen }) {
   const bag = useSelector(getBag);
   const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)
   function handleNavigate() {
+    console.log(isOpen);
+    if (isOpen === false) setIsOpen(true);
+    if (isOpen === true) setIsOpen(false);
+
     navigate('/menu');
   }
   return (

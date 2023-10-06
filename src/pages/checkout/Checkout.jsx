@@ -46,7 +46,6 @@ const ButtonLayout = styled.div`
 function Checkout() {
   // GRAB BAG FOR CHECKOUT
   //   const bag = useSelector(getBag());
-  //   console.log(bag);
   return (
     <>
       <Navigation />

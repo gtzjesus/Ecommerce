@@ -128,7 +128,7 @@ function Header({ isOpen, setIsOpen }) {
             )}
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
-          <Bag />
+          <Bag isOpen={isOpen} setIsOpen={setIsOpen} />
         </Container>
       ) : (
         ''
