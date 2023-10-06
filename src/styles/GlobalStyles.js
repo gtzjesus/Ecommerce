@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
     --width-description: 80%;
     --width-full-window: 100%;
     --width-half-window: 45vw;
+    --width-filled-window: 100vh;
+
     --height-full-window: 80vh;
     --height-filled-window: 100vh;
 

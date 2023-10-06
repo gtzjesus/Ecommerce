@@ -13,8 +13,11 @@ import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
 const StyledHeader = styled.div`
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
+  width: var(--width-full-window);
   background-color: var(--background-primary);
   padding: var(--padding-header);
 `;
@@ -128,7 +131,7 @@ function Header({ isOpen, setIsOpen }) {
             )}
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
-          <Bag isOpen={isOpen} setIsOpen={setIsOpen} />
+          <Bag />
         </Container>
       ) : (
         ''
