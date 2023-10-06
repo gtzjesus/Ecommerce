@@ -50,11 +50,8 @@ const Hamburger = styled.button`
 `;
 
 const Items = styled.span`
-  transition: 5s ease-in;
   color: var(--color-red);
-  border-radius: 50%;
-  padding: var(--padding-xsmall);
-  font-size: var(--font-small);
+  font-size: var(--font-xsmall);
 `;
 
 function Header({ isOpen, setIsOpen }) {
