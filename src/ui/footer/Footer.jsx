@@ -29,12 +29,19 @@ const StyledList = styled.li`
   cursor: pointer;
 `;
 
-function Footer() {
+function Footer({ isOpen, setIsOpen }) {
+  // HANDLE CLOSE ON MENU CLICK MODAL
+  function handleModal() {
+    console.log(isOpen);
+    if (!isOpen) setIsOpen(false);
+  }
   return (
     <StyledFooter>
       <StyledUnorderedList>
         <StyledList>
-          <Link to="/menu">menu</Link>
+          <Link to="/menu" onClick={handleModal}>
+            menu
+          </Link>
         </StyledList>
         <StyledList>
           <Link to="/featured">featured</Link>

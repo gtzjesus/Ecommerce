@@ -198,7 +198,6 @@ function Item() {
           </ButtonLayout>
         </StyledDesc>
       </StyledItemContainer>
-      <Footer />
     </Page>
   );
 }
