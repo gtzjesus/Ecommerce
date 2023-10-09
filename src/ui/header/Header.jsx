@@ -25,7 +25,6 @@ const StyledHeader = styled.div`
 
 const StyledNav = styled.div`
   display: flex;
-
   flex-direction: row;
   justify-content: space-between;
   padding: var(--padding-medium) 0;

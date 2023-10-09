@@ -33,7 +33,7 @@ function Footer({ isOpen, setIsOpen }) {
   // HANDLE CLOSE ON MENU CLICK MODAL
   function handleModal() {
     // IF NO isOpen VALUE IS PRESENT CLOSE MODAL
-    if (!isOpen) setIsOpen(true);
+    if (isOpen === undefined) setIsOpen(true);
   }
   return (
     <StyledFooter>

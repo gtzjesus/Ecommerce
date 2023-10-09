@@ -13,6 +13,7 @@ const BagCart = styled.div`
   width: var(--width-full-window);
   background-color: var(--background-tile);
   z-index: var(--z-top);
+  overflow-y: auto;
 `;
 
 const Username = styled.span`
