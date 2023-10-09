@@ -5,7 +5,6 @@ import Navigation from '../../ui/app/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import Footer from '../../ui/footer/Footer';
 import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';

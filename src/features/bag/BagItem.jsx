@@ -13,8 +13,8 @@ const StyledRow = styled.div`
   padding: var(--padding-medium);
   margin: var(--margin-medium) var(--margin-xsmall);
 
-  border: 0.1rem solid var(--color-red);
-  height: 12.5vh;
+  border: 0.25rem solid var(--color-red);
+  height: var(--height-row);
 `;
 
 const StyledDescription = styled.div`

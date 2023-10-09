@@ -7,12 +7,11 @@ import BagTotal from '../../features/bag/BagTotal';
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
-const Container = styled.div`
-  position: absolute;
+const BagCart = styled.div`
   top: 0;
   left: 0;
   width: var(--width-full-window);
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   z-index: var(--z-top);
 `;
 
@@ -27,7 +26,7 @@ const EmptyContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   height: var(--height-full-window);
 `;
 
@@ -51,7 +50,7 @@ function Bag() {
     navigate('/menu');
   }
   return (
-    <Container>
+    <BagCart>
       {bagItem.length !== 0 ? (
         <>
           <Username>Your bag jesus,</Username>
@@ -69,7 +68,7 @@ function Bag() {
           </EmptyContent>
         </EmptyContainer>
       )}
-    </Container>
+    </BagCart>
   );
 }
 

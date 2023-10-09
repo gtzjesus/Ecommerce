@@ -32,8 +32,8 @@ const StyledList = styled.li`
 function Footer({ isOpen, setIsOpen }) {
   // HANDLE CLOSE ON MENU CLICK MODAL
   function handleModal() {
-    console.log(isOpen);
-    if (!isOpen) setIsOpen(false);
+    // IF NO isOpen VALUE IS PRESENT CLOSE MODAL
+    if (!isOpen) setIsOpen(true);
   }
   return (
     <StyledFooter>
