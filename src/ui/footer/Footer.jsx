@@ -6,7 +6,7 @@ const StyledFooter = styled.footer`
   left: 0;
   bottom: 0;
   width: var(--width-full-window);
-  background-color: var(--background-primary);
+  background-color: #ebdac4;
   border-radius: var(--border-footer);
 
   z-index: var(--z-second);

@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
 
 
   /* Backrounds */
-  --background-primary: #ede1d1;
+  --background-primary: #ebdac4;
   --background-secondary: #f7ead9;
   --background-tile: #fff5e8;
 
