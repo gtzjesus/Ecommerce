@@ -13,7 +13,8 @@ const StyledRow = styled.div`
   padding: var(--padding-medium);
   margin: var(--margin-medium) var(--margin-xsmall);
 
-  border: 0.25rem solid var(--color-red);
+  border-bottom: 0.25rem solid var(--color-red);
+
   height: var(--height-row);
 `;
 
@@ -59,7 +60,7 @@ const ButtonLayout = styled.div`
 
 const Amount = styled.span`
   font-size: var(--font-xsmall);
-  padding: var(--padding-xxsmall) 0;
+  padding: var(--padding-xsmall) 0;
 `;
 
 function BagItem({ item }) {
@@ -77,6 +78,7 @@ function BagItem({ item }) {
           <Quantity>x{item.quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
+          <Price>${item.regularPrice}</Price>
           <ButtonLayout>
             <Button
               variation="quantity"
@@ -94,7 +96,6 @@ function BagItem({ item }) {
               -
             </Button>
           </ButtonLayout>
-          <Price>${item.regularPrice}</Price>
           <Hamburger onClick={() => dispatch(deleteItem(item.id))}>
             <AiOutlineClose />
           </Hamburger>

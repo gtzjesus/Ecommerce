@@ -7,8 +7,6 @@ const StyledTable = styled.div`
   display: flex;
   flex-direction: column;
   margin: var(--margin-nav-height) 0;
-
-  background-color: var(--background-primary);
 `;
 
 function MenuTable() {
