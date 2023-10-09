@@ -81,17 +81,17 @@ function BagItem({ item }) {
             <Button
               variation="quantity"
               size="small"
-              onClick={() => dispatch(decreaseItemQuantity(item.id))}
+              onClick={() => dispatch(increaseItemQuantity(item.id))}
             >
-              -
+              +
             </Button>
             <Amount>{item.quantity}</Amount>
             <Button
               variation="quantity"
               size="small"
-              onClick={() => dispatch(increaseItemQuantity(item.id))}
+              onClick={() => dispatch(decreaseItemQuantity(item.id))}
             >
-              +
+              -
             </Button>
           </ButtonLayout>
           <Price>${item.regularPrice}</Price>

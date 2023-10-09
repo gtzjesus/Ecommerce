@@ -12,14 +12,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentQuantityById } from '../../features/bag/bagSlice';
 
 const Page = styled.div`
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   margin: var(--height-row) 0;
 `;
 
 const StyledItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--background-tile);
+  background-color: var(--background-primary);
   padding: var(--padding-large);
   margin: var(--margin-large);
 `;
