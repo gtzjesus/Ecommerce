@@ -8,8 +8,8 @@ const StyledRow = styled.div`
   align-items: center;
   justify-content: left;
   background-color: var(--background-tile);
-  padding: var(--padding-medium);
-  margin: var(--margin-xsmall);
+  padding: var(--padding-large);
+  margin: var(--margin-small) var(--margin-xsmall);
   gap: var(--gap-medium) 0;
   cursor: pointer;
   height: var(--height-row);
@@ -21,7 +21,8 @@ const Img = styled.img`
 
 const Info = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: var(--gap-small);
 `;
 
@@ -53,9 +54,8 @@ function MenuRow({ category }) {
           />
         </Modal>
       )}
-      <Img src={categoryImage} />
       <Info>
-        {/* {!tag ? null : <Tag>{tag}</Tag>} */}
+        <Img src={categoryImage} />
         <Title>{name}</Title>
       </Info>
     </StyledRow>

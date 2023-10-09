@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearBag, getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
+import {
+  clearBag,
+  getBag,
+  getTotalBagPrice,
+  getTotalBagQuantity,
+} from './bagSlice';
 import { useNavigate } from 'react-router';
 const TotalContainer = styled.div`
   display: flex;
@@ -20,6 +25,13 @@ const InitialTotal = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: var(--font-small);
+`;
+
+const Discount = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-xsmall);
+  color: var(--color-red);
 `;
 
 const Tax = styled.div`
@@ -49,6 +61,7 @@ function BagTotal() {
   // SELECTORS FROM REDUX
   const totalBagQuantity = useSelector(getTotalBagQuantity);
   const totalBagPrice = useSelector(getTotalBagPrice);
+  const totalDiscount = useSelector(getBag);
   // GRAB TAX FROM TOTAL PRICE
   const taxAmount = totalBagPrice / 8.25;
   // GRAB FULL AMOUNT
@@ -64,6 +77,11 @@ function BagTotal() {
           <span>bag total</span>
           <span>${totalBagPrice.toFixed(2)}</span>
         </InitialTotal>
+
+        <Discount>
+          <span>discount</span>
+          <span>-${totalDiscount}</span>
+        </Discount>
 
         <Tax>
           <span>tax</span>
