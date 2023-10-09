@@ -1,16 +1,23 @@
 import styled from 'styled-components';
+import Button from '../../ui/buttons/Button';
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Greeting = styled.span`
   color: var(--color-red);
   font-size: var(--font-medium);
   padding: var(--padding-medium);
 `;
-
-const Form = styled.form`
+const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: var(--width-filled-window);
-  padding: var(--padding-medium);
+  width: var(--width-full-window);
+  padding: var(--padding-xsmall);
+  gap: var(--gap-medium);
 `;
 
 const Input = styled.input`
@@ -18,7 +25,6 @@ const Input = styled.input`
   border: 0.2em solid var(--background-tile);
   background: hsl(0 0 0/0);
   padding: 0.85em 1.5em;
-  margin: var(--margin-small) 0;
   font-size: 16px;
   width: var(--width-full-window);
 
@@ -36,9 +42,11 @@ function Login() {
     <div>
       <Form>
         <Greeting>Sign in</Greeting>
-
-        <Input type="text" placeholder="email"></Input>
-        <Input type="text" placeholder="password"></Input>
+        <InputContainer>
+          <Input type="text" placeholder="email"></Input>
+          <Input type="password" placeholder="password"></Input>
+          <Button>sign in</Button>
+        </InputContainer>
       </Form>
     </div>
   );

@@ -6,17 +6,16 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--background-tile);
-  height: var(--height-filled-window);
+  height: var(--height-percentage-window);
 `;
 
 const LoginContainer = styled.div`
-  width: var(--width-filled-window);
+  width: var(--width-full-window);
   background-color: var(--background-primary);
 `;
 
 const Navigation = styled.footer`
   width: var(--width-full-window);
-  border-radius: var(--border-footer);
   z-index: var(--z-second);
 `;
 
@@ -33,7 +32,6 @@ const StyledUnorderedList = styled.ul`
 const StyledList = styled.li`
   display: inline-block;
   margin: var(--margin-small);
-
   font-size: var(--font-large);
   color: var(--color-red);
   cursor: pointer;

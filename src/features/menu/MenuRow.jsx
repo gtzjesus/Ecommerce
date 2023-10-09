@@ -9,10 +9,10 @@ const StyledRow = styled.div`
   justify-content: left;
   background-color: var(--background-tile);
   padding: var(--padding-large);
-  margin: var(--margin-small) var(--margin-xsmall);
-  gap: var(--gap-medium) 0;
+  margin: var(--margin-xsmall);
   cursor: pointer;
   height: var(--height-row);
+  border-bottom: 0.25rem solid var(--color-red);
 `;
 
 const Img = styled.img`
