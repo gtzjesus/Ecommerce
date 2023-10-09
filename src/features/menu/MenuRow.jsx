@@ -12,6 +12,7 @@ const StyledRow = styled.div`
   margin: var(--margin-xsmall);
   gap: var(--gap-medium) 0;
   cursor: pointer;
+  height: var(--height-row);
 `;
 
 const Img = styled.img`

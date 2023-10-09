@@ -18,11 +18,9 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: var(--width-full-window);
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   padding: var(--padding-header);
   z-index: var(--z-top);
-  box-shadow: inset 5px 5px 10px var(--background-tile),
-    inset -5px -5px 10px var(--background-tile);
 `;
 
 const StyledNav = styled.div`

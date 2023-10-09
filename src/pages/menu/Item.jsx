@@ -14,7 +14,7 @@ import { getCurrentQuantityById } from '../../features/bag/bagSlice';
 
 const Page = styled.div`
   background-color: var(--background-primary);
-  margin: var(--margin-nav-height) 0;
+  margin: var(--height-row) 0;
 `;
 
 const StyledItemContainer = styled.div`

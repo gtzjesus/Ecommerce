@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
     --height-full-window: 80vh;
     --height-filled-window: 100vh;
+    --height-row: 15rem;
 
 
   /* Backrounds */
@@ -39,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     --margin-medium: 2rem;
     --margin-large: 3rem;
 
-    --margin-nav-height: 10rem;
+    --margin-nav-height: 8rem;
 
 
     /* Padding */

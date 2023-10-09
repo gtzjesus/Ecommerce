@@ -6,10 +6,9 @@ const StyledFooter = styled.footer`
   left: 0;
   bottom: 0;
   width: var(--width-full-window);
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   border-radius: var(--border-footer);
-  box-shadow: inset 5px 5px 10px var(--background-tile),
-    inset -5px -5px 10px var(--background-tile);
+
   z-index: var(--z-top);
 `;
 
