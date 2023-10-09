@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { RiShoppingBag2Line } from 'react-icons/ri';
-import { CgUser } from 'react-icons/cg';
+import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
 import { useState } from 'react';
 import Bag from '../sidebars/Bag';
 import User from '../sidebars/User';
 import { useNavigate } from 'react-router';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
-import { PiArrowFatLineLeft, PiArrowFatLineRight } from 'react-icons/pi';
 
-import { FaUser } from 'react-icons/fa';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
@@ -86,7 +85,7 @@ function Header({ isOpen, setIsOpen }) {
       {navTo === '' ? (
         <>
           <Hamburger value={isOpen} onClick={() => handleToggle('user')}>
-            <CgUser value={navTo} />
+            <HiOutlineMenuAlt1 value={navTo} />
           </Hamburger>
 
           <Logo onClick={handleHome}>
@@ -111,10 +110,7 @@ function Header({ isOpen, setIsOpen }) {
         <Container>
           <StyledNav>
             <Hamburger>
-              <PiArrowFatLineLeft
-                value={isOpen}
-                onClick={() => handleToggle('')}
-              />
+              <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />
             </Hamburger>
             {bag.length === 0 ? (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
@@ -137,13 +133,10 @@ function Header({ isOpen, setIsOpen }) {
         <Container>
           <StyledNav>
             <Hamburger>
-              <FaUser />
+              <AiOutlineUser />
             </Hamburger>
             <Hamburger>
-              <PiArrowFatLineRight
-                value={isOpen}
-                onClick={() => handleToggle('')}
-              />
+              <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />
             </Hamburger>
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
