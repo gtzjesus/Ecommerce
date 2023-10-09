@@ -84,7 +84,9 @@ function Item() {
   // CREATE DISPATCH TO CALL addToBag ACTION
   const dispatch = useDispatch();
 
+  // STATE MANAGEMENT
   const [isHeart, setIsHeart] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const location = useLocation();
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
@@ -151,6 +153,8 @@ function Item() {
     toast.success('Added to bag');
     // DISPATCH TO ADD ACTION addtobag
     dispatch(addItem(newItem));
+    // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
+    setIsButtonDisabled(true);
   }
 
   // GRAB QUANTITY
@@ -191,7 +195,7 @@ function Item() {
 
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>
-            <Button onClick={handleAddToBag}>
+            <Button disabled={isButtonDisabled} onClick={handleAddToBag}>
               Add to bag (${item[pathname].regularPrice})
             </Button>
           </ButtonLayout>
