@@ -6,7 +6,7 @@ const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--background-tile);
-  height: var(--height-percentage-window);
+  height: var(--height-filled-window);
 `;
 
 const LoginContainer = styled.div`
@@ -32,6 +32,7 @@ const StyledUnorderedList = styled.ul`
 const StyledList = styled.li`
   display: inline-block;
   margin: var(--margin-small);
+
   font-size: var(--font-large);
   color: var(--color-red);
   cursor: pointer;
