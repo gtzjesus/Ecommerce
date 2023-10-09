@@ -8,7 +8,10 @@ const Form = styled.form`
 `;
 
 const Greeting = styled.span`
-  color: var(--color-red);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-small);
+  color: var(--color-black);
   font-size: var(--font-medium);
   padding: var(--padding-medium);
 `;
@@ -41,7 +44,9 @@ function Login() {
   return (
     <div>
       <Form>
-        <Greeting>Sign in</Greeting>
+        <Greeting>
+          Sign in or <Button variation="third">create account</Button>
+        </Greeting>
         <InputContainer>
           <Input type="text" placeholder="email"></Input>
           <Input type="password" placeholder="password"></Input>
