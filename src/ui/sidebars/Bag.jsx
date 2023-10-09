@@ -14,7 +14,7 @@ const BagContainer = styled.div`
   background-color: var(--background-tile);
   z-index: var(--z-top);
   // CREATE SCROLLABLE COMPONENT BAG
-  max-height: calc(100vh - 140px);
+  max-height: var(--height-full-window);
   overflow-y: auto;
 `;
 
