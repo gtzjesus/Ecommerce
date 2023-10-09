@@ -1,20 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// CREATE INITIAL STATE
 const initialState = {
   bag: [],
-  //   bag: [
-  //     {
-  //       id: 12,
-  //       image:
-  //         'https://vyxhuyruxuknaagfcaqg.supabase.co/storage/v1/object/public/item-images/tacos-alpastor.png',
-  //       name: 'hello world',
-  //       quantity: 5,
-  //       regularPrice: 16,
-  //       totalPrice: 55,
-  //     },
-  //   ],
 };
 
+// CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
   name: 'bag',
   initialState,
@@ -51,6 +42,7 @@ const bagSlice = createSlice({
   },
 });
 
+// EXPORT OUR REDUCERS (bagSlice.actions)
 export const {
   addItem,
   deleteItem,

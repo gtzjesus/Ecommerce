@@ -10,6 +10,7 @@ import Item from './pages/menu/Item';
 import { Toaster } from 'react-hot-toast';
 import Faves from './pages/faves/Faves';
 import Checkout from './pages/checkout/Checkout';
+
 import { useEffect } from 'react';
 
 // REACT QUERY INTEGRATION

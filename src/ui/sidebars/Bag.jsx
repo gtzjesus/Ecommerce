@@ -7,12 +7,14 @@ import BagTotal from '../../features/bag/BagTotal';
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
 
-const BagCart = styled.div`
+const BagContainer = styled.div`
   top: 0;
   left: 0;
   width: var(--width-full-window);
   background-color: var(--background-tile);
   z-index: var(--z-top);
+  // CREATE SCROLLABLE COMPONENT BAG
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
 `;
 
@@ -51,7 +53,7 @@ function Bag() {
     navigate('/menu');
   }
   return (
-    <BagCart>
+    <BagContainer>
       {bagItem.length !== 0 ? (
         <>
           <Username>Your bag jesus,</Username>
@@ -69,7 +71,7 @@ function Bag() {
           </EmptyContent>
         </EmptyContainer>
       )}
-    </BagCart>
+    </BagContainer>
   );
 }
 

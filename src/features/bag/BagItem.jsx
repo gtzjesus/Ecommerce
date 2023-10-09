@@ -53,13 +53,13 @@ const Hamburger = styled.button`
 
 const ButtonLayout = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: var(--padding-small);
 `;
 
 const Amount = styled.span`
   font-size: var(--font-xsmall);
-  padding: 0 var(--padding-xsmall);
+  padding: var(--padding-xxsmall) 0;
 `;
 
 function BagItem({ item }) {
