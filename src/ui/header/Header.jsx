@@ -3,7 +3,7 @@ import { RiShoppingBag2Line } from 'react-icons/ri';
 import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
 import { useState } from 'react';
 import Bag from '../sidebars/Bag';
-import User from '../sidebars/User';
+import Nav from '../sidebars/Nav';
 import { useNavigate } from 'react-router';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
 
@@ -140,7 +140,7 @@ function Header({ isOpen, setIsOpen }) {
             </Hamburger>
           </StyledNav>
           {/* DISPLAY SIDEBARS */}
-          <User />
+          <Nav />
         </Container>
       ) : (
         ''

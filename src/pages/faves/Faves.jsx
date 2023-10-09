@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import Navigation from '../../ui/app/Navigation';
-import Footer from '../../ui/footer/Footer';
 import { FaRegFaceSadTear } from 'react-icons/fa6';
 import { useContext } from 'react';
 import { MenuContext } from '../../context/MenuContext';
@@ -68,7 +67,6 @@ function Faves() {
           </StyledFaves>
         </>
       )}
-      <Footer />
     </Favorites>
   );
 }
