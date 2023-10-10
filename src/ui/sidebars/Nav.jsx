@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Login from '../../features/user/Login';
+import LoginForm from '../../features/authentication/LoginForm';
 
 const NavContainer = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ function Nav() {
         </StyledUnorderedList>
       </Navigation>
       <LoginContainer>
-        <Login />
+        <LoginForm />
       </LoginContainer>
     </NavContainer>
   );

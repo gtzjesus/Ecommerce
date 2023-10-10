@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { useState } from 'react';
-import { useLogin } from '../authentication/useLogin';
+import { useLogin } from './useLogin';
 import SpinnerMini from '../../ui/spinners/SpinnerMini';
 
 const Form = styled.form`
@@ -43,7 +43,7 @@ const Input = styled.input`
     color: var(--color-red);
   }
 `;
-function Login() {
+function LoginForm() {
   // SET STATE FOR email and password
   const [email, setEmail] = useState('jesus@outlook.com');
   const [password, setPassword] = useState('pass0987');
@@ -53,7 +53,15 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!email || !password) return;
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail('');
+          setPassword('');
+        },
+      }
+    );
   }
 
   return (
@@ -86,4 +94,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;

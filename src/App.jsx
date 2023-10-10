@@ -12,6 +12,7 @@ import Faves from './pages/faves/Faves';
 import Checkout from './pages/checkout/Checkout';
 
 import { useEffect } from 'react';
+import ProtectedRoute from './ui/routes/ProtectedRoute';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -30,7 +31,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/menu',
-    element: <Menu />,
+    element: (
+      <ProtectedRoute>
+        <Menu />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/menu/:itemId',
