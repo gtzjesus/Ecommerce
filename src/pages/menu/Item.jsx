@@ -8,8 +8,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentQuantityById } from '../../features/bag/bagSlice';
+import { useDispatch } from 'react-redux';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -73,11 +72,6 @@ const ButtonLayout = styled.div`
   display: flex;
   align-items: center;
   padding: var(--padding-small);
-`;
-
-const Amount = styled.span`
-  font-size: var(--font-small);
-  padding: 0 var(--padding-medium);
 `;
 
 function Item() {
@@ -156,11 +150,6 @@ function Item() {
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
   }
-
-  // GRAB QUANTITY
-  const currentQuantity = useSelector(
-    getCurrentQuantityById([item[pathname].id])
-  );
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
