@@ -11,7 +11,7 @@ const NavContainer = styled.div`
 
 const LoginContainer = styled.div`
   width: var(--width-full-window);
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
 `;
 
 const Navigation = styled.footer`

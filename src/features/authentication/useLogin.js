@@ -1,8 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { login as loginAPI } from '../../services/apiAuth';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 
 export function useLogin() {
+  // NAVIGATION HOOK
+  const navigate = useNavigate();
   // GRAB QUERY CLIENT
   const queryClient = useQueryClient();
   // HANDLE LOGIN, USER GETS AUTH, MUTATION TO THE SERVER BACKEND
@@ -12,6 +15,7 @@ export function useLogin() {
       // MANUALLY SET DATA INTO react query cache
       queryClient.setQueriesData(['user'], user);
       toast.success('Authenticated');
+      navigate('/');
     },
     onError: () => {
       toast.error('Incorrect information');

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useUser } from '../../features/authentication/useUser';
 import Spinner from '../spinners/Spinner';
 import { useEffect } from 'react';
-import Nav from '../sidebars/Nav';
+import { useNavigate } from 'react-router';
 
 const FullPage = styled.div`
   height: var(--height-filled-window);
@@ -13,14 +13,16 @@ const FullPage = styled.div`
 `;
 
 function ProtectedRoute({ children }) {
+  // HOOK FOR NAVIGATION
+  const navigate = useNavigate();
   // LOAD THE AUTHENTICATED USER
   const { isAuthenticated, isLoading } = useUser();
 
-  // IF no AUTHENTICATED USER, REDIRECT TO /Home
+  // IF no AUTHENTICATED USER, DISPLAY LOGIN FORM
   useEffect(
     function () {
       if (!isAuthenticated && !isLoading) {
-        <Nav />;
+        navigate('/login');
       }
     },
     [isAuthenticated, isLoading]

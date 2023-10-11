@@ -8,6 +8,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: var(--z-top);
 `;
 
 const Greeting = styled.span`
@@ -28,7 +29,7 @@ const InputContainer = styled.div`
 
 const Input = styled.input`
   appearance: none;
-  border: 0.2em solid var(--background-tile);
+  border: 0.2em solid var(--background-primary);
   background: hsl(0 0 0/0);
   padding: 0.85em 1.5em;
   font-size: 16px;
@@ -62,6 +63,7 @@ function LoginForm() {
         },
       }
     );
+    // ONCE AUTHENTICATED
   }
 
   return (
