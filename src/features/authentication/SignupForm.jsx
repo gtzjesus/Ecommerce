@@ -44,12 +44,12 @@ const Input = styled.input`
 `;
 
 function SignupForm() {
-  const { signup } = useSignup();
+  const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
   function onSubmit({ fullName, email, password }) {
-    signup({ fullName, email, password }, { onSettled: reset });
+    signup({ fullName, email, password }, { onSettled: () => reset });
   }
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -59,6 +59,7 @@ function SignupForm() {
           type="text"
           placeholder="name"
           id="fullName"
+          disabled={isLoading}
           {...register('fullName', { required: 'This is required' })}
           error={errors?.fullName?.message}
         ></Input>
@@ -66,6 +67,7 @@ function SignupForm() {
           type="email"
           placeholder="email"
           id="email"
+          disabled={isLoading}
           error={errors?.email?.message}
           {...register('email', {
             required: 'This is required',
@@ -79,6 +81,7 @@ function SignupForm() {
           type="password"
           placeholder="password"
           id="password"
+          disabled={isLoading}
           error={errors?.password?.message}
           {...register('password', {
             required: 'This is required',
@@ -92,6 +95,7 @@ function SignupForm() {
           type="password"
           placeholder="repeat password"
           id="passwordConfirm"
+          disabled={isLoading}
           error={errors?.passwordConfirm?.message}
           {...register('passwordConfirm', {
             required: 'This is required',
@@ -99,8 +103,7 @@ function SignupForm() {
               value === getValues().password || 'Passwords need to match',
           })}
         ></Input>
-
-        <Button>Create account</Button>
+        <Button disabled={isLoading}>Create account</Button>
       </InputContainer>
     </Form>
   );
