@@ -3,6 +3,7 @@ import Button from '../../ui/buttons/Button';
 import { useState } from 'react';
 import { useLogin } from './useLogin';
 import SpinnerMini from '../../ui/spinners/SpinnerMini';
+import { useNavigate } from 'react-router';
 
 const Form = styled.form`
   display: flex;
@@ -45,6 +46,8 @@ const Input = styled.input`
   }
 `;
 function LoginForm() {
+  // GRAB NAVIGATION HOOK
+  const navigate = useNavigate();
   // SET STATE FOR email and password
   const [email, setEmail] = useState('jesus@outlook.com');
   const [password, setPassword] = useState('pass0987');
@@ -69,7 +72,10 @@ function LoginForm() {
     <div>
       <Form onSubmit={handleSubmit}>
         <Greeting>
-          Sign in or <Button variation="third">create account</Button>
+          Sign in or{' '}
+          <Button onClick={() => navigate('/signup')} variation="third">
+            create account
+          </Button>
         </Greeting>
         <InputContainer>
           <Input
