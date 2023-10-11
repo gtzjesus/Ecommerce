@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginForm from '../../features/authentication/LoginForm';
+import Logout from '../../features/authentication/Logout';
 
 const NavContainer = styled.div`
   display: flex;
@@ -59,6 +60,7 @@ function Nav() {
       </Navigation>
       <LoginContainer>
         <LoginForm />
+        <Logout />
       </LoginContainer>
     </NavContainer>
   );

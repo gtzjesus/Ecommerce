@@ -25,7 +25,7 @@ function ProtectedRoute({ children }) {
         navigate('/login');
       }
     },
-    [isAuthenticated, isLoading]
+    [isAuthenticated, isLoading, navigate]
   );
 
   // WHILE LOADING, SHOW SPINNER

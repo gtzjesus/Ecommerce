@@ -12,6 +12,12 @@ export async function login({ email, password }) {
   return data;
 }
 
+// API LOGOUT TO SUPABASE
+export async function logout() {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw new Error(error.message);
+}
+
 // ON EACH RELOAD, USER RE-FETCH TO STAY AUTHENTICATED
 export async function getCurrentUser() {
   // GET DATA FROM LOCAL STORAGE APP

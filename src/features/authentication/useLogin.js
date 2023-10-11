@@ -13,9 +13,9 @@ export function useLogin() {
     mutationFn: ({ email, password }) => loginAPI({ email, password }),
     onSuccess: (user) => {
       // MANUALLY SET DATA INTO react query cache
-      queryClient.setQueriesData(['user'], user);
+      queryClient.setQueryData(['user'], user.user);
       toast.success('Authenticated');
-      navigate('/');
+      navigate('/', { replace: true });
     },
     onError: () => {
       toast.error('Incorrect information');

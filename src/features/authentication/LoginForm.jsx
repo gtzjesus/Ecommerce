@@ -63,7 +63,6 @@ function LoginForm() {
         },
       }
     );
-    // ONCE AUTHENTICATED
   }
 
   return (
