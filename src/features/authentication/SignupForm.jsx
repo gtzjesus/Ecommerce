@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { useForm } from 'react-hook-form';
+import { useSignup } from './useSignup';
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -43,11 +44,12 @@ const Input = styled.input`
 `;
 
 function SignupForm() {
-  const { register, formState, getValues, handleSubmit } = useForm();
+  const { signup } = useSignup();
+  const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
-  function onSubmit(data) {
-    console.log(data);
+  function onSubmit({ fullName, email, password }) {
+    signup({ fullName, email, password }, { onSettled: reset });
   }
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
