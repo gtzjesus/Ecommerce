@@ -6,10 +6,12 @@ import Bag from '../sidebars/Bag';
 import Nav from '../sidebars/Nav';
 import { useNavigate } from 'react-router';
 import { RiShoppingBag2Fill } from 'react-icons/ri';
+import { BiSolidUser, BiUser } from 'react-icons/bi';
 
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
+import { useUser } from '../../features/authentication/useUser';
 
 const StyledHeader = styled.div`
   position: fixed;
@@ -51,6 +53,9 @@ const Items = styled.span`
 `;
 
 function Header({ isOpen, setIsOpen }) {
+  // GRAB ISAUTHENTICATED custom hook
+  const { isAuthenticated, data } = useUser();
+  console.log(data);
   // GRAB BAG WITH selector HOOK
   const bag = useSelector(getBag);
   // NAVIGATION HOOK
@@ -133,7 +138,7 @@ function Header({ isOpen, setIsOpen }) {
         <Container>
           <StyledNav>
             <Hamburger>
-              <AiOutlineUser />
+              {isAuthenticated ? <BiSolidUser /> : <BiUser />}
             </Hamburger>
             <Hamburger>
               <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />

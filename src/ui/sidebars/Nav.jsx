@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import LoginForm from '../../features/authentication/LoginForm';
 import Logout from '../../features/authentication/Logout';
+import { useUser } from '../../features/authentication/useUser';
 
 const NavContainer = styled.div`
   display: flex;
@@ -40,6 +41,7 @@ const StyledList = styled.li`
 `;
 
 function Nav() {
+  const { isAuthenticated } = useUser();
   return (
     <NavContainer>
       <Navigation>
@@ -59,8 +61,8 @@ function Nav() {
         </StyledUnorderedList>
       </Navigation>
       <LoginContainer>
-        <LoginForm />
-        <Logout />
+        {/* CHECK FOR AUTHENTICATION TO DISPLAY */}
+        {isAuthenticated ? <Logout /> : <LoginForm />}
       </LoginContainer>
     </NavContainer>
   );

@@ -14,7 +14,12 @@ export function useLogin() {
     onSuccess: (user) => {
       // MANUALLY SET DATA INTO react query cache
       queryClient.setQueryData(['user'], user.user);
-      toast.success('Authenticated');
+      // GRAB USER'S EMAIL
+      const userEmail = user.user.email;
+      // SPLIT INTO NAME AND DOMAIN SEPARATE
+      const name = userEmail.substring(0, userEmail.lastIndexOf('@'));
+      const domain = userEmail.substring(userEmail.lastIndexOf('@') + 1);
+      toast.success(`hello ${name}`);
       navigate('/', { replace: true });
     },
     onError: () => {
