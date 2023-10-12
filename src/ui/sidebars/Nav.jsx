@@ -41,7 +41,8 @@ const StyledList = styled.li`
 `;
 
 function Nav() {
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated, data: user } = useUser();
+  console.log(user);
   return (
     <NavContainer>
       <Navigation>

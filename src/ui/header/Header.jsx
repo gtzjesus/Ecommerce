@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { RiShoppingBag2Line } from 'react-icons/ri';
-import { AiOutlineClose, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineClose } from 'react-icons/ai';
 import { useState } from 'react';
 import Bag from '../sidebars/Bag';
 import Nav from '../sidebars/Nav';
@@ -54,8 +54,7 @@ const Items = styled.span`
 
 function Header({ isOpen, setIsOpen }) {
   // GRAB ISAUTHENTICATED custom hook
-  const { isAuthenticated, data } = useUser();
-  console.log(data);
+  const { isAuthenticated } = useUser();
   // GRAB BAG WITH selector HOOK
   const bag = useSelector(getBag);
   // NAVIGATION HOOK
