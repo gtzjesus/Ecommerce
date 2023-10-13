@@ -10,7 +10,7 @@ export function useSignup() {
     mutationFn: signupAPI,
     onSuccess: (user) => {
       toast.success('Account created, please verify email!');
-      navigate('/', { replace: true });
+      navigate(-1, { replace: true });
 
       // AUTOMATICALLY LOGIN ACCOUNT
     },

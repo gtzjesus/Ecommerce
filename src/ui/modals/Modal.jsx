@@ -6,6 +6,8 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   width: var(--width-full-window);
+  min-height: var(--height-filled-window);
+
   background-color: var(--background-primary);
   z-index: var(--z-top);
 `;
