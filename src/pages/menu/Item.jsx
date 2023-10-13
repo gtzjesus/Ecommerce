@@ -149,6 +149,8 @@ function Item() {
     dispatch(addItem(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
+    // ADD TO LOCAL STORATE (cookies)
+    localStorage.setItem(item[pathname].id, JSON.stringify(newItem));
   }
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)

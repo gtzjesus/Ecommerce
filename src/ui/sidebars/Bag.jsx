@@ -44,7 +44,12 @@ const EmptyImg = styled.img`
 `;
 
 function Bag() {
-  const bag = useSelector(getBag);
+  let bag = useSelector(getBag);
+  const saved = localStorage.getItem('name');
+  const initialValue = JSON.parse(saved);
+  if (bag.length === 0) bag = initialValue;
+
+  console.log(bag);
   const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
