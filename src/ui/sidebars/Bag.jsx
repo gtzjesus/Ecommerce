@@ -56,7 +56,7 @@ function Bag() {
     <BagContainer>
       {bagItem.length !== 0 ? (
         <>
-          <Username>Your bag jesus,</Username>
+          <Username>Your bag,</Username>
           <BagItem item={bagItem} key={bagItem.id} />
           <BagTotal />
         </>
