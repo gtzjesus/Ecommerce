@@ -9,6 +9,10 @@ import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
+import {
+  getStorageValue,
+  setStorageValue,
+} from '../../services/useLocalStorage';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -100,6 +104,18 @@ function Item() {
   const sortedItems = items.sort(dynamicSort('id'));
   // CREATE ITEM OBJECT FROM THIS LIST
   const item = sortedItems;
+  // CREATE NEW ITEM TO BE ADDED as action.payload
+  const newItem = {
+    id: item[pathname].id,
+    image: item[pathname].image,
+    name: item[pathname].name,
+    quantity: 1,
+    regularPrice: item[pathname].regularPrice,
+    discount: item[pathname].discount,
+    totalPrice:
+      item[pathname].regularPrice * item[pathname].quantity -
+      item[pathname].discount,
+  };
 
   // HANDLE CLICK FOR HEART FAVE
   function handleHeart() {
@@ -129,29 +145,23 @@ function Item() {
     }
   }
 
-  // HANDLE ADDING TO BAG
+  // HANDLE ADDING TO BAG USER CLICK
   function handleAddToBag() {
-    // CREATE NEW ITEM TO BE ADDED as action.payload
-    const newItem = {
-      id: item[pathname].id,
-      image: item[pathname].image,
-      name: item[pathname].name,
-      quantity: 1,
-      regularPrice: item[pathname].regularPrice,
-      discount: item[pathname].discount,
-      totalPrice:
-        item[pathname].regularPrice * item[pathname].quantity -
-        item[pathname].discount,
-    };
-    // TOAST FOR SUCCESS
-    toast.success('Added to bag');
     // DISPATCH TO ADD ACTION addtobag
     dispatch(addItem(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
+    // TOAST FOR SUCCESS
+    toast.success('Added to bag');
     // ADD TO LOCAL STORATE (cookies)
-    localStorage.setItem(item[pathname].id, JSON.stringify(newItem));
+    setStorageValue('id', newItem);
   }
+
+  // PERFORM SIDE EFFECT, STORE DATA INTO BROWSER STORAGE (happens of page visit)
+  // useEffect(() => {
+  //   // ADD TO LOCAL STORATE (cookies)
+  //   localStorage.setItem(item[pathname].id, JSON.stringify(newItem));
+  // }, [item, pathname, newItem]);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
@@ -186,9 +196,13 @@ function Item() {
 
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>
-            <Button disabled={isButtonDisabled} onClick={handleAddToBag}>
-              Add to bag (${item[pathname].regularPrice})
-            </Button>
+            {!isButtonDisabled ? (
+              <Button disabled={isButtonDisabled} onClick={handleAddToBag}>
+                Add to bag (${item[pathname].regularPrice})
+              </Button>
+            ) : (
+              ''
+            )}
           </ButtonLayout>
         </StyledDesc>
       </StyledItemContainer>

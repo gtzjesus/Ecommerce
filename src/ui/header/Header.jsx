@@ -116,7 +116,7 @@ function Header({ isOpen, setIsOpen }) {
             <Hamburger>
               <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />
             </Hamburger>
-            {bag.length === 0 ? (
+            {bag.length === 0 || bag === null ? (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
                 <RiShoppingBag2Line value={navTo} />
               </Hamburger>

@@ -6,6 +6,8 @@ import BagTotal from '../../features/bag/BagTotal';
 
 import { useSelector } from 'react-redux';
 import { getBag } from '../../features/bag/bagSlice';
+import { useEffect } from 'react';
+import { getStorageValue } from '../../services/useLocalStorage';
 
 const BagContainer = styled.div`
   top: 0;
@@ -44,12 +46,9 @@ const EmptyImg = styled.img`
 `;
 
 function Bag() {
+  // GRAB bag FROM SLICE
   let bag = useSelector(getBag);
-  const saved = localStorage.getItem('name');
-  const initialValue = JSON.parse(saved);
-  if (bag.length === 0) bag = initialValue;
-
-  console.log(bag);
+  // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
   const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
@@ -57,8 +56,14 @@ function Bag() {
   function handleNavigate() {
     navigate('/menu');
   }
+
+  useEffect(() => {
+    // GET BAG from local storage
+    getStorageValue('id', bagItem);
+  }, [bagItem]);
+
   return (
-    <BagContainer>
+    <BagContainer key={bagItem.id}>
       {bagItem.length !== 0 ? (
         <>
           <Username>Your bag,</Username>
