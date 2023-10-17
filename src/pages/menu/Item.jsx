@@ -9,10 +9,6 @@ import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
-import {
-  getStorageValue,
-  setStorageValue,
-} from '../../services/useLocalStorage';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -154,7 +150,7 @@ function Item() {
     // TOAST FOR SUCCESS
     toast.success('Added to bag');
     // ADD TO LOCAL STORATE (cookies)
-    setStorageValue('id', newItem);
+    // localStorage.setItem('item', JSON.stringify(newItem));
   }
 
   // PERFORM SIDE EFFECT, STORE DATA INTO BROWSER STORAGE (happens of page visit)
