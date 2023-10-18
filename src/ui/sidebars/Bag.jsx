@@ -44,13 +44,10 @@ const EmptyImg = styled.img`
 `;
 
 function Bag() {
-  // GRAB LOCAL STORAGE BAG
-  const [bag, setBag] = useLocalStorage([], 'item');
-  // GRAB bag FROM SLICE
-  // let bag = useSelector(getBag);
-  console.log(bag);
+  // GRAB BAG FROM local storage
+  let bag = [JSON.parse(localStorage.getItem('item'))] || [];
   // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
-  const bagItem = bag.item.map((item) => item);
+  const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)
@@ -60,13 +57,7 @@ function Bag() {
 
   return (
     <BagContainer>
-      {bagItem.length !== 0 ? (
-        <>
-          <Username>Your bag,</Username>
-          <BagItem item={bagItem} key={bagItem.id} />
-          <BagTotal />
-        </>
-      ) : (
+      {bag[0] === null ? (
         <EmptyContainer>
           <EmptyContent>
             <EmptyImg src="/images/backgrounds/empty.png" />
@@ -76,6 +67,12 @@ function Bag() {
             <Button onClick={handleNavigate}>order now</Button>
           </EmptyContent>
         </EmptyContainer>
+      ) : (
+        <>
+          <Username>Your bag,</Username>
+          <BagItem item={bagItem} key={bagItem.id} />
+          <BagTotal />
+        </>
       )}
     </BagContainer>
   );

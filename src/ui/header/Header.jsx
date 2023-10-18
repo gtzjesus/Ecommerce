@@ -55,8 +55,9 @@ const Items = styled.span`
 function Header({ isOpen, setIsOpen }) {
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
-  // GRAB BAG WITH selector HOOK
-  const bag = useSelector(getBag);
+  // GRAB BAG FROM local storage
+  let bag = [JSON.parse(localStorage.getItem('item'))];
+  console.log(bag);
   // NAVIGATION HOOK
   const navigate = useNavigate();
   // CREATE STATE FOR CLICKED EVENTS
@@ -96,7 +97,7 @@ function Header({ isOpen, setIsOpen }) {
             <img src="/logo/hotdog.png" />
           </Logo>
 
-          {bag.length === 0 ? (
+          {bag[0] === null ? (
             <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
               <RiShoppingBag2Line value={navTo} />
             </Hamburger>
@@ -116,7 +117,7 @@ function Header({ isOpen, setIsOpen }) {
             <Hamburger>
               <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />
             </Hamburger>
-            {bag.length === 0 || bag === null ? (
+            {bag[0] === null ? (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
                 <RiShoppingBag2Line value={navTo} />
               </Hamburger>
