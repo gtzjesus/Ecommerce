@@ -149,9 +149,6 @@ function Item() {
     setIsButtonDisabled(true);
     // TOAST FOR SUCCESS
     toast.success('Added to bag');
-
-    // ADD TO LOCAL STORATE
-    localStorage.setItem('item', JSON.stringify(newItem));
   }
 
   // PERFORM SIDE EFFECT, STORE DATA INTO BROWSER STORAGE (happens of page visit)

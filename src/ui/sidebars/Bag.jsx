@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router';
 import Button from '../buttons/Button';
 import BagTotal from '../../features/bag/BagTotal';
 import { getBag } from '../../features/bag/bagSlice';
-import { useLocalStorage } from '../../services/useLocalStorage';
 import { useSelector } from 'react-redux';
 
 const BagContainer = styled.div`
@@ -45,7 +44,7 @@ const EmptyImg = styled.img`
 
 function Bag() {
   // GRAB BAG FROM local storage
-  let bag = [JSON.parse(localStorage.getItem('item'))] || [];
+  let bag = useSelector(getBag);
   // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
   const bagItem = bag.map((item) => item);
   // GRAB NAVIGATION HOOK
@@ -57,7 +56,7 @@ function Bag() {
 
   return (
     <BagContainer>
-      {bag[0] === null ? (
+      {bag.length === 0 ? (
         <EmptyContainer>
           <EmptyContent>
             <EmptyImg src="/images/backgrounds/empty.png" />

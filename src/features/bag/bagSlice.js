@@ -1,9 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useLocalStorage } from '../../services/useLocalStorage';
+// GET INFORMATION from local storage
+const items =
+  localStorage.getItem('bagItem') != null
+    ? JSON.parse(localStorage.getItem('bagItem'))
+    : [];
 
 // CREATE INITIAL STATE
 const initialState = {
-  bag: [],
+  bag: items,
+  // totalQuantity: totalQuantity,
+  // totalAmount: totalAmount,
 };
 // CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
@@ -13,10 +19,17 @@ const bagSlice = createSlice({
     addItem(state, action) {
       // payload = newItem
       state.bag.push(action.payload);
+      // ADD item to local storage
+      localStorage.setItem(
+        'bagItem',
+        JSON.stringify(state.bag.map((item) => item))
+      );
     },
     deleteItem(state, action) {
       // payload = id
       state.bag = state.bag.filter((item) => item.id !== action.payload);
+      // REMOVE item from local storage
+      localStorage.removeItem('bagItem');
     },
     increaseItemQuantity(state, action) {
       // payload = id

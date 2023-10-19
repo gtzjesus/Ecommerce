@@ -9,8 +9,6 @@ import { RiShoppingBag2Fill } from 'react-icons/ri';
 import { BiSolidUser, BiUser } from 'react-icons/bi';
 
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
-import { useSelector } from 'react-redux';
-import { getBag } from '../../features/bag/bagSlice';
 import { useUser } from '../../features/authentication/useUser';
 
 const StyledHeader = styled.div`
@@ -56,7 +54,10 @@ function Header({ isOpen, setIsOpen }) {
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
   // GRAB BAG FROM local storage
-  let bag = [JSON.parse(localStorage.getItem('item'))];
+  let bag =
+    localStorage.getItem('bagItem') != null
+      ? JSON.parse(localStorage.getItem('bagItem'))
+      : [];
   console.log(bag);
   // NAVIGATION HOOK
   const navigate = useNavigate();
@@ -97,7 +98,7 @@ function Header({ isOpen, setIsOpen }) {
             <img src="/logo/hotdog.png" />
           </Logo>
 
-          {bag[0] === null ? (
+          {bag.length === 0 ? (
             <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
               <RiShoppingBag2Line value={navTo} />
             </Hamburger>
@@ -117,7 +118,7 @@ function Header({ isOpen, setIsOpen }) {
             <Hamburger>
               <AiOutlineClose value={isOpen} onClick={() => handleToggle('')} />
             </Hamburger>
-            {bag[0] === null ? (
+            {bag.length === 0 ? (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
                 <RiShoppingBag2Line value={navTo} />
               </Hamburger>
