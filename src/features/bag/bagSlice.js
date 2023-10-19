@@ -8,9 +8,8 @@ const items =
 // CREATE INITIAL STATE
 const initialState = {
   bag: items,
-  // totalQuantity: totalQuantity,
-  // totalAmount: totalAmount,
 };
+
 // CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
   name: 'bag',
@@ -47,10 +46,13 @@ const bagSlice = createSlice({
       item.quantity--;
       item.totalPrice = item.quantity * item.regularPrice;
 
+      // AUTO-DELETE ITEM on quantity = 0
       if (item.quantity === 0) bagSlice.caseReducers.deleteItem(state, action);
     },
     clearBag(state) {
       state.bag = [];
+      // REMOVE ALL items from local storage
+      localStorage.removeItem('bagItem');
     },
   },
 });
@@ -66,6 +68,7 @@ export const {
 
 export default bagSlice.reducer;
 
+// FUNCTIONS USED ACROSS THE BAG COMPONENT
 export const getBag = (state) => state.bag.bag;
 
 export const getTotalBagQuantity = (state) =>

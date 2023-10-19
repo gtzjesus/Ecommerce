@@ -58,7 +58,6 @@ function Header({ isOpen, setIsOpen }) {
     localStorage.getItem('bagItem') != null
       ? JSON.parse(localStorage.getItem('bagItem'))
       : [];
-  console.log(bag);
   // NAVIGATION HOOK
   const navigate = useNavigate();
   // CREATE STATE FOR CLICKED EVENTS
