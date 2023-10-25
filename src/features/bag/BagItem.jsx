@@ -66,7 +66,6 @@ const Amount = styled.span`
 function BagItem({ item }) {
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
-  // useSelector TO GRAB current quantity
 
   // DECONSTRUCT ITEM
   return item.map((item) =>

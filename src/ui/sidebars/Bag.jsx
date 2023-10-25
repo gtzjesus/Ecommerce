@@ -3,7 +3,7 @@ import BagItem from '../../features/bag/BagItem';
 import { useNavigate } from 'react-router';
 import Button from '../buttons/Button';
 import BagTotal from '../../features/bag/BagTotal';
-import { getBag } from '../../features/bag/bagSlice';
+import { getBag, getTotalBagQuantity } from '../../features/bag/bagSlice';
 import { useSelector } from 'react-redux';
 
 const BagContainer = styled.div`
@@ -45,8 +45,11 @@ const EmptyImg = styled.img`
 function Bag() {
   // GRAB BAG FROM local storage
   let bag = useSelector(getBag);
+  // GRAB QUANTITY from local storage
+  let quantity = useSelector(getTotalBagQuantity);
   // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
   const bagItem = bag.map((item) => item);
+
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)
@@ -68,7 +71,7 @@ function Bag() {
         </EmptyContainer>
       ) : (
         <>
-          <Username>Your bag,</Username>
+          <Username>Your bag, {quantity} items</Username>
           <BagItem item={bagItem} key={bagItem.id} />
           <BagTotal />
         </>
