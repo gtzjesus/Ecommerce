@@ -48,6 +48,7 @@ function BagTotal() {
   const dispatch = useDispatch();
   // SELECTORS FROM REDUX
   const totalBagQuantity = useSelector(getTotalBagQuantity);
+  // GRAB total from local storage
   const totalBagPrice = useSelector(getTotalBagPrice);
   // GRAB TAX FROM TOTAL PRICE
   const taxAmount = totalBagPrice / 8.25;
