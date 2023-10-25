@@ -10,6 +10,8 @@ import { BiSolidUser, BiUser } from 'react-icons/bi';
 
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { useUser } from '../../features/authentication/useUser';
+import { getTotalBagQuantity } from '../../features/bag/bagSlice';
+import { useSelector } from 'react-redux';
 
 const StyledHeader = styled.div`
   position: fixed;
@@ -53,6 +55,8 @@ const Items = styled.span`
 function Header({ isOpen, setIsOpen }) {
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
+  // GRAB QUANTITY from local storage
+  let quantity = useSelector(getTotalBagQuantity);
   // GRAB BAG FROM local storage
   let bag =
     localStorage.getItem('bagItem') != null
@@ -103,7 +107,7 @@ function Header({ isOpen, setIsOpen }) {
             </Hamburger>
           ) : (
             <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-              <Items>{bag.length}</Items>
+              <Items>{quantity}</Items>
               <RiShoppingBag2Fill value={navTo} />
             </Hamburger>
           )}
@@ -123,7 +127,7 @@ function Header({ isOpen, setIsOpen }) {
               </Hamburger>
             ) : (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-                <Items>{bag.length}</Items>
+                <Items>{quantity}</Items>
                 <RiShoppingBag2Fill value={navTo} />
               </Hamburger>
             )}
