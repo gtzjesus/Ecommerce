@@ -52,15 +52,11 @@ const Items = styled.span`
   font-size: var(--font-xsmall);
 `;
 
-function Header({ isOpen, setIsOpen }) {
+function Header({ totalQuantity, isOpen, setIsOpen }) {
+  console.log(totalQuantity);
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
-  // GRAB QUANTITY from local storage
-  let quantity = useSelector(getTotalBagQuantity);
-  // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
-  let totalQuantity = 0;
-  const reducer = (accumulator, current) => accumulator + current;
-  totalQuantity = quantity.reduce(reducer);
+
   // GRAB BAG FROM local storage
   let bag =
     localStorage.getItem('bagItem') != null

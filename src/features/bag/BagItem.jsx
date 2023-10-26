@@ -68,7 +68,6 @@ function BagItem({ item }) {
   let quantity = useSelector(
     getCurrentQuantityById(item.map((item) => item.id))
   );
-  console.log(quantity);
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
 

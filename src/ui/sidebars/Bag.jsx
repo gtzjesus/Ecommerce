@@ -53,8 +53,10 @@ function Bag() {
   let quantity = useSelector(getTotalBagQuantity);
   // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
   let totalQuantity = 0;
-  const reducer = (accumulator, current) => accumulator + current;
-  totalQuantity = quantity.reduce(reducer);
+  if (quantity > 0) {
+    const reducer = (accumulator, current) => accumulator + current;
+    totalQuantity = quantity.reduce(reducer);
+  }
   // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
   const bagItem = bag.map((item) => item);
 
