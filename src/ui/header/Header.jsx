@@ -10,8 +10,6 @@ import { BiSolidUser, BiUser } from 'react-icons/bi';
 
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { useUser } from '../../features/authentication/useUser';
-import { getTotalBagQuantity } from '../../features/bag/bagSlice';
-import { useSelector } from 'react-redux';
 
 const StyledHeader = styled.div`
   position: fixed;
@@ -53,7 +51,6 @@ const Items = styled.span`
 `;
 
 function Header({ totalQuantity, isOpen, setIsOpen }) {
-  console.log(totalQuantity);
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
 

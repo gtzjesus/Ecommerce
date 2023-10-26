@@ -6,7 +6,6 @@ import { getTotalBagQuantity } from '../../features/bag/bagSlice';
 function Navigation() {
   // GRAB QUANTITY from local storage
   let quantity = useSelector(getTotalBagQuantity);
-  console.log(quantity);
   // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
   let totalQuantity = 0;
   if (quantity != 0) {
