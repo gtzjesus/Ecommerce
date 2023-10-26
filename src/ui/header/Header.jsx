@@ -57,6 +57,10 @@ function Header({ isOpen, setIsOpen }) {
   const { isAuthenticated } = useUser();
   // GRAB QUANTITY from local storage
   let quantity = useSelector(getTotalBagQuantity);
+  // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
+  let totalQuantity = 0;
+  const reducer = (accumulator, current) => accumulator + current;
+  totalQuantity = quantity.reduce(reducer);
   // GRAB BAG FROM local storage
   let bag =
     localStorage.getItem('bagItem') != null
@@ -107,7 +111,7 @@ function Header({ isOpen, setIsOpen }) {
             </Hamburger>
           ) : (
             <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-              <Items>{quantity}</Items>
+              <Items>{totalQuantity}</Items>
               <RiShoppingBag2Fill value={navTo} />
             </Hamburger>
           )}
@@ -127,7 +131,7 @@ function Header({ isOpen, setIsOpen }) {
               </Hamburger>
             ) : (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-                <Items>{quantity}</Items>
+                <Items>{totalQuantity}</Items>
                 <RiShoppingBag2Fill value={navTo} />
               </Hamburger>
             )}

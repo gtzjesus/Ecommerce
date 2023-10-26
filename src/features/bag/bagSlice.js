@@ -112,7 +112,10 @@ export default bagSlice.reducer;
 export const getBag = (state) => state.bag.bag;
 
 export const getTotalBagQuantity = (state) =>
+  JSON.parse(localStorage.getItem('totalQuantity')) ||
   state.bag.bag.reduce((sum, item) => sum + item.quantity, 0);
+
+// export const getTotalBagQuantity = (state) => state.bag.bag.reduce((sum,item) sum + )
 
 export const getTotalBagPrice = (state) =>
   state.bag.bag.reduce((sum, item) => sum + item.totalPrice, 0);

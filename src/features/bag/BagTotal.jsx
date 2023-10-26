@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearBag, getTotalBagPrice, getTotalBagQuantity } from './bagSlice';
+import { clearBag, getTotalBagPrice } from './bagSlice';
 import { useNavigate } from 'react-router';
 const TotalContainer = styled.div`
   display: flex;
@@ -41,13 +41,11 @@ const ButtonLayout = styled.div`
   justify-content: right;
   gap: var(--gap-small);
 `;
-function BagTotal() {
+function BagTotal({ totalQuantity }) {
   // GRAB NAVIGATE
   const navigate = useNavigate();
   // GRAB DISPATCH FOR ACTIONS
   const dispatch = useDispatch();
-  // SELECTORS FROM REDUX
-  const totalBagQuantity = useSelector(getTotalBagQuantity);
   // GRAB total from local storage
   const totalBagPrice = useSelector(getTotalBagPrice);
   // GRAB TAX FROM TOTAL PRICE
@@ -71,7 +69,7 @@ function BagTotal() {
           <span>${taxAmount.toFixed(2)}</span>
         </Tax>
         <Total>
-          <span>total ({totalBagQuantity} items)</span>
+          <span>total ({totalQuantity} items)</span>
           <span>${fullAmount.toFixed(2)}</span>
         </Total>
         <ButtonLayout>

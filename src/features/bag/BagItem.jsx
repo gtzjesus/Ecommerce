@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../../ui/buttons/Button';
-import { useDispatch } from 'react-redux';
-import { deleteItem } from './bagSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem, getCurrentQuantityById } from './bagSlice';
 import { decreaseItemQuantity, increaseItemQuantity } from './bagSlice';
 
 const StyledRow = styled.div`
@@ -64,6 +64,11 @@ const Amount = styled.span`
 `;
 
 function BagItem({ item }) {
+  // GRAB QUANTITY from local storage
+  let quantity = useSelector(
+    getCurrentQuantityById(item.map((item) => item.id))
+  );
+  console.log(quantity);
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
 
@@ -74,7 +79,7 @@ function BagItem({ item }) {
         <StyledDescription>
           <Img src={item.image} />
           <Name>{item.name}</Name>
-          <Quantity>x{item.quantity}</Quantity>
+          <Quantity>x{quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
           <Price>${item.regularPrice}</Price>

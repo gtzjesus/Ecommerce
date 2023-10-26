@@ -3,7 +3,11 @@ import BagItem from '../../features/bag/BagItem';
 import { useNavigate } from 'react-router';
 import Button from '../buttons/Button';
 import BagTotal from '../../features/bag/BagTotal';
-import { getBag, getTotalBagQuantity } from '../../features/bag/bagSlice';
+import {
+  getBag,
+  getCurrentQuantityById,
+  getTotalBagQuantity,
+} from '../../features/bag/bagSlice';
 import { useSelector } from 'react-redux';
 
 const BagContainer = styled.div`
@@ -47,6 +51,10 @@ function Bag() {
   let bag = useSelector(getBag);
   // GRAB QUANTITY from local storage
   let quantity = useSelector(getTotalBagQuantity);
+  // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
+  let totalQuantity = 0;
+  const reducer = (accumulator, current) => accumulator + current;
+  totalQuantity = quantity.reduce(reducer);
   // GRAB INDIVIDUAL BAG ITEM (map returns array of items)
   const bagItem = bag.map((item) => item);
 
@@ -71,9 +79,9 @@ function Bag() {
         </EmptyContainer>
       ) : (
         <>
-          <Username>Your bag, {quantity} items</Username>
+          <Username>Your bag, {totalQuantity} items</Username>
           <BagItem item={bagItem} key={bagItem.id} />
-          <BagTotal />
+          <BagTotal totalQuantity={totalQuantity} />
         </>
       )}
     </BagContainer>
