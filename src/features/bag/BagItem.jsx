@@ -63,12 +63,13 @@ const Amount = styled.span`
   padding: var(--padding-xsmall) 0;
 `;
 
-function BagItem({ item, individualQuantity }) {
+function BagItem({ items, individualQuantity }) {
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
-
+  // GRAB individual quantity from EACH ARRAY given
+  const itemIDArray = items.map((item) => item.id);
   // DECONSTRUCT ITEM
-  return item.map((item) =>
+  return items.map((item) =>
     item ? (
       <StyledRow key={item.key}>
         <StyledDescription>
