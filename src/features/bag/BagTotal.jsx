@@ -55,6 +55,10 @@ function BagTotal({ quantity }) {
   function handleNavigate() {
     navigate('/checkout');
   }
+  // NAVIGATE TO menu PAGE
+  function handleMenu() {
+    navigate('/menu');
+  }
   const fullAmount = totalBagPrice + taxAmount;
   return (
     <TotalContainer>
@@ -63,7 +67,6 @@ function BagTotal({ quantity }) {
           <span>bag total</span>
           <span>${totalBagPrice.toFixed(2)}</span>
         </InitialTotal>
-
         <Tax>
           <span>tax</span>
           <span>${taxAmount.toFixed(2)}</span>
@@ -73,6 +76,7 @@ function BagTotal({ quantity }) {
           <span>${fullAmount.toFixed(2)}</span>
         </Total>
         <ButtonLayout>
+          <Button onClick={handleMenu}>add more items</Button>
           <Button
             variation="third"
             size="small"

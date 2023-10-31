@@ -12,6 +12,14 @@ const initialState = {
   bag: items,
 };
 
+// CREATE FUNCTION FOR UPDATING ITEM IN local storage (bagItems)
+function updateBagLocalStorage(state) {
+  localStorage.setItem(
+    'bagItems',
+    JSON.stringify(state.bag.map((item) => item))
+  );
+}
+
 // CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
   name: 'bag',
@@ -21,10 +29,7 @@ const bagSlice = createSlice({
       // payload = newItem
       state.bag.push(action.payload);
       // ADD item to local storage
-      localStorage.setItem(
-        'bagItems',
-        JSON.stringify(state.bag.map((item) => item))
-      );
+      updateBagLocalStorage(state);
     },
     deleteItem(state, action) {
       // payload = id
@@ -42,10 +47,7 @@ const bagSlice = createSlice({
       item.totalPrice = item.quantity * item.regularPrice;
 
       // update quantity for localStorage
-      localStorage.setItem(
-        'bagItems',
-        JSON.stringify(state.bag.map((item) => item))
-      );
+      updateBagLocalStorage(state);
     },
     decreaseItemQuantity(state, action) {
       // payload = id
@@ -56,10 +58,7 @@ const bagSlice = createSlice({
       item.totalPrice = item.quantity * item.regularPrice;
 
       // update quantity for localStorage
-      localStorage.setItem(
-        'bagItems',
-        JSON.stringify(state.bag.filter((item) => item))
-      );
+      updateBagLocalStorage(state);
 
       // AUTO-DELETE ITEM on quantity = 0
       if (item.quantity === 0) bagSlice.caseReducers.deleteItem(state, action);
@@ -88,8 +87,6 @@ export const getBag = (state) => state.bag.bag;
 
 export const getTotalBagQuantity = (state) =>
   state.bag.bag.reduce((sum, item) => sum + item.quantity, 0);
-
-// export const getTotalBagQuantity = (state) => state.bag.bag.reduce((sum,item) sum + )
 
 export const getTotalBagPrice = (state) =>
   state.bag.bag.reduce((sum, item) => sum + item.totalPrice, 0);

@@ -47,35 +47,18 @@ function Bag() {
   let bag = useSelector(getBag);
   // GRAB QUANTITY from local storage
   let quantity = useSelector(getTotalBagQuantity);
-  console.log(quantity);
-  // CREATE total + individual quantities, ADD ALL VALUES INSIDE ARRAY using a reducer
-  let individualQuantity = 0;
-  // ONLY EXECUTE IF BAG IS NOW EMPTY
-  // if (quantity != 0) {
-  //   const reducer = (accumulator, current) => accumulator + current;
-  //   totalQuantity = quantity.reduce(reducer);
-  //   // GRAB individual quantity from EACH ARRAY given
-  //   individualQuantity = quantity.map((id) => id);
-  // }
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)
   function handleNavigate() {
     navigate('/menu');
   }
-
   return (
     <BagContainer>
       {quantity != 0 ? (
         <>
           <Username>Your bag, {quantity} items</Username>
-          {}
-          <BagItem
-            // individualQuantity={individualQuantity}
-            items={bag}
-            key={bag.id}
-          />
-
+          <BagItem items={bag} key={bag.id} />
           <BagTotal quantity={quantity} />
         </>
       ) : (

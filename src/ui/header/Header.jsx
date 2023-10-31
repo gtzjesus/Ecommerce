@@ -58,7 +58,6 @@ function Header({ isOpen, setIsOpen }) {
   const { isAuthenticated } = useUser();
   // GRAB quantity from local storage
   let quantity = useSelector(getTotalBagQuantity);
-
   // GRAB BAG FROM local storage
   let bag =
     localStorage.getItem('bagItems') != null
