@@ -63,11 +63,9 @@ const Amount = styled.span`
   padding: var(--padding-xsmall) 0;
 `;
 
-function BagItem({ items, individualQuantity }) {
+function BagItem({ items }) {
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
-  // GRAB individual quantity from EACH ARRAY given
-  const itemIDArray = items.map((item) => item.id);
   // DECONSTRUCT ITEM
   return items.map((item) =>
     item ? (
@@ -75,7 +73,7 @@ function BagItem({ items, individualQuantity }) {
         <StyledDescription>
           <Img src={item.image} />
           <Name>{item.name}</Name>
-          <Quantity>x{individualQuantity}</Quantity>
+          <Quantity>x{item.quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
           <Price>${item.regularPrice}</Price>
@@ -87,7 +85,7 @@ function BagItem({ items, individualQuantity }) {
             >
               +
             </Button>
-            <Amount>{individualQuantity}</Amount>
+            <Amount>{item.quantity}</Amount>
             <Button
               variation="quantity"
               size="small"

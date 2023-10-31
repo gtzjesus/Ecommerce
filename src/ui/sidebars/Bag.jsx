@@ -47,8 +47,8 @@ function Bag() {
   let bag = useSelector(getBag);
   // GRAB QUANTITY from local storage
   let quantity = useSelector(getTotalBagQuantity);
+  console.log(quantity);
   // CREATE total + individual quantities, ADD ALL VALUES INSIDE ARRAY using a reducer
-  let totalQuantity = bag.length;
   let individualQuantity = 0;
   // ONLY EXECUTE IF BAG IS NOW EMPTY
   // if (quantity != 0) {
@@ -68,7 +68,7 @@ function Bag() {
     <BagContainer>
       {quantity != 0 ? (
         <>
-          <Username>Your bag, {totalQuantity} items</Username>
+          <Username>Your bag, {quantity} items</Username>
           {}
           <BagItem
             // individualQuantity={individualQuantity}
@@ -76,7 +76,7 @@ function Bag() {
             key={bag.id}
           />
 
-          <BagTotal totalQuantity={totalQuantity} />
+          <BagTotal quantity={quantity} />
         </>
       ) : (
         <EmptyContainer>

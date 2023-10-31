@@ -41,7 +41,7 @@ const ButtonLayout = styled.div`
   justify-content: right;
   gap: var(--gap-small);
 `;
-function BagTotal({ totalQuantity }) {
+function BagTotal({ quantity }) {
   // GRAB NAVIGATE
   const navigate = useNavigate();
   // GRAB DISPATCH FOR ACTIONS
@@ -69,7 +69,7 @@ function BagTotal({ totalQuantity }) {
           <span>${taxAmount.toFixed(2)}</span>
         </Tax>
         <Total>
-          <span>total ({totalQuantity} items)</span>
+          <span>total ({quantity} items)</span>
           <span>${fullAmount.toFixed(2)}</span>
         </Total>
         <ButtonLayout>

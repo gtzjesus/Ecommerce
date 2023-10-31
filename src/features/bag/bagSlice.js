@@ -40,6 +40,12 @@ const bagSlice = createSlice({
       // update quantity
       item.quantity++;
       item.totalPrice = item.quantity * item.regularPrice;
+
+      // update quantity for localStorage
+      localStorage.setItem(
+        'bagItems',
+        JSON.stringify(state.bag.map((item) => item))
+      );
     },
     decreaseItemQuantity(state, action) {
       // payload = id
@@ -48,6 +54,12 @@ const bagSlice = createSlice({
       // update quantity
       item.quantity--;
       item.totalPrice = item.quantity * item.regularPrice;
+
+      // update quantity for localStorage
+      localStorage.setItem(
+        'bagItems',
+        JSON.stringify(state.bag.filter((item) => item))
+      );
 
       // AUTO-DELETE ITEM on quantity = 0
       if (item.quantity === 0) bagSlice.caseReducers.deleteItem(state, action);
