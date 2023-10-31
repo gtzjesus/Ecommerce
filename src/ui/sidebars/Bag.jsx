@@ -49,12 +49,13 @@ function Bag() {
   let quantity = useSelector(getTotalBagQuantity);
   // CREATE total + ADD ALL VALUES INSIDE ARRAY using a reducer
   let totalQuantity = 0;
+  let individualQuantity = 0;
   if (quantity != 0) {
     const reducer = (accumulator, current) => accumulator + current;
     totalQuantity = quantity.reduce(reducer);
+    // GRAB individual quantity from EACH ARRAY given
+    individualQuantity = quantity.map((id) => id);
   }
-  // GRAB individual quantity from EACH ARRAY given
-  let individualQuantity = quantity.map((id) => id);
 
   // GRAB NAVIGATION HOOK
   const navigate = useNavigate();
@@ -65,17 +66,7 @@ function Bag() {
 
   return (
     <BagContainer>
-      {bag.length === 0 ? (
-        <EmptyContainer>
-          <EmptyContent>
-            <EmptyImg src="/images/backgrounds/empty.png" />
-          </EmptyContent>
-          <EmptyContent>Your bag is empty.</EmptyContent>
-          <EmptyContent>
-            <Button onClick={handleNavigate}>order now</Button>
-          </EmptyContent>
-        </EmptyContainer>
-      ) : (
+      {quantity != 0 ? (
         <>
           <Username>Your bag, {totalQuantity} items</Username>
           {}
@@ -87,6 +78,16 @@ function Bag() {
 
           <BagTotal totalQuantity={totalQuantity} />
         </>
+      ) : (
+        <EmptyContainer>
+          <EmptyContent>
+            <EmptyImg src="/images/backgrounds/empty.png" />
+          </EmptyContent>
+          <EmptyContent>Your bag is empty.</EmptyContent>
+          <EmptyContent>
+            <Button onClick={handleNavigate}>order now</Button>
+          </EmptyContent>
+        </EmptyContainer>
       )}
     </BagContainer>
   );
