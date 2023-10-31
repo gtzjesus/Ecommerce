@@ -50,14 +50,14 @@ const Items = styled.span`
   font-size: var(--font-xsmall);
 `;
 
-function Header({ totalQuantity, isOpen, setIsOpen }) {
+function Header({ isOpen, setIsOpen }) {
   // GRAB ISAUTHENTICATED custom hook
   const { isAuthenticated } = useUser();
 
   // GRAB BAG FROM local storage
   let bag =
-    localStorage.getItem('bagItem') != null
-      ? JSON.parse(localStorage.getItem('bagItem'))
+    localStorage.getItem('bagItems') != null
+      ? JSON.parse(localStorage.getItem('bagItems'))
       : [];
   // NAVIGATION HOOK
   const navigate = useNavigate();
@@ -104,7 +104,7 @@ function Header({ totalQuantity, isOpen, setIsOpen }) {
             </Hamburger>
           ) : (
             <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-              <Items>{totalQuantity}</Items>
+              <Items>{bag.length}</Items>
               <RiShoppingBag2Fill value={navTo} />
             </Hamburger>
           )}
@@ -124,7 +124,7 @@ function Header({ totalQuantity, isOpen, setIsOpen }) {
               </Hamburger>
             ) : (
               <Hamburger value={isOpen} onClick={() => handleToggle('bag')}>
-                <Items>{totalQuantity}</Items>
+                <Items>{bag.length}</Items>
                 <RiShoppingBag2Fill value={navTo} />
               </Hamburger>
             )}
