@@ -6,7 +6,7 @@ const StyledMenuItem = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
 `;
 
 function MenuCategorizedItems({ item, category, isLoading, error }) {

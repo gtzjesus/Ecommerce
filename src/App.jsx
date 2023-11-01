@@ -77,21 +77,20 @@ function App() {
       <MenuProvider>
         <RouterProvider router={router} />
         <Toaster
-          position="top-center"
-          gutter={12}
-          containerStyle={{ margin: '8px' }}
+          position="bottom-center"
+          containerStyle={{ margin: '2px' }}
           toastOptions={{
             success: {
-              duration: 3000,
+              duration: 2000,
             },
             error: {
               duration: 4000,
             },
             style: {
-              fontSize: '16px',
-              maxWidth: '500px',
-              padding: '16px 24px',
-              margin: '6rem 0 0 0',
+              fontSize: '14px',
+              maxWidth: '250px',
+              padding: '6px 14px',
+              margin: '3rem 0 0 0',
 
               backgroundColor: 'var(--background-tile)',
               color: 'var(--color-red)',

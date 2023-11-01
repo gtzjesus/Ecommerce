@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import Bag from '../../ui/sidebars/Bag';
 
 const Page = styled.div`
-  background-color: var(--background-primary);
+  background-color: var(--background-tile);
   padding: var(--height-row) 0;
 `;
 
@@ -22,6 +22,7 @@ const StyledItemContainer = styled.div`
   background-color: var(--background-tile);
   padding: var(--padding-large);
   margin: var(--margin-large);
+  border: 0.25rem solid var(--color-red);
 `;
 
 const StyledNav = styled.nav`
@@ -205,7 +206,9 @@ function Item() {
                 Add to bag (${item[pathname].regularPrice})
               </Button>
             ) : (
-              <Button onClick={handleMenu}>Add more items (menu)</Button>
+              <Button variation="third" size="small" onClick={handleMenu}>
+                Add more items (menu)
+              </Button>
             )}
           </ButtonLayout>
         </StyledDesc>

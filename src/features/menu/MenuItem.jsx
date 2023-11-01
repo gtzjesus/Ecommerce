@@ -8,6 +8,7 @@ const StyledItemContainer = styled.li`
   background-color: var(--background-tile);
   padding: var(--padding-small);
   margin: var(--margin-xsmall);
+  border: 0.25rem solid var(--color-red);
 `;
 
 const StyledNav = styled.nav`
