@@ -66,7 +66,7 @@ function Header({ isOpen, setIsOpen }) {
   // NAVIGATION HOOK
   const navigate = useNavigate();
   // CREATE STATE FOR CLICKED EVENTS
-  let [navTo, setNavTo] = useState('');
+  const [navTo, setNavTo] = useState('');
   // HANDLE TOGGLE FOR OPENING/CLOSING
   function handleToggle(value) {
     if (isOpen === false) setIsOpen(true);

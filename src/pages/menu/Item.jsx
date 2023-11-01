@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { MenuContext } from '../../context/MenuContext';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import Navigation from '../../ui/app/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
@@ -9,6 +9,7 @@ import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
+import Bag from '../../ui/sidebars/Bag';
 
 const Page = styled.div`
   background-color: var(--background-primary);
@@ -75,6 +76,8 @@ const ButtonLayout = styled.div`
 `;
 
 function Item() {
+  // GRAB NAVIGATION hook
+  const navigate = useNavigate();
   // CREATE DISPATCH TO CALL addToBag ACTION
   const dispatch = useDispatch();
 
@@ -147,8 +150,15 @@ function Item() {
     dispatch(addItem(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
+    // OPEN BAG SIDEBAR
+    <Bag />;
     // TOAST FOR SUCCESS
     toast.success('Added to bag');
+  }
+
+  // NAVIGATE TO MENU UPON adding to bag
+  function handleMenu() {
+    navigate('/menu');
   }
 
   // PERFORM SIDE EFFECT, STORE DATA INTO BROWSER STORAGE (happens of page visit)
@@ -191,11 +201,11 @@ function Item() {
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>
             {!isButtonDisabled ? (
-              <Button disabled={isButtonDisabled} onClick={handleAddToBag}>
+              <Button onClick={handleAddToBag}>
                 Add to bag (${item[pathname].regularPrice})
               </Button>
             ) : (
-              ''
+              <Button onClick={handleMenu}>Add more items (menu)</Button>
             )}
           </ButtonLayout>
         </StyledDesc>
