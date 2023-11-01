@@ -25,6 +25,14 @@ const StyledDescription = styled.div`
   gap: var(--padding-small);
 `;
 
+const Hamburger = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--font-small);
+  color: var(--color-red);
+`;
+
 const Img = styled.img`
   width: var(--image-small);
   cursor: pointer;
@@ -35,21 +43,23 @@ const Quantity = styled.span`
   color: var(--color-red);
 `;
 
+const StyledPrices = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-xsmall);
+`;
+
 const Price = styled.span`
   color: var(--color-red);
+  font-size: var(--font-xssmall);
+`;
+
+const TotalPrice = styled.span`
   font-size: var(--font-small);
 `;
 
 const Name = styled.span`
   font-size: var(--font-small);
-`;
-
-const Hamburger = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: var(--font-small);
-  color: var(--color-red);
 `;
 
 const ButtonLayout = styled.div`
@@ -69,14 +79,17 @@ function BagItem({ items }) {
   // DECONSTRUCT ITEM
   return items.map((item) =>
     item ? (
-      <StyledRow key={item.key}>
+      <StyledRow key={item.id}>
         <StyledDescription>
           <Img src={item.image} />
           <Name>{item.name}</Name>
           <Quantity>x{item.quantity}</Quantity>
         </StyledDescription>
         <StyledDescription>
-          <Price>${item.regularPrice}</Price>
+          <StyledPrices>
+            <Price>${Math.round(item.regularPrice * 100) / 100} each</Price>
+            <TotalPrice>${Math.round(item.totalPrice * 100) / 100}</TotalPrice>
+          </StyledPrices>
           <ButtonLayout>
             <Button
               variation="quantity"

@@ -77,8 +77,8 @@ function App() {
       <MenuProvider>
         <RouterProvider router={router} />
         <Toaster
-          position="bottom-center"
-          containerStyle={{ margin: '2px' }}
+          position="top-center"
+          containerStyle={{ margin: '8px' }}
           toastOptions={{
             success: {
               duration: 2000,
@@ -87,13 +87,12 @@ function App() {
               duration: 4000,
             },
             style: {
-              fontSize: '14px',
-              maxWidth: '250px',
+              fontSize: '15px',
+              maxWidth: '150px',
               padding: '6px 14px',
-              margin: '3rem 0 0 0',
 
-              backgroundColor: 'var(--background-tile)',
-              color: 'var(--color-red)',
+              backgroundColor: 'var(--color-red)',
+              color: 'var(--background-tile)',
             },
           }}
         />
