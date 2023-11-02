@@ -8,7 +8,7 @@ export function useSignup() {
   const navigate = useNavigate();
   const { mutate: signup, isLoading } = useMutation({
     mutationFn: signupAPI,
-    onSuccess: (user) => {
+    onSuccess: () => {
       toast.success('Account created, please verify email!');
       navigate(-1, { replace: true });
 

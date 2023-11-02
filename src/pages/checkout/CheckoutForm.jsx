@@ -5,12 +5,10 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  console.log(elements);
 
   const [email, setEmail] = useState('');
   console.log(email);

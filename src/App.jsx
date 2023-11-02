@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import ProtectedRoute from './ui/routes/ProtectedRoute';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
-import CheckoutForm from './pages/checkout/CheckoutForm';
+import Checkout from './pages/checkout/Checkout';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
     path: '/checkout',
     element: (
       <ProtectedRoute>
-        <CheckoutForm />
+        <Checkout />
       </ProtectedRoute>
     ),
   },
