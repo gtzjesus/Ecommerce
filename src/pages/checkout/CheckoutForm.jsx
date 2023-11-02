@@ -5,14 +5,15 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  console.log(stripe);
   console.log(elements);
 
   const [email, setEmail] = useState('');
+  console.log(email);
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -83,6 +84,7 @@ export default function CheckoutForm() {
   const paymentElementOptions = {
     layout: 'tabs',
   };
+
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
