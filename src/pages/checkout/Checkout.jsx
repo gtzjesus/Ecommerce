@@ -1,75 +1,46 @@
-import styled from 'styled-components';
-import Navigation from '../../ui/app/Navigation';
-import Button from '../../ui/buttons/Button';
+import { useState, useEffect } from 'react';
 
-const StyledCheckout = styled.div`
-  height: var(--height-filled-window);
-`;
+const ProductDisplay = () => (
+  <section>
+    <div className="product">
+      <img
+        src="https://i.imgur.com/EHyR2nP.png"
+        alt="The cover of Stubborn Attachments"
+      />
+      <div className="description">
+        <h3>Stubborn Attachments</h3>
+        <h5>$20.00</h5>
+      </div>
+    </div>
+    <form action="/create-checkout-session" method="POST">
+      <button type="submit">Checkout</button>
+    </form>
+  </section>
+);
 
-const Greeting = styled.span`
-  color: var(--color-red);
-  font-size: var(--font-medium);
-  padding: var(--padding-medium);
-`;
+const Message = ({ message }) => (
+  <section>
+    <p>{message}</p>
+  </section>
+);
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  margin: var(--margin-small) var(--margin-large);
-`;
+export default function App() {
+  const [message, setMessage] = useState('');
 
-const Input = styled.input`
-  appearance: none;
-  border: 0.2em solid var(--background-tile);
-  background: hsl(0 0 0/0);
-  padding: 0.85em 1.5em;
-  margin: var(--margin-small) 0;
-  font-size: 16px;
+  useEffect(() => {
+    // Check to see if this is a redirect back from Checkout
+    const query = new URLSearchParams(window.location.search);
 
-  border-radius: 2em;
-  transition: 1s;
-  &:hover,
-  &:focus,
-  &:active {
-    background: var(--background-tile);
-    color: var(--color-red);
-  }
-`;
+    if (query.get('success')) {
+      setMessage('Order placed! You will receive an email confirmation.');
+    }
 
-const ButtonLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  gap: var(--gap-small);
-`;
+    if (query.get('canceled')) {
+      setMessage(
+        "Order canceled -- continue to shop around and checkout when you're ready."
+      );
+    }
+  }, []);
 
-function Checkout() {
-  // GRAB BAG FOR CHECKOUT
-  //   const bag = useSelector(getBag());
-  return (
-    <>
-      <Navigation />
-      <StyledCheckout>
-        <Greeting>Personal information,</Greeting>
-        <Form>
-          <Input type="text" placeholder="Full name"></Input>
-          <Input type="text" placeholder="email"></Input>
-          <Input type="text" placeholder="Phone number"></Input>
-
-          <Greeting>Payment information,</Greeting>
-
-          <Input type="text" placeholder="Name on card"></Input>
-          <Input type="text" placeholder="xxxx xxxx xxxx xxxx"></Input>
-          <Input type="text" placeholder="cvv"></Input>
-          <Input type="text" placeholder="Expiration date"></Input>
-
-          <ButtonLayout>
-            <Button>submit payment</Button>
-          </ButtonLayout>
-        </Form>
-      </StyledCheckout>
-    </>
-  );
+  return message ? <Message message={message} /> : <ProductDisplay />;
 }
-
-export default Checkout;
