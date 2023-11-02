@@ -9,12 +9,12 @@ import PageNotFound from './pages/notfound/PageNotFound';
 import Item from './pages/menu/Item';
 import { Toaster } from 'react-hot-toast';
 import Faves from './pages/faves/Faves';
-import Checkout from './pages/checkout/Checkout';
 
 import { useEffect } from 'react';
 import ProtectedRoute from './ui/routes/ProtectedRoute';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import CheckoutForm from './pages/checkout/CheckoutForm';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
     path: '/checkout',
     element: (
       <ProtectedRoute>
-        <Checkout />
+        <CheckoutForm />
       </ProtectedRoute>
     ),
   },
