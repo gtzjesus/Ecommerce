@@ -18,7 +18,6 @@ const BagContainer = styled.div`
 `;
 
 const Username = styled.span`
-  color: var(--color-red);
   font-size: var(--font-medium);
   padding: var(--padding-medium);
 `;
