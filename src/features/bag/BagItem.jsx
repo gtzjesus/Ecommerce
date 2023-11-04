@@ -13,7 +13,7 @@ const StyledRow = styled.div`
   padding: var(--padding-medium);
   margin: var(--margin-medium) var(--margin-xsmall);
 
-  border-bottom: 0.25rem solid var(--color-red);
+  border: 0.15rem solid var(--color-red);
 
   height: var(--height-row);
 `;

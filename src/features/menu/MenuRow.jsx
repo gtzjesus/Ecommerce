@@ -13,7 +13,7 @@ const StyledRow = styled.div`
   margin: var(--margin-xsmall);
   cursor: pointer;
   height: var(--height-row);
-  border-bottom: 0.25rem solid var(--color-red);
+  border-bottom: 0.15rem solid var(--color-red);
 `;
 
 const StyledNav = styled.div`
@@ -44,7 +44,6 @@ const Info = styled.div`
 
 const Title = styled.div`
   font-size: var(--font-medium);
-  color: var(--color-red);
 `;
 
 // ROW COMPONENT FOR EACH CATEGORY USED IN MENU PAGE
