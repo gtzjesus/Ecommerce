@@ -15,6 +15,7 @@ import ProtectedRoute from './ui/routes/ProtectedRoute';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Checkout from './pages/checkout/Checkout';
+import SignupComplete from './pages/signup/SignupComplete';
 
 // REACT QUERY INTEGRATION
 const queryClient = new QueryClient({
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <Signup />,
+  },
+  {
+    path: '/Signupcomplete',
+    element: <SignupComplete />,
   },
   {
     path: '/menu/:itemId',
@@ -88,7 +93,7 @@ function App() {
             },
             style: {
               fontSize: '15px',
-              maxWidth: '150px',
+              maxWidth: '350px',
               padding: '6px 14px',
 
               backgroundColor: 'var(--color-red)',
