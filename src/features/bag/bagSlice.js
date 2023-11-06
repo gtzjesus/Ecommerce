@@ -20,11 +20,26 @@ function updateBagLocalStorage(state) {
   );
 }
 
+// CREATE FUNCTION FOR UPDATING FAVES IN local storage (favesItems)
+function updateFavesLocalStorage(state) {
+  localStorage.setItem(
+    'favesItems',
+    JSON.stringify(state.bag.map((item) => item))
+  );
+}
+
 // CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
   name: 'bag',
   initialState,
   reducers: {
+    addFaves(state, action) {
+      console.log(action.payload);
+      // payload = newItem
+      state.bag.push(action.payload);
+      // ADD item to local storage
+      updateFavesLocalStorage(state);
+    },
     addItem(state, action) {
       // payload = newItem
       state.bag.push(action.payload);
@@ -73,6 +88,7 @@ const bagSlice = createSlice({
 
 // EXPORT OUR REDUCERS (bagSlice.actions)
 export const {
+  addFaves,
   addItem,
   deleteItem,
   increaseItemQuantity,

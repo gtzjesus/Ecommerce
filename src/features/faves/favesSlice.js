@@ -11,11 +11,11 @@ const initialState = {
   faves: items,
 };
 
-// CREATE FUNCTION FOR UPDATING ITEM IN local storage (faveItems)
+// CREATE FUNCTION FOR UPDATING ITEM IN local storage (favesItems)
 function updateFavesLocalStorage(state) {
   localStorage.setItem(
     'favesItems',
-    JSON.stringify(state.bag.map((item) => item))
+    JSON.stringify(state.faves.map((item) => item))
   );
 }
 
@@ -27,7 +27,7 @@ const favesSlice = createSlice({
     addFaves(state, action) {
       // payload = newItem
       state.faves.push(action.payload);
-      // ADD FAVE ITEM TO local storage
+      // ADD item to local storage
       updateFavesLocalStorage(state);
     },
   },

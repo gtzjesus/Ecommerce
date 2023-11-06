@@ -6,9 +6,8 @@ import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
-import { addItem } from '../../features/bag/bagSlice';
+import { addItem, addFaves } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
-import { addFaves } from '../../features/faves/favesSlice';
 
 const Page = styled.div`
   background-color: var(--background-tile);
@@ -32,11 +31,6 @@ const StyledNav = styled.nav`
 const Price = styled.span`
   font-size: var(--font-small);
 `;
-
-// const Discount = styled.span`
-//   font-size: var(--font-xsmall);
-//   color: var(--color-red);
-// `;
 
 const StyledDesc = styled.div`
   display: flex;
@@ -64,11 +58,6 @@ const Currency = styled.div`
   align-items: center;
 `;
 
-// const Quantity = styled.span`
-//   font-size: var(--font-xsmall);
-//   color: var(--color-red);
-// `;
-
 const ButtonLayout = styled.div`
   display: flex;
   align-items: center;
@@ -78,9 +67,9 @@ const ButtonLayout = styled.div`
 function Item() {
   // GRAB NAVIGATION hook
   const navigate = useNavigate();
-  // CREATE DISPATCH TO CALL addToBag ACTION
+  // CREATE DISPATCH to call actions
   const dispatch = useDispatch();
-  // STATE MANAGEMENT
+  // STATE MANAGEMENT for disabled buttons
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
@@ -105,7 +94,6 @@ function Item() {
     image: item[pathname].image,
     name: item[pathname].name,
     description: item[pathname].description,
-
     quantity: 1,
     regularPrice: item[pathname].regularPrice,
     discount: item[pathname].discount,
@@ -118,6 +106,7 @@ function Item() {
   // HANDLE ADDING TO FAVES on bag click
   function handleAddToFaves() {
     // DISPATCH TO ADD ACTION addtofaves
+
     dispatch(addFaves(newItem));
     // TOAST FOR SUCCESS
     toast.success('Added to faves');
@@ -146,21 +135,18 @@ function Item() {
       <StyledItemContainer key={newItem.key}>
         <StyledNav>
           <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
-            {newItem.faves === 'yes' ? <AiFillHeart /> : <AiOutlineHeart />}
+            {newItem.faves === true ? <AiFillHeart /> : <AiOutlineHeart />}
           </Button>
 
           <Currency>
             <Price>${newItem.regularPrice}</Price>
-            {/* <Discount>-${newItem.discount}</Discount> */}
           </Currency>
         </StyledNav>
 
         <StyledDesc>
           <Name>{newItem.name}</Name>
           <Img src={newItem.image} />
-
           <Description>{newItem.description}</Description>
-
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>
             {!isButtonDisabled ? (
