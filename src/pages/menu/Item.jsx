@@ -1,15 +1,14 @@
 import { useContext, useState } from 'react';
 import { MenuContext } from '../../context/MenuContext';
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import Navigation from '../../ui/app/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import { updateFaves } from '../../services/apiItems';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
-import Bag from '../../ui/sidebars/Bag';
+import { addFaves } from '../../features/faves/favesSlice';
 
 const Page = styled.div`
   background-color: var(--background-tile);
@@ -34,10 +33,10 @@ const Price = styled.span`
   font-size: var(--font-small);
 `;
 
-const Discount = styled.span`
-  font-size: var(--font-xsmall);
-  color: var(--color-red);
-`;
+// const Discount = styled.span`
+//   font-size: var(--font-xsmall);
+//   color: var(--color-red);
+// `;
 
 const StyledDesc = styled.div`
   display: flex;
@@ -81,12 +80,9 @@ function Item() {
   const navigate = useNavigate();
   // CREATE DISPATCH TO CALL addToBag ACTION
   const dispatch = useDispatch();
-
   // STATE MANAGEMENT
-  const [isHeart, setIsHeart] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-  const location = useLocation();
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
   const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
 
@@ -99,7 +95,6 @@ function Item() {
       return a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     };
   }
-
   // STORE SORT COMM
   const sortedItems = items.sort(dynamicSort('id'));
   // CREATE ITEM OBJECT FROM THIS LIST
@@ -109,95 +104,62 @@ function Item() {
     id: item[pathname].id,
     image: item[pathname].image,
     name: item[pathname].name,
+    description: item[pathname].description,
+
     quantity: 1,
     regularPrice: item[pathname].regularPrice,
     discount: item[pathname].discount,
     totalPrice:
       item[pathname].regularPrice * item[pathname].quantity -
       item[pathname].discount,
+    faves: item[pathname].faves,
   };
 
-  // HANDLE CLICK FOR HEART FAVE
-  function handleHeart() {
-    // GRAB FAVES
-    const faves = items[pathname].faves;
-
-    // CHECK IF faves IS EMPTY
-    if (faves === '') {
-      // IF NULL WE WANT TO ADD yes STRING INTO ROW
-      updateFaves(pathname + 1, 'yes');
-
-      // UPDATE HEART STATE
-      setIsHeart(true);
-
-      // UPDATE DOM SO THAT IT RENDERS AFTER CLICK OF HEART
-
-      // TOAST FOR SUCCESS
-      toast.success('Added to faves');
-    }
-    // CHECK IF faves HAS yes
-    if (faves === 'yes') {
-      // IF yes FOUND, WANT TO SET TO EMPTY STRING
-      updateFaves(pathname + 1, '');
-      setIsHeart(false);
-      // TOAST FOR ERROR
-      toast.error('Removed from faves');
-    }
+  // HANDLE ADDING TO FAVES on bag click
+  function handleAddToFaves() {
+    // DISPATCH TO ADD ACTION addtofaves
+    dispatch(addFaves(newItem));
+    // TOAST FOR SUCCESS
+    toast.success('Added to faves');
   }
 
-  // HANDLE ADDING TO BAG USER CLICK
+  // HANDLE ADDING TO BAG on button click
   function handleAddToBag() {
     // DISPATCH TO ADD ACTION addtobag
     dispatch(addItem(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
-    // OPEN BAG SIDEBAR
-    <Bag />;
+
     // TOAST FOR SUCCESS
-    toast.success('Added to bag ($' + item[pathname].regularPrice + ')');
+    toast.success('Added to bag ($' + newItem.regularPrice + ')');
   }
 
-  // NAVIGATE TO MENU UPON adding to bag
+  // NAVIGATE TO MENU UI CLICK
   function handleMenu() {
     navigate('/menu');
   }
-
-  // PERFORM SIDE EFFECT, STORE DATA INTO BROWSER STORAGE (happens of page visit)
-  // useEffect(() => {
-  //   // ADD TO LOCAL STORATE (cookies)
-  //   localStorage.setItem(item[pathname].id, JSON.stringify(newItem));
-  // }, [item, pathname, newItem]);
 
   // RETURN INDIVIDUAL ITEM COMPONENT (FINALLY 😄)
   return (
     <Page>
       <Navigation />
-      <StyledItemContainer key={item[pathname].key}>
+      <StyledItemContainer key={newItem.key}>
         <StyledNav>
-          <Button
-            value={isHeart}
-            variation="heart"
-            size="xsmall"
-            onClick={handleHeart}
-          >
-            {item[pathname].faves === 'yes' ? (
-              <AiFillHeart />
-            ) : (
-              <AiOutlineHeart />
-            )}
+          <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
+            {newItem.faves === 'yes' ? <AiFillHeart /> : <AiOutlineHeart />}
           </Button>
 
           <Currency>
-            <Price>${item[pathname].regularPrice}</Price>
-            <Discount>-${item[pathname].discount}</Discount>
+            <Price>${newItem.regularPrice}</Price>
+            {/* <Discount>-${newItem.discount}</Discount> */}
           </Currency>
         </StyledNav>
 
         <StyledDesc>
-          <Name>{item[pathname].name}</Name>
-          <Img src={item[pathname].image} />
+          <Name>{newItem.name}</Name>
+          <Img src={newItem.image} />
 
-          <Description>{item[pathname].description}</Description>
+          <Description>{newItem.description}</Description>
 
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>

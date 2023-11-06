@@ -49,15 +49,9 @@ function Nav() {
           <StyledList>
             <Link to="/menu">menu</Link>
           </StyledList>
-          {/* <StyledList>
-            <Link to="/featured">featured</Link>
-          </StyledList>
-          <StyledList>
-            <Link to="/orders">orders</Link>
-          </StyledList>
           <StyledList>
             <Link to="/faves">faves</Link>
-          </StyledList> */}
+          </StyledList>
         </StyledUnorderedList>
       </Navigation>
       <LoginContainer>

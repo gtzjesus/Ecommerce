@@ -82,7 +82,7 @@ export const {
 
 export default bagSlice.reducer;
 
-// FUNCTIONS USED ACROSS THE BAG COMPONENT
+// HELPER FUNCTIONS
 export const getBag = (state) => state.bag.bag;
 
 export const getTotalBagQuantity = (state) =>

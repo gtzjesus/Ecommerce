@@ -19,7 +19,7 @@ export function useLogin() {
       // SPLIT INTO NAME AND DOMAIN SEPARATE
       const name = userEmail.substring(0, userEmail.lastIndexOf('@'));
       toast.success(`hello ${name}`);
-      navigate(-2, { replace: true });
+      navigate(-1, { replace: true });
     },
     onError: () => {
       toast.error('Incorrect information/verify email');
