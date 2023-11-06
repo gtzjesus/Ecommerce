@@ -107,6 +107,8 @@ function Item() {
   function handleAddToFaves() {
     // DISPATCH TO ADD ACTION addtofaves
     dispatch(addFaves(newItem));
+    // DISABLE BUTTON AFTER FIRST CLICK (addtofaves once)
+    setIsButtonDisabled(true);
     // TOAST FOR SUCCESS
     toast.success('Added to faves');
   }
@@ -133,9 +135,15 @@ function Item() {
       <Navigation />
       <StyledItemContainer key={newItem.key}>
         <StyledNav>
-          <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
-            {newItem.faves === true ? <AiFillHeart /> : <AiOutlineHeart />}
-          </Button>
+          {!isButtonDisabled ? (
+            <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
+              <AiOutlineHeart />
+            </Button>
+          ) : (
+            <Button variation="heart" size="xsmall">
+              <AiFillHeart />
+            </Button>
+          )}
 
           <Currency>
             <Price>${newItem.regularPrice}</Price>

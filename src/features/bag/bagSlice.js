@@ -7,9 +7,16 @@ const items =
     ? JSON.parse(localStorage.getItem('bagItems'))
     : [];
 
+// GRAB FAVES
+const currentFaves =
+  localStorage.getItem('favesItems') != null
+    ? JSON.parse(localStorage.getItem('favesItems'))
+    : [];
+
 // CREATE INITIAL STATE
 const initialState = {
   bag: items,
+  faves: currentFaves,
 };
 
 // CREATE FUNCTION FOR UPDATING ITEM IN local storage (bagItems)
@@ -26,6 +33,7 @@ function updateFavesLocalStorage(state) {
     'favesItems',
     JSON.stringify(state.bag.map((item) => item))
   );
+  // UPDATE item's faves category in localStorage
 }
 
 // CREATE BAG SLICE USING REDUX TOOLKIT
@@ -109,3 +117,5 @@ export const getTotalBagPrice = (state) =>
 
 export const getCurrentQuantityById = (id) => (state) =>
   state.bag.bag.find((item) => item.id === id)?.quantity ?? 0;
+
+export const getFaves = (state) => state.bag.bag;
