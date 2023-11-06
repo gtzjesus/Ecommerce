@@ -106,7 +106,6 @@ function Item() {
   // HANDLE ADDING TO FAVES on bag click
   function handleAddToFaves() {
     // DISPATCH TO ADD ACTION addtofaves
-
     dispatch(addFaves(newItem));
     // TOAST FOR SUCCESS
     toast.success('Added to faves');
