@@ -154,7 +154,7 @@ function Item() {
     // OPEN BAG SIDEBAR
     <Bag />;
     // TOAST FOR SUCCESS
-    toast.success('Added to bag');
+    toast.success('Added to bag ($' + item[pathname].regularPrice + ')');
   }
 
   // NAVIGATE TO MENU UPON adding to bag
@@ -202,12 +202,10 @@ function Item() {
           <ButtonLayout></ButtonLayout>
           <ButtonLayout>
             {!isButtonDisabled ? (
-              <Button onClick={handleAddToBag}>
-                Add to bag (${item[pathname].regularPrice})
-              </Button>
+              <Button onClick={handleAddToBag}>Add to bag</Button>
             ) : (
               <Button variation="third" size="small" onClick={handleMenu}>
-                Add more items (menu)
+                Add more items
               </Button>
             )}
           </ButtonLayout>

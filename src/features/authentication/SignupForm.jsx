@@ -79,7 +79,7 @@ function SignupForm() {
         ></Input>
         <Input
           type="password"
-          placeholder="password"
+          placeholder="password (8 minimum)"
           id="password"
           disabled={isLoading}
           error={errors?.password?.message}
