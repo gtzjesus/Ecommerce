@@ -9,7 +9,7 @@ export function useSignup() {
   const { mutate: signup, isLoading } = useMutation({
     mutationFn: signupAPI,
     onSuccess: () => {
-      toast.success('Account created, please verify email!');
+      toast.success('Welcome to worldhello!');
       navigate('/Signupcomplete', { replace: true });
 
       // AUTOMATICALLY LOGIN ACCOUNT
