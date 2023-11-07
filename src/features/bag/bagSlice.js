@@ -118,4 +118,7 @@ export const getTotalBagPrice = (state) =>
 export const getCurrentQuantityById = (id) => (state) =>
   state.bag.bag.find((item) => item.id === id)?.quantity ?? 0;
 
-export const getFaves = (state) => state.bag.bag;
+export const getFaves = () =>
+  localStorage.getItem('favesItems') != null
+    ? JSON.parse(localStorage.getItem('favesItems'))
+    : [];

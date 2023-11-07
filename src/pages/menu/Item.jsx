@@ -71,6 +71,7 @@ function Item() {
   const dispatch = useDispatch();
   // STATE MANAGEMENT for disabled buttons
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [isHeartDisabled, setIsHeartDisabled] = useState(false);
 
   // GRAB PATHNAME, ONLY INTERESTED IN THE ID
   const pathname = Number(location.pathname.split('/')[2].replace(':', '')) - 1;
@@ -108,7 +109,7 @@ function Item() {
     // DISPATCH TO ADD ACTION addtofaves
     dispatch(addFaves(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtofaves once)
-    setIsButtonDisabled(true);
+    setIsHeartDisabled(true);
     // TOAST FOR SUCCESS
     toast.success('Added to faves');
   }
@@ -135,7 +136,7 @@ function Item() {
       <Navigation />
       <StyledItemContainer key={newItem.key}>
         <StyledNav>
-          {!isButtonDisabled ? (
+          {!isHeartDisabled ? (
             <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
               <AiOutlineHeart />
             </Button>
