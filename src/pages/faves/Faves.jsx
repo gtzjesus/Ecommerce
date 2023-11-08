@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import Navigation from '../../ui/app/Navigation';
-import { getFaves } from '../../features/bag/bagSlice';
 import FavesItem from '../../features/faves/FavesItem';
 import Button from '../../ui/buttons/Button';
 import { useNavigate } from 'react-router';
+import { getFaves } from '../../features/faves/favesSlice';
 
 const StyledFaves = styled.div`
   display: grid;

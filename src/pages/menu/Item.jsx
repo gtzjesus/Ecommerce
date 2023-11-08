@@ -6,8 +6,9 @@ import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
-import { addItem, addFaves } from '../../features/bag/bagSlice';
+import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
+import { addFaves } from '../../features/faves/favesSlice';
 
 const Page = styled.div`
   background-color: var(--background-tile);

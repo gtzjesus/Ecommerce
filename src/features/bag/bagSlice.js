@@ -7,16 +7,9 @@ const items =
     ? JSON.parse(localStorage.getItem('bagItems'))
     : [];
 
-// GRAB FAVES
-const currentFaves =
-  localStorage.getItem('favesItems') != null
-    ? JSON.parse(localStorage.getItem('favesItems'))
-    : [];
-
 // CREATE INITIAL STATE
 const initialState = {
   bag: items,
-  faves: currentFaves,
 };
 
 // CREATE FUNCTION FOR UPDATING ITEM IN local storage (bagItems)
@@ -27,21 +20,13 @@ function updateBagLocalStorage(state) {
   );
 }
 
-// CREATE FUNCTION FOR UPDATING FAVES IN local storage (favesItems)
-function updateFavesLocalStorage(state) {
-  localStorage.setItem(
-    'favesItems',
-    JSON.stringify(state.bag.map((item) => item))
-  );
-  // UPDATE item's faves category in localStorage
-}
-
 // CREATE BAG SLICE USING REDUX TOOLKIT
 const bagSlice = createSlice({
   name: 'bag',
   initialState,
   reducers: {
     addItem(state, action) {
+      console.log('added');
       // payload = newItem
       state.bag.push(action.payload);
       // ADD item to local storage
@@ -84,13 +69,6 @@ const bagSlice = createSlice({
       // REMOVE ALL items from local storage
       localStorage.removeItem('bagItems');
     },
-    // FAVES ADDITION
-    addFaves(state, action) {
-      // payload = newItem
-      state.bag.push(action.payload);
-      // ADD item to local storage
-      updateFavesLocalStorage(state);
-    },
   },
 });
 
@@ -101,7 +79,6 @@ export const {
   increaseItemQuantity,
   decreaseItemQuantity,
   clearBag,
-  addFaves,
 } = bagSlice.actions;
 
 export default bagSlice.reducer;
@@ -117,8 +94,3 @@ export const getTotalBagPrice = (state) =>
 
 export const getCurrentQuantityById = (id) => (state) =>
   state.bag.bag.find((item) => item.id === id)?.quantity ?? 0;
-
-export const getFaves = () =>
-  localStorage.getItem('favesItems') != null
-    ? JSON.parse(localStorage.getItem('favesItems'))
-    : [];
