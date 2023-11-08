@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
+
 import Button from '../../ui/buttons/Button';
 import { useDispatch } from 'react-redux';
 import { deleteItem } from './bagSlice';
@@ -76,6 +77,7 @@ const Amount = styled.span`
 function BagItem({ items }) {
   // GRAB DISPATCH FOR ACTIONS IN BAG
   const dispatch = useDispatch();
+
   // DECONSTRUCT ITEM
   return items.map((item) =>
     item ? (

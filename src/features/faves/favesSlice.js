@@ -32,7 +32,6 @@ const favesSlice = createSlice({
       updateFavesLocalStorage(state);
     },
     removeFaves(state, action) {
-      console.log(state.faves);
       // payload = id
       state.faves = state.faves.filter((item) => item.id !== action.payload);
       // PLACE OBJECT into storage, REMOVE item from local storage
