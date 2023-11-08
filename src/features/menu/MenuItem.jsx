@@ -3,6 +3,8 @@ import Spinner from '../../ui/spinners/Spinner';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { getFaves } from '../faves/favesSlice';
 
 const StyledItemContainer = styled.li`
   background-color: var(--background-tile);
@@ -31,6 +33,8 @@ const Img = styled.img`
 
 // INDIVIDUAL ITEM COMPONENT
 function MenuItem({ item, isLoading }) {
+  // GRAB DISPATCH for actions
+  const dispatch = useDispatch();
   // GRAB NAVIGATION
   const navigate = useNavigate();
   // DECONSTRUCT OBJECT
@@ -42,13 +46,26 @@ function MenuItem({ item, isLoading }) {
     navigate(`/menu/:${id}`);
   }
 
+  // GRAB FAVES
+  const faves = dispatch(getFaves);
+  // GRAB ID FOR ALL FAVES from local storage
+  const IDs = faves.map((fave) => fave.id);
+  // CHECK IF ID CURRENTLY EXISTS in local storage
+  const matching = IDs.includes(id);
+
   // LAST COMPONENT TREE, DISPLAYS SUMMARY
   return (
     <StyledItemContainer onClick={handleTap}>
       <StyledNav>
-        <Button variation="heart" size="xsmall">
-          {item.faves === 'yes' ? <AiFillHeart /> : <AiOutlineHeart />}
-        </Button>
+        {!matching ? (
+          <Button variation="heart" size="xsmall">
+            <AiOutlineHeart />
+          </Button>
+        ) : (
+          <Button variation="heart" size="xsmall">
+            <AiFillHeart />
+          </Button>
+        )}
       </StyledNav>
       <StyledDesc>
         <Name>{name}</Name>

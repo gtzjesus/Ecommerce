@@ -8,7 +8,7 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
-import { addFaves } from '../../features/faves/favesSlice';
+import { addFaves, getFaves } from '../../features/faves/favesSlice';
 
 const Page = styled.div`
   background-color: var(--background-tile);
@@ -70,6 +70,9 @@ function Item() {
   const navigate = useNavigate();
   // CREATE DISPATCH to call actions
   const dispatch = useDispatch();
+  // GRAB FAVES TO DISPLAY HEARTS
+  const faves = dispatch(getFaves);
+
   // STATE MANAGEMENT for disabled buttons
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [isHeartDisabled, setIsHeartDisabled] = useState(false);
@@ -102,8 +105,12 @@ function Item() {
     totalPrice:
       item[pathname].regularPrice * item[pathname].quantity -
       item[pathname].discount,
-    faves: item[pathname].faves,
   };
+
+  // GRAB ID FOR ALL FAVES from local storage
+  const IDs = faves.map((fave) => fave.id);
+  // CHECK IF ID CURRENTLY EXISTS in local storage
+  const matching = IDs.includes(newItem.id);
 
   // HANDLE ADDING TO FAVES on bag click
   function handleAddToFaves() {
@@ -121,7 +128,6 @@ function Item() {
     dispatch(addItem(newItem));
     // DISABLE BUTTON AFTER FIRST CLICK (addtobag once)
     setIsButtonDisabled(true);
-
     // TOAST FOR SUCCESS
     toast.success('Added to bag ($' + newItem.regularPrice + ')');
   }
@@ -137,7 +143,7 @@ function Item() {
       <Navigation />
       <StyledItemContainer key={newItem.key}>
         <StyledNav>
-          {!isHeartDisabled ? (
+          {matching === false ? (
             <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
               <AiOutlineHeart />
             </Button>
