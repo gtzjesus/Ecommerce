@@ -15,7 +15,7 @@ const StyledFaves = styled.div`
 const StyledTitle = styled.div`
   display: grid;
   text-align: center;
-  margin: var(--margin-nav-height) 0 0 0;
+  margin: var(--margin-nav-height) 0 var(--margin-medium) 0;
   font-size: var(--font-medium);
   color: var(--color-red);
 `;
@@ -43,7 +43,6 @@ function Faves() {
   const dispatch = useDispatch();
   // GRAB favesItems FROM LOCAL STORAGE (if any)
   const faves = dispatch(getFaves);
-  console.log(faves);
   // GRAB CUSTOM FOR NAVIGATION
   const navigate = useNavigate();
   // HANDLER FOR NAVIGATION (emptycontainer)

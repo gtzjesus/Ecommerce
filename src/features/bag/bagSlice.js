@@ -26,7 +26,6 @@ const bagSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      console.log('added');
       // payload = newItem
       state.bag.push(action.payload);
       // ADD item to local storage

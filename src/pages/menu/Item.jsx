@@ -8,7 +8,11 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import toast from 'react-hot-toast';
 import { addItem } from '../../features/bag/bagSlice';
 import { useDispatch } from 'react-redux';
-import { addFaves, getFaves } from '../../features/faves/favesSlice';
+import {
+  addFaves,
+  getFaves,
+  removeFaves,
+} from '../../features/faves/favesSlice';
 
 const Page = styled.div`
   background-color: var(--background-tile);
@@ -112,7 +116,7 @@ function Item() {
   // CHECK IF ID CURRENTLY EXISTS in local storage
   const matching = IDs.includes(newItem.id);
 
-  // HANDLE ADDING TO FAVES on bag click
+  // HANDLE ADDING TO FAVES on heart click
   function handleAddToFaves() {
     // DISPATCH TO ADD ACTION addtofaves
     dispatch(addFaves(newItem));
@@ -120,6 +124,17 @@ function Item() {
     setIsHeartDisabled(true);
     // TOAST FOR SUCCESS
     toast.success('Added to faves');
+  }
+
+  // HANDLE REMOVING FROM FAVES on heart click
+
+  function handleRemoveFromFaves() {
+    // DISPATCH TO REMOVE ACTION removefromfaves
+    dispatch(removeFaves(newItem.id));
+    // DISABLE BUTTON AFTER FIRST CLICK (addtofaves once)
+    setIsHeartDisabled(false);
+    // TOAST FOR SUCCESS
+    toast.success('Removed from faves');
   }
 
   // HANDLE ADDING TO BAG on button click
@@ -144,11 +159,21 @@ function Item() {
       <StyledItemContainer key={newItem.key}>
         <StyledNav>
           {matching === false ? (
-            <Button onClick={handleAddToFaves} variation="heart" size="xsmall">
+            <Button
+              value={isHeartDisabled}
+              onClick={handleAddToFaves}
+              variation="heart"
+              size="xsmall"
+            >
               <AiOutlineHeart />
             </Button>
           ) : (
-            <Button variation="heart" size="xsmall">
+            <Button
+              value={isHeartDisabled}
+              onClick={handleRemoveFromFaves}
+              variation="heart"
+              size="xsmall"
+            >
               <AiFillHeart />
             </Button>
           )}
