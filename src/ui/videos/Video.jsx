@@ -22,8 +22,11 @@ const StyledVideo = styled.div`
 `;
 
 const Introduction = styled.div`
-  margin: var(--margin-nav-height) 0 0 0;
+  position: absolute;
+  text-align: center;
+  align-items: center;
   display: flex;
+  flex-direction: column;
 `;
 
 const Description = styled.div`
