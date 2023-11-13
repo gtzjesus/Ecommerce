@@ -9,12 +9,19 @@ const StyledVideo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  video::-webkit-media-controls-panel {
+    display: none !important;
+    opacity: 1 !important;
+  }
 `;
 
 const Description = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
+  box-shadow: black solid 10px;
+  z-index: var(--z-top);
 `;
 
 const Title = styled.span`
@@ -34,7 +41,7 @@ function Video() {
     <StyledVideo>
       <video
         className="video-player"
-        controls="controls"
+        controls="false"
         preload="auto"
         autoPlay="autoPlay "
         loop
@@ -45,7 +52,7 @@ function Video() {
       </video>
 
       <Description>
-        <Title>world hellow</Title>
+        <Title>no salsa, no taco</Title>
         <Button onClick={handleNavigate} variation="third" size="small">
           browse menu
         </Button>
