@@ -1,36 +1,37 @@
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import videoBg from '/videos/taco.mp4';
+import { useNavigate } from 'react-router';
 
 const StyledVideo = styled.div`
   display: flex;
+  height: var(--height-filled-window);
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+`;
+
+const Description = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.span`
-  position: absolute;
   font-size: var(--font-large);
   color: var(--color-white);
 `;
 
-const ButtonLayout = styled.div`
-  position: absolute;
-  justify-content: left;
-`;
-
 function Video() {
+  // GRAB FOR NAVIGATION HOOK
+  const navigate = useNavigate();
+  // FUNCTION USED TO NAVIGATE to menu
+  function handleNavigate() {
+    // NAVIGATE
+    navigate('/menu');
+  }
   return (
     <StyledVideo>
-      {/* <video
-        src={videoBg}
-        loop
-        muted={true}
-        autoPlay
-        playsInline={true}
-        id="video"
-        type="video/mp4"
-      /> */}
       <video
         className="video-player"
         controls="controls"
@@ -42,12 +43,13 @@ function Video() {
       >
         <source src={videoBg} type="video/mp4" />
       </video>
-      <Title>Hello world</Title>
-      <ButtonLayout>
-        <Button variation="third" size="small">
-          visit menu
+
+      <Description>
+        <Title>world hellow</Title>
+        <Button onClick={handleNavigate} variation="third" size="small">
+          browse menu
         </Button>
-      </ButtonLayout>
+      </Description>
     </StyledVideo>
   );
 }
