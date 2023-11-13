@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router';
 const StyledVideo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   position: fixed;
   width: 100%;
@@ -21,12 +21,21 @@ const StyledVideo = styled.div`
   }
 `;
 
+const Introduction = styled.div`
+  margin: var(--margin-nav-height) 0 0 0;
+  display: flex;
+`;
+
 const Description = styled.div`
   position: absolute;
+  bottom: var(--margin-xlarge);
+  gap: var(--gap-small);
+  right: 0;
+  left: 0;
+  text-align: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  box-shadow: black solid 10px;
-  z-index: var(--z-top);
 `;
 
 const Title = styled.span`
@@ -43,18 +52,15 @@ function Video() {
     navigate('/menu');
   }
   return (
-    <StyledVideo>
-      <video
-        className="video-player"
-        controls="false"
-        preload="auto"
-        autoPlay="autoPlay "
-        loop
-        muted
-        playsInline={true}
-      >
-        <source src={videoBg} type="video/mp4" />
-      </video>
+    <>
+      <Introduction>
+        <Title>world hello</Title>
+      </Introduction>
+      <StyledVideo>
+        <video autoPlay="autoPlay " loop muted playsInline={true}>
+          <source src={videoBg} type="video/mp4" />
+        </video>
+      </StyledVideo>
 
       <Description>
         <Title>no salsa, no taco</Title>
@@ -62,7 +68,7 @@ function Video() {
           browse menu
         </Button>
       </Description>
-    </StyledVideo>
+    </>
   );
 }
 
