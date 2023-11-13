@@ -22,7 +22,7 @@ const ButtonLayout = styled.div`
 function Video() {
   return (
     <StyledVideo>
-      <video
+      {/* <video
         src={videoBg}
         loop
         muted={true}
@@ -30,7 +30,18 @@ function Video() {
         playsInline={true}
         id="video"
         type="video/mp4"
-      />
+      /> */}
+      <video
+        className="video-player"
+        controls="controls"
+        preload="auto"
+        autoPlay="autoPlay "
+        loop
+        muted
+        playsInline={true}
+      >
+        <source src={videoBg} type="video/mp4" />
+      </video>
       <Title>Hello world</Title>
       <ButtonLayout>
         <Button variation="third" size="small">
