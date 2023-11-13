@@ -1,13 +1,7 @@
-import styled from 'styled-components';
+import Video from '../../ui/videos/Video';
 
-const StyledHome = styled.div`
-  height: var(--height-filled-window);
-  background: url('/images/backgrounds/hotdogsbackground.png');
-  background-size: cover;
-  background-repeat: none;
-`;
 function Home() {
-  return <StyledHome></StyledHome>;
+  return <Video />;
 }
 
 export default Home;
