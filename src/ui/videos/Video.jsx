@@ -5,10 +5,15 @@ import { useNavigate } from 'react-router';
 
 const StyledVideo = styled.div`
   display: flex;
-  height: var(--height-filled-window);
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 
   video::-webkit-media-controls-panel {
     display: none !important;
