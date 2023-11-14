@@ -8,7 +8,7 @@ const StyledVideo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  // COVER THE FULL SCREEN OF EVERY DEVICE
   position: fixed;
   width: 100%;
   height: 100%;
@@ -61,6 +61,13 @@ const Subtitle = styled.span`
   color: var(--color-white);
 `;
 
+const ActualVideo = styled.div`
+  background-image: url('/images/backgrounds/loading.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--color-red);
+`;
+
 function Video() {
   // GRAB FOR NAVIGATION HOOK
   const navigate = useNavigate();
@@ -72,9 +79,11 @@ function Video() {
   return (
     <>
       <StyledVideo>
-        <video autoPlay="autoPlay " loop muted playsInline={true}>
-          <source src={videoBg} type="video/mp4" />
-        </video>
+        <ActualVideo>
+          <video autoPlay="autoPlay " loop muted playsInline={true}>
+            <source src={videoBg} type="video/mp4" />
+          </video>
+        </ActualVideo>
       </StyledVideo>
       <Introduction>
         <Title>world hello</Title>
