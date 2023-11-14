@@ -61,13 +61,6 @@ const Subtitle = styled.span`
   color: var(--color-white);
 `;
 
-const ActualVideo = styled.div`
-  background-image: url('/images/backgrounds/loading.gif');
-  background-repeat: no-repeat;
-  background-position: center;
-  color: var(--color-red);
-`;
-
 function Video() {
   // GRAB FOR NAVIGATION HOOK
   const navigate = useNavigate();
@@ -79,15 +72,13 @@ function Video() {
   return (
     <>
       <StyledVideo>
-        <ActualVideo>
-          <video autoPlay="autoPlay " loop muted playsInline={true}>
-            <source src={videoBg} type="video/mp4" />
-          </video>
-        </ActualVideo>
+        <video autoPlay="autoPlay " loop muted playsInline={true}>
+          <source src={videoBg} type="video/mp4" />
+        </video>
       </StyledVideo>
       <Introduction>
         <Title>world hello</Title>
-        <Subtitle>treat yourself to our limited time carnitas</Subtitle>
+        <Subtitle>treat yourself to our carnitas</Subtitle>
       </Introduction>
       <Description>
         <Title>hungry for tacos? </Title>
