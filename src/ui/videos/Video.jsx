@@ -78,12 +78,12 @@ function Video() {
       </StyledVideo>
       <Introduction>
         <Title>world hello</Title>
-        <Subtitle>treat yourself to this god food</Subtitle>
+        <Subtitle>treat yourself to our limited time carnitas</Subtitle>
       </Introduction>
       <Description>
-        <Title>browse our menu </Title>
+        <Title>hungry for tacos? </Title>
         <Button onClick={handleNavigate} variation="third" size="small">
-          hungry? click for menu
+          browse menu
         </Button>
       </Description>
     </>
