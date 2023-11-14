@@ -15,6 +15,7 @@ const StyledVideo = styled.div`
   object-fit: cover;
   z-index: 0;
 
+  // REMOVE CONTROLS DISPLAY AT BEGINNING OF video
   video::-webkit-media-controls-panel {
     display: none !important;
     opacity: 1 !important;
@@ -22,27 +23,41 @@ const StyledVideo = styled.div`
 `;
 
 const Introduction = styled.div`
-  position: absolute;
-  text-align: center;
-  align-items: center;
+  // DISPLAY AS columns
   display: flex;
   flex-direction: column;
-`;
-
-const Description = styled.div`
   position: absolute;
-  bottom: var(--margin-xlarge);
-  gap: var(--gap-small);
+  margin: var(--margin-nav-height) 0 0 0;
+  top: var(--margin-xlarge);
+  // ALIGN MIDDLE
   right: 0;
   left: 0;
   text-align: center;
   align-items: center;
+`;
+
+const Description = styled.div`
+  // DISPLAY AS ROWS
   display: flex;
   flex-direction: column;
+  position: absolute;
+  bottom: var(--margin-xlarge);
+  gap: var(--gap-small);
+
+  // ALIGN MIDDLE
+  right: 0;
+  left: 0;
+  text-align: center;
+  align-items: center;
 `;
 
 const Title = styled.span`
   font-size: var(--font-large);
+  color: var(--color-white);
+`;
+
+const Subtitle = styled.span`
+  font-size: var(--font-small);
   color: var(--color-white);
 `;
 
@@ -56,19 +71,19 @@ function Video() {
   }
   return (
     <>
-      <Introduction>
-        <Title>world hello</Title>
-      </Introduction>
       <StyledVideo>
         <video autoPlay="autoPlay " loop muted playsInline={true}>
           <source src={videoBg} type="video/mp4" />
         </video>
       </StyledVideo>
-
+      <Introduction>
+        <Title>world hello</Title>
+        <Subtitle>treat yourself to this god food</Subtitle>
+      </Introduction>
       <Description>
-        <Title>no salsa, no taco</Title>
+        <Title>browse our menu </Title>
         <Button onClick={handleNavigate} variation="third" size="small">
-          browse menu
+          hungry? click for menu
         </Button>
       </Description>
     </>
