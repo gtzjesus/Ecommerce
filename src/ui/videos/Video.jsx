@@ -8,10 +8,12 @@ const StyledVideo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   // COVER THE FULL SCREEN OF EVERY DEVICE
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
   object-fit: cover;
   z-index: 0;
 
