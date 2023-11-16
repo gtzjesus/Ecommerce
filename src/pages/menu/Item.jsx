@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 import { useNavigate } from 'react-router';
-import Navigation from '../../ui/app/Navigation';
+import Navigation from '../../ui/navigation/Navigation';
 import styled from 'styled-components';
 import Button from '../../ui/buttons/Button';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';

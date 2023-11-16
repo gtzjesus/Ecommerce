@@ -1,6 +1,6 @@
 import Home from '../../pages/home/Home';
 import Featured from '../featured/Featured';
-import Navigation from './Navigation';
+import Navigation from '../navigation/Navigation';
 
 function Landing() {
   return (

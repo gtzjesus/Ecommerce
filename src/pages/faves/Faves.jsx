@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import Navigation from '../../ui/app/Navigation';
+import Navigation from '../../ui/navigation/Navigation';
 import FavesItem from '../../features/faves/FavesItem';
 import Button from '../../ui/buttons/Button';
 import { useNavigate } from 'react-router';

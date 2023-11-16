@@ -7,10 +7,11 @@ const StyledVideo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   // COVER THE FULL SCREEN OF EVERY DEVICE
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   z-index: 0;
 
