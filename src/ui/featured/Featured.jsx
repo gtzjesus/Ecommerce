@@ -19,7 +19,7 @@ const Introduction = styled.div`
 const StyledMenu = styled.div`
   display: flex;
   gap: var(--gap-medium);
-  background-color: var(--background-secondary);
+  background-color: var(--background-tile);
   padding: var(--margin-large);
 
   // COVER THE FULL SCREEN OF EVERY DEVICE
