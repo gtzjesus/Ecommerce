@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import styled from 'styled-components';
 
 const StyledItemContainer = styled.div`
@@ -41,11 +42,16 @@ const Category = styled.span`
 `;
 
 function FeaturedItem({ item }) {
+  // NAVIGATION react HOOK
+  const navigate = useNavigate();
+  const { id } = item;
   // TRANSFORM OBJECT INTO ARRAY to check for featured items
   const arrayItem = Object.values(item);
   // CREATE empty array TO STORE FEATURED ITEMS
   // HANDLE NAVIGATION
-  function handleFeatured() {}
+  function handleFeatured() {
+    navigate(`/menu/${id}`);
+  }
 
   let featuredArray = [];
   // GRAB FEATURED ITEMS FROM HERE ONLY RUN
