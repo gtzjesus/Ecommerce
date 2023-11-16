@@ -2,12 +2,11 @@ import { useContext } from 'react';
 import { MenuContext } from '../../context/MenuContext';
 import styled from 'styled-components';
 import Spinner from '../spinners/Spinner';
-import FeaturedItemMenu from './FeaturedItemMenu';
+import FeaturedItem from './FeaturedItem';
 
 const StyledFeatured = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: var(--margin-large) 0;
+  padding: var(--margin-xlarge) 0;
+  background-color: var(--background-secondary);
 `;
 
 const Introduction = styled.div`
@@ -17,14 +16,31 @@ const Introduction = styled.div`
   grid-gap: var(--gap-small);
 `;
 
+const StyledMenu = styled.div`
+  display: flex;
+  gap: var(--gap-medium);
+  background-color: var(--background-secondary);
+  padding: var(--margin-large);
+
+  // COVER THE FULL SCREEN OF EVERY DEVICE
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: scroll;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+`;
+
 const Title = styled.span`
   font-size: var(--font-large);
   color: var(--color-black);
+  padding-bottom: var(--margin-xlarge);
 `;
 
 const Subtitle = styled.span`
   font-size: var(--font-small);
   color: var(--color-black);
+  padding-bottom: var(--margin-xlarge);
 `;
 
 const Fea = styled.span`
@@ -43,14 +59,16 @@ function Featured() {
   return (
     <StyledFeatured>
       <Introduction>
-        <Title>Take a Peek </Title>
+        <Title>Take a Peek</Title>
         <Subtitle>
           at our <Fea>featured</Fea> items
         </Subtitle>
       </Introduction>
-      {items.map((item) => (
-        <FeaturedItemMenu item={item} key={item.key} />
-      ))}
+      <StyledMenu>
+        {items.map((item) => (
+          <FeaturedItem item={item} key={item.key} />
+        ))}
+      </StyledMenu>
     </StyledFeatured>
   );
 }
