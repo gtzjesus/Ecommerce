@@ -14,20 +14,13 @@ const StyledDesc = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const TopDisplay = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  grid-gap: var(--gap-small);
-`;
 
 const Name = styled.span`
   font-size: var(--font-medium);
 `;
 
 const Img = styled.img`
-  width: var(--image-large);
-  margin: var(--padding-large);
+  margin: var(--padding-slarge);
 `;
 
 const Price = styled.span`
@@ -67,11 +60,9 @@ function FeaturedItem({ item }) {
     return (
       <StyledItemContainer onClick={handleFeatured}>
         <StyledDesc>
-          <TopDisplay>
-            <Name>{featuredItem.name}</Name>
-            <Price>${featuredItem.totalPrice}</Price>
-          </TopDisplay>
+          <Name>{featuredItem.name}</Name>
           <Img src={featuredItem.image} />
+          <Price>${featuredItem.totalPrice}</Price>
         </StyledDesc>
       </StyledItemContainer>
     );
