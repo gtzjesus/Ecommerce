@@ -27,18 +27,12 @@ const Name = styled.span`
 
 const Img = styled.img`
   width: var(--image-large);
-  margin: var(--padding-xlarge);
+  margin: var(--padding-large);
 `;
 
 const Price = styled.span`
   font-size: var(--font-small);
   color: var(--color-red);
-`;
-
-const Category = styled.span`
-  font-size: var(--font-small);
-  width: var(--width-description);
-  text-align: center;
 `;
 
 function FeaturedItem({ item }) {
@@ -78,7 +72,6 @@ function FeaturedItem({ item }) {
             <Price>${featuredItem.totalPrice}</Price>
           </TopDisplay>
           <Img src={featuredItem.image} />
-          <Category>{featuredItem.category}</Category>
         </StyledDesc>
       </StyledItemContainer>
     );
