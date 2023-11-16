@@ -1,4 +1,5 @@
 import Home from '../../pages/home/Home';
+import Featured from '../featured/Featured';
 import Navigation from './Navigation';
 
 function Landing() {
@@ -6,6 +7,7 @@ function Landing() {
     <>
       <Navigation></Navigation>
       <Home />
+      <Featured />
     </>
   );
 }
