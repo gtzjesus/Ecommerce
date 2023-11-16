@@ -6,7 +6,7 @@ import FeaturedItem from './FeaturedItem';
 
 const StyledFeatured = styled.div`
   padding: var(--margin-xlarge) 0;
-  background-color: var(--background-secondary);
+  background-color: var(--background-tile);
 `;
 
 const Introduction = styled.div`
